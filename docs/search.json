@@ -158,7 +158,7 @@
     "href": "index.html",
     "title": "Preface",
     "section": "",
-    "text": "Preface"
+    "text": "Preface\n\nprint(\"hello\")\n\n[1] \"hello\""
   },
   {
     "objectID": "metalearners.html",
