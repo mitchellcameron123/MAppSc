@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>background</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="sec-background" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Background: Causal Inference and Machine Learning</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Chapter 2 Meme.png" class="img-fluid figure-img" width="459"></p>
+<figcaption>This work is licensed under a Creative Commons Attribution-NonCommercial 2.5 License. Source <a href="https://imgs.xkcd.com/comics/correlation.png">imgs.xkcd.com/comics/correlation.png</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- todo:  -->
+<!-- - make sure that tau is used for treatment effect consistently with other chapters.  -->
+<section id="sec-background-causal" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-background-causal"><span class="header-section-number">1.1</span> Causal inference</h2>
+<section id="what-is-causal-inference" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="what-is-causal-inference"><span class="header-section-number">1.1.1</span> What is Causal Inference?</h3>
+<p>Causal inference is a field of study concerned with determining cause-and-effect relationships between variables in observational and experimental data. Causal inference methods often utilise counterfactual reasoning to estimate the causal effect of an exposure, allowing researchers to make causal claims about the impact of interventions or treatments on outcomes. Ultimately, the goal of causal inference is to provide insights into the mechanisms driving observed phenomena, guide decision-making, and inform policy interventions aimed at improving outcomes in various domains such as healthcare, public health, economics, and social sciences. In this background chapter I discuss key ideas in causal inference such as the potential outcomes framework, common estimands, assumptions, graphical displays, and heterogeneous treatment effects.</p>
+</section>
+<section id="sec-outcomes_framework" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="sec-outcomes_framework"><span class="header-section-number">1.1.2</span> Potential Outcomes Framework</h3>
+<p>The potential outcomes framework, also known as the Rubin Causal Model, was introduced by <span class="citation" data-cites="Rubin1974">Rubin (<a href="#ref-Rubin1974" role="doc-biblioref">1974</a>)</span> and builds upon the work of <span class="citation" data-cites="Neyman1923">Splawa-Neyman (<a href="#ref-Neyman1923" role="doc-biblioref">1923</a>)</span>. The framework dominates how researchers think about causal inference and is highly influential in causal inference methodology. Rubin defines a causal effect as a defined comparison between two states of the world. The first state is where a treatment is applied resulting in a certain outcome. The second state is where the treatment is <strong>not</strong> applied resulting in a certain outcome. Hence we have two <em>potential outcomes</em>, one with the treatment and one without.</p>
+<p>Consider a binary treatment variable, <span class="math inline">\(T_i\)</span>, that takes the value of <span class="math inline">\(1\)</span> if an individual <span class="math inline">\(i\)</span> receives the treatment and <span class="math inline">\(0\)</span> if they do not. Treatment for an individual <span class="math inline">\(T_i\)</span>, is a random variable with the realisation <span class="math inline">\(t_i\)</span>. We refer to the absence of treatment as the <em>control</em> state. Let <span class="math inline">\(Y_i(1)\)</span> and <span class="math inline">\(Y_i(0)\)</span> be the two potential outcomes for unit <span class="math inline">\(i\)</span> under treatment <span class="math inline">\(T_i=1\)</span> and control <span class="math inline">\(T_i=0\)</span> respectively. For an individual, their causal effect, <span class="math inline">\(\delta_i\)</span>, is the individual treatment effect (ITE) and is simply the difference between these two potential outcomes:</p>
+<p><span id="eq-unknownite"><span class="math display">\[
+\tau_i=Y_i(1) -Y_i(0)
+\tag{1}\]</span></span></p>
+<div id="nte-fundamental" class="callout callout-style-default callout-note callout-titled" title="Fundamental Problem of Causal Inference">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;1: Fundamental Problem of Causal Inference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We are confronted by a clear problem because we only observe the outcome under either treatment or control. It is logically impossible for an individual to simultaneously both receive the treatment and not receive the treatment. For example, if I take medication to relieve a headache and my headache improves, I could never know what would have happened if I did not take the medication. This leads to the commonly discussed <em>fundamental problem of causal inference</em> - it is impossible to observe an individual’s outcome under both potential outcomes. A counterfactual, the counter to the observed outcome, is infeasible and can never be practicably known.</p>
+</div>
+</div>
+<p>It is important to differentiate between notation used to denote potential outcomes and observed outcomes. Different texts have used conflicting notation which I aim to make clear. The two potential outcomes for individual <span class="math inline">\(i\)</span> are random variables denoted by <span class="math inline">\(Y_i(1)\)</span> and <span class="math inline">\(Y_i(0)\)</span> under the treated and control state respectively. The observed outcome for <span class="math inline">\(i\)</span> is written as <span class="math inline">\(y^{obs}_i\)</span> in general or <span class="math inline">\(y^{obs}_i(1)\)</span> and <span class="math inline">\(y^{obs}_i(0)\)</span> under treatment or control. Finally, we often attempt to predict outcomes for <span class="math inline">\(i\)</span> which will be written as <span class="math inline">\(\hat{y}_i\)</span> in general which can also be under treatment or control as <span class="math inline">\(\hat{y}_i(1)\)</span> and <span class="math inline">\(\hat{y}_i(0)\)</span>.</p>
+<p>Much of the causal inference literature has involved to trying to find a counterfactual to compare outcomes between a treated a control individual. The fundamental problem requires clever experiemental or quasi-experiemental design and statistical methodology to resolve.</p>
+</section>
+<section id="sec-estimands" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="sec-estimands"><span class="header-section-number">1.1.3</span> Estimands</h3>
+<!-- %i feel i may not need to include this as they are not strictly relevant to CRE's, just generally useful.  -->
+<p>In causal inference, there are multiple parameters of interest which we may wish to estimate. A desired or target parameter is called an estimand. The preferred estimand depends on the motivating example, discipline, and intended interpretation of results.</p>
+<p>The most basic estimand is the <em>average treatment effect</em> or the ATE. This is the most general estimand as it is the average treatment effect on all individuals in the population regardless of whether they receive the treatment or not. This can be written as:</p>
+<p><span id="eq-ate"><span class="math display">\[
+\begin{aligned}
+    \text{ATE}&amp; = E[\tau_{ATE}] \\
+    &amp;= E[Y_i(1) - Y_i(0)] \\
+    &amp;= E[Y_i(1)] - E[Y_i(0)].
+\end{aligned}
+\tag{2}\]</span></span></p>
+<p>A closed form solution for the estimate of the ATE is simply a difference in means between the group. Under certain conditions this can be an unbiased estimate of the ATE and is calculate as follows</p>
+<p><span id="eq-ate-estimate"><span class="math display">\[
+\widehat{\text{ATE}} = \hat{\tau}_{ATE}= \frac{1}{N_t} \sum_{i=1}^{n} (y_i | t_i = 1) - \frac{1}{N_c} \sum_{i=1}^{n} (y_i | t_i = 0)
+\tag{3}\]</span></span> , where <span class="math inline">\(N_t\)</span> and <span class="math inline">\(N_c\)</span> are is the number of treated and control cases respectively.</p>
+<p>The second parameter of interest is the <em>average treatment effect on the treated</em> or ATT and is the contrast between the potential outcomes of those that would actually receive the treatment. In other words, considering only those where <span class="math inline">\(T_i=1\)</span>, what is the treatment effect? This can be written as:</p>
+<p><span id="eq-att"><span class="math display">\[
+\begin{aligned}
+    \text{ATT}  &amp;= E[\tau_i| T_i = 1] \\
+    &amp; = E[Y_i(1) - Y_i(0) | T_i = 1] \\
+    &amp; = E[[Y_i(1) | T_i = 1] - E[Y_i(0) | T_i = 1].
+\end{aligned}
+\tag{4}\]</span></span></p>
+<p>The final parameter that is commonly of interest is the <em>average treatment effect on the control</em>. This estimand is similar to the ATT but on the control observations. The ATC is the contrast between the two potential outcomes for individuals which are actually in the control. This is also known as the average treatment effect on the untreated or the ATU. It can be written as:</p>
+<p><span id="eq-atc"><span class="math display">\[
+\begin{aligned}
+    \text{ATC}  &amp;= E[\tau_i| T_i = 0] \\
+&amp; = E[Y_i(1) - Y_i(0) | T_i = 0] \\
+&amp; = E[[Y_i(1) | T_i = 0] - E[Y_i(0) | T_i = 0]
+\end{aligned}
+\tag{5}\]</span></span></p>
+<p>For the ATT and ATC, no closed form solutions exist and so estimation is completed using G-methods to obtain contrasts of potential outcomes <span class="citation" data-cites="Naimi2017">Naimi, Cole, and Kennedy (<a href="#ref-Naimi2017" role="doc-biblioref">2017</a>)</span>. These estimands fall outside the scope of this research but are important to know for those learning about causal inference.</p>
+<!-- "no explicity expression exist for these" -->
+</section>
+<section id="sec-assumptions" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="sec-assumptions"><span class="header-section-number">1.1.4</span> Assumptions in Causal Inference</h3>
+<p>We must make some assumptions for the potential outcomes framework to be logically coherent and for estimands to be identifiable. Firstly, we must assume <em>independence</em>, implying the potential outcomes are independent of assignment into <span class="math inline">\(T\)</span>. This assumption is also known as unconfoundedness as there is no confounding relationship between the treatment and potential outcomes. Mathematically we can state independence as</p>
+<p><span id="eq-independence"><span class="math display">\[
+(Y_i(1), Y_i(0)) \perp \!\!\! \perp T_i.
+\tag{6}\]</span></span></p>
+<p>This independence assumption implies exchangeability which means that we could switch the individuals in the treatment and control groups and obtain the same potential outcomes for each individual. An weaker assumption is conditional independence which states that assignment into treatment is random conditioned on some <span class="math inline">\(X\)</span>. Hence,</p>
+<p><span id="eq-conditional-independence"><span class="math display">\[
+(Y_i(1), Y_i(0)) \perp \!\!\! \perp T_i|X_i.
+\tag{7}\]</span></span></p>
+<p>This requires that covariates must be known and measurable which may not always hold. Independence motivates the use of randomisation in experimental settings. Note that when using randomisation in a clinical setting, we are full independence which is a stronger assumption than conditional independence. Conditional independence implies exchangability between people with comparable propensity scores as if there was a randomised control trial.</p>
+<!-- clarify the 1-p under control here for positivity -->
+<p>A second assumption is <em>positivity</em>. This means that for each <span class="math inline">\(i\)</span>, the probability of being in the treatment or control group is greater than zero and less than 1. Equally, <span class="math inline">\(P(Y_i|T_i=1)&gt;0\)</span> and <span class="math inline">\(1-P(Y_i|T_i=1)&gt;0\)</span>. If these condition is not met, it is theoretically impossible to obtain a potential outcome of the opposite state which is contradictory to the potential outcomes framework. If an individual is guaranteed to receive the treatment, it is logically impossible that they have a potential outcome in the control state and vice versa.</p>
+<p>The third assumption is <em>consistency</em> between the potential outcome and observed outcome. For every <span class="math inline">\(i\)</span>, the observed outcome under treatment equals the potential outcome under treatment and the observed outcome under control equals the potential outcome under control. Put mathematically, <span class="math inline">\(Y^{obs}_i=Y_i(1)\)</span> when treated and <span class="math inline">\(Y^{obs}_i=Y_i(0)\)</span> when under control . The relationship between the observed and potential outcomes leads to a switching equation which allows us to define the observed outcome, <span class="math inline">\(Y^{obs}_i\)</span> as a function of the potential outcomes:</p>
+<p><span id="eq-switching"><span class="math display">\[
+Y^{obs}_i=T_i Y_i(1)+(1 - T_{i})Y_i(0)
+\tag{8}\]</span></span></p>
+<p>Notice the logic of this equation, when <span class="math inline">\(T_i=1\)</span> then <span class="math inline">\(Y^{obs}_i =Y_i(1)\)</span> as the second term zeroes out. Similarly, when <span class="math inline">\(T_i=0\)</span> then <span class="math inline">\(Y^{obs}_i =Y_i(0)\)</span> as the first term zeroes out.</p>
+<p>The final key assumption is called the <em>stable unit treatment value assumption</em> or SUTVA. This is a complex way of stating that there is no interference between units. More specifically, neither potential outcome <span class="math inline">\(Y_i(0)\)</span> or <span class="math inline">\(Y_i(1)\)</span> is affected by what treatment state any other individual received. To borrow terminology from economics, there are no ‘externalities’ or spillover effects from one individuals treatment status individual on another individual’s potential outcomes.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Key Idea">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In causal inference, especially when working with observational data, it is critical that these assumptions are considered. If these assumptions do not hold, any model, regardless of the modelling assumptions, will not have a causal interpretation. Unfortunately, there are no tests that can confirm if these causal assumptions hold and thus researchers must understand the context and data generating process in which they operate.</p>
+</div>
+</div>
+<p>As these assumptions are so critical, I provide a critical review of causal inference assumptions in the context <span class="citation" data-cites="Zhou2021a">Zhou et al. (<a href="#ref-Zhou2021a" role="doc-biblioref">2021</a>)</span> who examine the impact of wildfires on excess Covid-19 cases and deaths. This example is further discussed in <span class="citation" data-cites="app-asumptions_wildfire">(<a href="#ref-app-asumptions_wildfire" role="doc-biblioref"><strong>app-asumptions_wildfire?</strong></a>)</span>.</p>
+</section>
+<section id="sec-dags" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="sec-dags"><span class="header-section-number">1.1.5</span> Causal Relationships and Directed Acyclic Graphs</h3>
+<p>Given the very complex nature of many causal questions and relationships, it is important that we are able to communicate the underlying data generating proccess effectively. Directed acyclic graphs or DAGs are a graphical system for representing the direction and structure of relationships between variables in a causal context. They can be conceptualised as chains of causal effects strung together to display stuctural links in data. DAGs have some simple ‘rules’ which apply in all cases. By definition, effects are single-directional and do not contain loops - hence directed <em>acylical</em> graphs. To display bi-directional effects or reverse causality, researchers must use multiple DAGs. The reason for these two strict requirements is that reverse causality and bi-directional effects lead to significant over-complication of the causal process and result in infeasible problem sets. The three key relationships in the context of causal inference are confounding, mediation, and effect modification.</p>
+<!-- The reason for these two strict requirements is that reverse causality and bi-directional effects lead to significant over-complication of the causal process and result in infeasible problem sets. -->
+<p><em>Confounding</em> will be familiar to most readers as it is commonly discussed in introductory level statistics and quantitative courses. Confounding is where a variable has a causal effect on both assignment into treatment and the outcome variable. For example, consider a study investigating the relationship between physical activity (treatment) and improved cardiovascular health (outcome). The age of the individual will both determine how much physical activity an individual does and the cardiovascular health of that individual. If a confounding variable is not properly controlled for, we might attribute the effect of the confounder to the variable of interest, leading to incorrect conclusions about the causal relationship.</p>
+<p><em>Mediation</em> is a variable that mediates the effect between the treatment and observation. In our health example, physical activity might influence weight loss, and weight loss might subsequently affect cardiovascular health. Weight loss acts as a mediator between physical activity and cardiovascular health. Mediation analysis involves decomposing the total effect of an exposure on an outcome into direct and indirect effects through the mediator. It helps in understanding the mechanisms underlying the observed associations and identifying potential intervention targets.</p>
+<p><em>Effect Modification</em>, also known as interaction or effect heterogeneity, occurs when the relationship between an exposure and an outcome differ depending on the level of a third variable, known as the effect modifier. The effect of an exposure on an outcome varies across different levels of the effect modifier. Perhaps the effect of exercise on cardiovascular health is greater amongst older individuals than younger individuals. Effect modification is particularly relevant in this thesis and further discussion continues in later sections.</p>
+<p>A more intuitive way to understand these relationships is with the visual DAG. <a href="#fig-dag_confounder" class="quarto-xref">Figure&nbsp;1</a>, <a href="#fig-dag_mediator" class="quarto-xref">Figure&nbsp;2</a>, and <a href="#fig-dag_effect_modifier" class="quarto-xref">Figure&nbsp;3</a> shows each of these relationships displayed as a DAG. sd</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-dag_confounder" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dag_confounder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="background_files/figure-html/fig-dag_confounder-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag_confounder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: DAG with Confounder
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-dag_mediator" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dag_mediator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="background_files/figure-html/fig-dag_mediator-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag_mediator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: DAG with Mediator
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-dag_effect_modifier" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dag_effect_modifier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="background_files/figure-html/fig-dag_effect_modifier-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag_effect_modifier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: DAG with Effect Modifier
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>I do not elaborate on the DAGs further as there are many high-quality texts on the topic.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The key information in this subsection is the three relationships which can best be understood visually using DAGs.</p>
+</section>
+<section id="sec-data_types" class="level3" data-number="1.1.6">
+<h3 data-number="1.1.6" class="anchored" data-anchor-id="sec-data_types"><span class="header-section-number">1.1.6</span> Experimental vs Observational Data</h3>
+<p>Working under the assumptions provided above, it is quite easy to determine the ATE which is a simple difference in means between the treatment and control groups. To overcome confounding effects, researchers can use experimental designs such as randomisation or a block design to theoretically guarantee unconfoundedness. In this case, the ATE can be calculated as the difference in means between treated and control group. In terms of the potential outcomes framework, under randomisation, the control group provides the counterfactual for the treatment group.</p>
+<p>However a significant problem exists, it is impossible or unethical to use experiential methods for many causal questions. In many public policy applications, it is not possible to use a experimental design and randomisation. If a researcher wants to estimate the causal effect of raising the national minimum wage on unemployment, how would they use randomisation? In many medical applications, using an experimental design is highly unethical. For example, if a researcher wanted to determine the causal effect of drinking alcohol on brain development in teenagers, it would be highly unethical to provide alcohol to teenagers in a treatment group. If a criminological researcher wants to understand the causal impact of absentee fathers on a child’s probability of committing a crime, it is impractical and unethical to force a child to be fatherless.</p>
+<p>Given these issues, researchers must sometimes rely on observational data. This is data that is collected based on observations in the real world. When working with observational data, the assumptions specified above are often broken. In particular, there is often a confounding effect in data which is a clear break of the unconfoundedness assumption. Consider the causal effect of having a bachelors degree on lifetime earnings. IQ is a confounding variable which increases the chance of obtaining a bachelors degree but also increases lifetime earnings regardless of if that individual obtains a degree. If we contrast the mean lifetime earnings of degree-holders and non-degree holders, we can obtain an estimate of the ATE but it will be biased due to the confounding effect.</p>
+</section>
+<section id="sec-heterogenity" class="level3" data-number="1.1.7">
+<h3 data-number="1.1.7" class="anchored" data-anchor-id="sec-heterogenity"><span class="header-section-number">1.1.7</span> Treatment Effect Heterogeneity: Defined</h3>
+<p>The concept of the ATE is useful but <em>averages</em> can mask differing individual treatment effects inside a sample. For many treatments, the value of certain covariates, <span class="math inline">\(X\)</span>, will influence how the treatment impacts the outcomes. There is treatment effect heterogeneity when the same treatment has different effects on different people. Perhaps a pain relief medication will relieve my headache after eating ice cream but cause a worse headache for another person.</p>
+<p>The <em>conditional average treatment effect</em> or <span class="math inline">\(\operatorname{CATE}\)</span> describes the ATE conditioned on some quantity of a covariate. For example, individuals who are 40-50 years old and male. The <span class="math inline">\(\operatorname{CATE}\)</span>, also denoted as a function <span class="math inline">\(\tau(x)\)</span> is</p>
+<p><span id="eq-cate"><span class="math display">\[
+\operatorname{CATE}=\tau(x)=E[Y_i(1)-Y_i(0)|X_{i}=x]
+\tag{9}\]</span></span></p>
+<p>Treatment effect heterogeneity is particularly of interest in medical contexts to study the impact of medications across different subpopulations. For example in medical studies, certain medications may be effective in men but have significant side effect when prescribed to woman. In marketing, certain advertisements may be more or less effective on an individual depending on their consumption patterns. If we could estimate the CATE then we could cater the delivery of the treatment to those who would benifit most or avoid treating those where the treatment is ineffective or harmful.</p>
+<p>The CATE can be specified at different levels of granularity (how specific or general) depending on what is conditioned on. At its most granular the CATE is just the ITE when conditioned on covariates that only that individual has. On the other hand, the CATE can be more generalised and only condition on subgroup membership such as if someone is male or over 40 years old.</p>
+<!-- To estimate the CATE, we could stratify our data by our covariates of interest, estimate the ATE for each strata, and then compare effect sizes between strata. However, this would require *a priori* knowledge of the subgroups where heterogeneity may be found which is often not available. Another option would be to create many different strata and then test the significance of the treatment effect within each strata. However this is problematic as there is a chance of making Type I error - the rejection of a true null hypothesis - and increasing the family-wise error rate. Noting that if a reseracher uses a 5% critical value, then there is a 1 in 20 chance of falsely identifying a statistically significant result. Nether of these issues are statistically attractive so researchers may desire for a method that can detect *de novo* subgroups in a data-driven manner. -->
+</section>
+<section id="sec-interdiciplinary" class="level3" data-number="1.1.8">
+<h3 data-number="1.1.8" class="anchored" data-anchor-id="sec-interdiciplinary"><span class="header-section-number">1.1.8</span> Interdisciplinary Applications of Causal Inference Methods</h3>
+<p>Causal questions exist in many disciplines. The tools used to make causal inferences are inter-disciplinary with different adaptations depending on research objectives and applications. Across disciplines, different phraseology exists, and it is important to be mindful of this when reviewing causal inference literature. A non-exhaustive list of disciplines, examples, and methodologies is provided for readers to grasp the wide variety of applications and the potential impact of causal research:</p>
+<p><em>Economics, Public Policy, and Social Sciences</em>: Practitioners and policymakers can use causal inference and determine causal effects of economic policies or social policies. Knowledge of causal effects can help with policy development and evidence-based decision making on policy issues. <span class="citation" data-cites="Card1994">Card and Krueger (<a href="#ref-Card1994" role="doc-biblioref">1994</a>)</span> use a differences-in-differences approach to study the impact of increasing the minimum wage on unemployment. <span class="citation" data-cites="Chu2019">Chu and Townsend (<a href="#ref-Chu2019" role="doc-biblioref">2019</a>)</span> use regression analysis and synthetic control methods to study the effect of medical marijuana legalization on crime rates.</p>
+<p><em>Medicine, Genetics, and Epidemiology:</em> Researchers can use causal inference to determine treatment effects of medications and guide the development of best-practice medical guidelines. <span class="citation" data-cites="Noroozi2020">Noroozi et al. (<a href="#ref-Noroozi2020" role="doc-biblioref">2020</a>)</span> use coarsened exact matching to study the relationship between methamphetamine use and HIV risk behavior among people who inject drugs. <span class="citation" data-cites="Tafforin2022">Tafforin and Segal (<a href="#ref-Tafforin2022" role="doc-biblioref">2022</a>)</span> use a co-twin control research design to student the causal effect of space travel on health and behavior.</p>
+<p><em>Marketing, Management, and Human Resources:</em> Businesses can use causal inference methods to assist in marketing, strategy, and organizational management leading to insights, growth, and profitability. <span class="citation" data-cites="Nabi2022">Nabi et al. (<a href="#ref-Nabi2022" role="doc-biblioref">2022</a>)</span> use augmented inverse probability weighting (AIPW) to estimate the effect of advertisement placement. <span class="citation" data-cites="Kovach2018">Kovach (<a href="#ref-Kovach2018" role="doc-biblioref">2018</a>)</span> uses propensity matching methods to examine the relationship between key performance indicators (KPI’s) and attrition in corporate environments.</p>
+<p><em>Agriculture and Horticulture:</em> Agricultural researchers can use causal inference to improve efficiency, yield, profit, and sustainability by understanding the impact of farming processes or policies. <span class="citation" data-cites="Pan2018">Pan, Smith, and Sulaiman (<a href="#ref-Pan2018" role="doc-biblioref">2018</a>)</span> use regression discontinuity design to measure the causal effects of an agricultural advancement program on technology adoption and food security in Uganda. Key and McBride (2008) use instrumental variables to estimate how production contracts affects farm productivity in the United States.</p>
+<p><em>Ecology, Climate Science, and Environmental Management:</em> Researchers can answer important ecological questions and understand how certain interventions may impact on environmental health and outcomes. <span class="citation" data-cites="Ramachandra2019">Ramachandra (<a href="#ref-Ramachandra2019" role="doc-biblioref">2019</a>)</span> uses deep learning and satellite image time series to determine the treatment effects of various interventions on climate change. <span class="citation" data-cites="Andam2008">Andam et al. (<a href="#ref-Andam2008" role="doc-biblioref">2008</a>)</span> use matching methods to estimate the effectiveness of protected area networks in reducing deforestation in Costa Rica.</p>
+</section>
+<section id="sec-background-linear" class="level3" data-number="1.1.9">
+<h3 data-number="1.1.9" class="anchored" data-anchor-id="sec-background-linear"><span class="header-section-number">1.1.9</span> Linear Regression and Causality</h3>
+<p>Linear regression is well known method to the relationship between a dependent variable <span class="math inline">\(Y\)</span> and one or more independent variables <span class="math inline">\(X\)</span>. The relationship is assumed to be linear, and can be expressed by the following equation:</p>
+<p><span id="eq-linear-model"><span class="math display">\[
+Y = \beta_0 + \beta_1 T_1 +\beta_2 X_1+ \epsilon
+\tag{10}\]</span></span></p>
+<p>where <span class="math inline">\(Y\)</span> is the dependent variable, <span class="math inline">\(\beta_0\)</span> is the intercept, <span class="math inline">\(\beta_1\)</span> is the coefficient on the treatment term, and <span class="math inline">\(\beta_2\)</span> is a confounder being controlled for. A <em>dummy</em> variable takes the value of 0 or 1 and can represent a binary treatment and <span class="math inline">\(\beta_1\)</span> is the estimate of the treatment effect. Such a simple linear model This means that <span class="math inline">\(\beta_1\)</span> estimates the average difference in <span class="math inline">\(Y\)</span> between the group with <span class="math inline">\(T = 1\)</span> and the group with <span class="math inline">\(T = 0\)</span>, controlling for other variables <span class="math inline">\(X\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Does Linear Regression Have a Causal Interpretation?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Does Linear Regression Have a Causal Interpretation?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Generally linear regression does not have a causal interpretation - recall the adage <em>correlation does not imply causation</em>. However, if we assume that we know the direction of causality, there are no ommited or unobserved confounders, there is positivitiy with common support, the model is correctly specified, and that the treatment effect is homogeneous, then we could suggest a causal interpretation of the model in <strong>?@eq-ols-model</strong>. An example when this is the case would be in an RCT where the <span class="math inline">\(\beta_1\)</span> is the difference in means between the treatment and control groups.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-background-ml" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-background-ml"><span class="header-section-number">1.2</span> Machine Learning</h2>
+<p>Machine learning or ML is a subset of artificial intelligence that involves the creation of algorithms that allow computers to learn from and make decisions or predictions based on data. In the realm of statistics in an ML age, models can be broadly classified into parametric and non-parametric. Parametric models make certain assumptions about the underlying data distribution and have a fixed number of parameters. Examples include linear regression and logistic regression. They are simpler and faster to use, but may not fit complex data well.</p>
+<p>On the other hand, non-parametric models do not make strong assumptions about the data’s underlying distribution. They can have an infinite number of parameters, allowing for more flexibility. Examples include decision trees and k-nearest neighbors. While they can fit complex data well, there drawbacks in terms of overfitting and loss of interpretability. Most ML methods are non-parametric including the methods discussed below.</p>
+<section id="sec-background-cart" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="sec-background-cart"><span class="header-section-number">1.2.1</span> Classification And Regression Trees</h3>
+<p><span class="citation" data-cites="Breiman1984">Breiman et al. (<a href="#ref-Breiman1984" role="doc-biblioref">1984</a>)</span> introduces the Classification and Regression Tree, commonly known as CART, that partitions data according to a splitting criterion, resulting in an “if this, then that” interpretation. CART models are also widely known as a decision trees. The splits are recursive, meaning splits are applied upon previous splits, such as trees breaking into branches and then leaves. The splits are also <em>greedy</em> as each potential split only considers information available at that split instead of past or future splits. Each parent node is split to create two child nodes and the final nodes of a CART model are called terminal nodes.</p>
+<p>For example, when classifying pets into cats versus dogs, the first split might be<em>“if barks”</em> and the second is <em>“heavier than 5 kg”</em>. The tree says <em>If it barks and is heavier than 5 kg, then it is a dog</em>.</p>
+<p>A single classification tree typically uses the Gini index to determine its splits. Each split aims to maximize node purity, meaning the nodes contain the highest possible proportion of one class. The Gini index measures impurity, with lower gini values indicating higher purity. Intuitively, the aim of a classification tree’s loss function is to minimize the misclassification rate of observations. By selecting splits that reduce the Gini index, the tree minimise classification errors and accuracy.</p>
+</section>
+<section id="ensemble-learning" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="ensemble-learning"><span class="header-section-number">1.2.2</span> Ensemble Learning</h3>
+<p>Ensemble learning refers to a general framework of machine learning that combines together multiple simple models to create a better model. The philosophy behind ensemble learning is rooted in the wisdom of crowds principle, where the collective decision of multiple models often outperforms that of individual models.</p>
+<p><span class="citation" data-cites="Breiman2001">Brieman (<a href="#ref-Breiman2001" role="doc-biblioref">2001</a>)</span> introduces random forest which are an ensemble method that improves upon CART’s predictive power and generalization ability. It builds multiple decision trees using bootstrapped samples of the dataset and selects random subsets of features for splitting at each node. The final prediction is then determined by aggregating the predictions of individual trees, typically through majority voting for classification or averaging for regression. A similar ensemble method to random forest is bagging or bootstrap aggregation. This ensemble uses bootstrapped samples of the data similar to random forests but without randomised feature selection at each split.</p>
+<p><span class="citation" data-cites="Friedman2001">Friedman (<a href="#ref-Friedman2001" role="doc-biblioref">2001</a>)</span> introduces the gradient boosting machine (GBM) that sequentially trains weak learners (e.g., shallow CART models) to focus on instances that were misclassified or poorly predicted by previous learners. Each subsequent model corrects the errors of its predecessors, gradually improving the overall model’s performance. Boosting leverages the concept of ensemble learning, where combining multiple weak models leads to a stronger and more accurate predictor.</p>
+</section>
+<section id="cross-validations" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="cross-validations"><span class="header-section-number">1.2.3</span> Cross Validations</h3>
+<p>Cross-validation is used to assess how a model generalizes to an independent dataset. It involves partitioning the data into subsets, training the model on some subsets (training set) and validating it on the remaining subsets (validation set). A common type is <span class="math inline">\(k\)</span>-fold cross-validation, where the data is divided into <span class="math inline">\(k\)</span> equal parts. The model is trained <span class="math inline">\(k\)</span> times, each time using a different subset as the validation set and the remaining as training data. This technique helps in detecting overfitting, ensuring the model performs well on unseen data, and provides a more reliable measure of model performance.</p>
+</section>
+<section id="least-absolute-shrinkage-and-selection-operator" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="least-absolute-shrinkage-and-selection-operator"><span class="header-section-number">1.2.4</span> Least Absolute Shrinkage and Selection Operator</h3>
+<p><span class="citation" data-cites="Tibshirani1996">Tibshirani (<a href="#ref-Tibshirani1996" role="doc-biblioref">1996</a>)</span> introduces LASSO regularization, short for Least Absolute Shrinkage and Selection Operator, is a technique used in linear regression to prevent overfitting by penalizing the absolute size of the coefficients. It adds a penalty term to the ordinary least squares objective function, where the penalty is the sum of the absolute values of the coefficients multiplied by a regularization parameter lambda. Mathematically, it can be represented as: <span class="math display">\[
+\sum_{i=1}^{n} \left( y_i - \beta_0 - \sum_{j=1}^{p} x_{ij}\beta_j \right)^2 + \lambda \sum_{j=1}^{p} |\beta_j| = RSS + \lambda \sum_{j=1}^{p} |\beta_j|
+\]</span> Lasso regularization encourages sparsity by driving some coefficients to exactly zero, effectively performing feature selection. This property is called shrinkage and makes lasso particularly useful when dealing with high-dimensional datasets with many irrelevant covariates.</p>
+<p>Comparing with Ridge Regression, which uses the sum of squared coefficients as the penalty term, lasso tends to produce sparse models. Elastic Net, on the other hand, combines both L1 (lasso) and L2 (ridge) penalties, offering a balance between sparsity and stability. In the application of CRE’s, the shrinkage property of lasso is of interest.</p>
+<!-- look for places that you can reference these things -->
+</section>
+<section id="moving-foward" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="moving-foward"><span class="header-section-number">1.2.5</span> Moving Foward</h3>
+<p>Given that all of these conditions are hard to satisfy, there exists a vast range of tools practitioners can use to infer causality. In particular, machine learning provides new and powerful methods in causal inference which is the focus of this book.</p>
+<!-- neeeds a little more builup here.  -->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Andam2008" class="csl-entry" role="listitem">
+Andam, Kwaw S., Paul J. Ferraro, Alexander Pfaff, G. Arturo Sanchez-Azofeifa, and Juan A. Robalino. 2008. <span>“<span class="nocase">Measuring the effectiveness of protected area networks in reducing deforestation</span>.”</span> <em>Proceedings of the National Academy of Sciences</em> 105 (42): 16089–94. <a href="https://doi.org/10.1073/pnas.0800437105">https://doi.org/10.1073/pnas.0800437105</a>.
+</div>
+<div id="ref-Breiman1984" class="csl-entry" role="listitem">
+Breiman, L, Jerome H Friedman, Richard A Olshen, and C J Stone. 1984. <span>“<span class="nocase">Classification and Regression Trees</span>.”</span> <em>Biometrics</em> 40: 874. <a href="https://api.semanticscholar.org/CorpusID:29458883">https://api.semanticscholar.org/CorpusID:29458883</a>.
+</div>
+<div id="ref-Breiman2001" class="csl-entry" role="listitem">
+Brieman, Leo. 2001. <span>“<span>Random Forests</span>.”</span> <em>Machine Learning</em> 45: 5–32. https://doi.org/<a href="https://doi.org/10.1023/A:1010933404324">https://doi.org/10.1023/A:1010933404324</a>.
+</div>
+<div id="ref-Card1994" class="csl-entry" role="listitem">
+Card, David, and Alan B Krueger. 1994. <span>“<span class="nocase">Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania</span>.”</span> <em>American Economic Review</em> 84 (4): 772–93. <a href="https://doi.org/10.3386/w4509">https://doi.org/10.3386/w4509</a>.
+</div>
+<div id="ref-Chu2019" class="csl-entry" role="listitem">
+Chu, Yu-Wei Luke, and Wilbur Townsend. 2019. <span>“<span class="nocase">Joint culpability: The effects of medical marijuana laws on crime</span>.”</span> <em>Journal of Economic Behavior and Organization</em> 159: 502–25. <a href="https://doi.org/10.1016/j.jebo.2018.07.003">https://doi.org/10.1016/j.jebo.2018.07.003</a>.
+</div>
+<div id="ref-C3Mixtape2021" class="csl-entry" role="listitem">
+Cunningham, Scott. 2021. <span>“<span>Directed Acyclic Graphs</span>.”</span> In <em>Causal Inference: The Mixtape</em>, 96–118. Yale University Press. <a href="https://doi.org/10.2307/j.ctv1c29t27.6">https://doi.org/10.2307/j.ctv1c29t27.6</a>.
+</div>
+<div id="ref-Friedman2001" class="csl-entry" role="listitem">
+Friedman, Jerome H. 2001. <span>“<span>Greedy Function Approximation: A Gradient Boosting Machine</span>.”</span> <em>The Annals of Statistics</em> 29 (5): 1189–1232. <a href="https://www.jstor.org/stable/2699986">https://www.jstor.org/stable/2699986</a>.
+</div>
+<div id="ref-Kovach2018" class="csl-entry" role="listitem">
+Kovach, Matthew. 2018. <span>“<span class="nocase">Causal Inference of Human Resources Key Performance Indicators</span>.”</span> PhD thesis, Bowling Green State University. <a href="https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/">https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/</a>.
+</div>
+<div id="ref-Nabi2022" class="csl-entry" role="listitem">
+Nabi, Razieh, Joel Pfeiffer, Denis Charles, and Emre Kıcıman. 2022. <span>“<span class="nocase">Causal Inference in the Presence of Interference in Sponsored Search Advertising</span>.”</span> <em>Frontiers in Big Data</em> 5: 1–12. <a href="https://doi.org/10.3389/fdata.2022.888592">https://doi.org/10.3389/fdata.2022.888592</a>.
+</div>
+<div id="ref-Naimi2017" class="csl-entry" role="listitem">
+Naimi, Ashley I., Stephen R. Cole, and Edward H. Kennedy. 2017. <span>“<span class="nocase">An introduction to g methods</span>.”</span> <em>International Journal of Epidemiology</em> 46 (2): 756–62. <a href="https://doi.org/10.1093/ije/dyw323">https://doi.org/10.1093/ije/dyw323</a>.
+</div>
+<div id="ref-Noroozi2020" class="csl-entry" role="listitem">
+Noroozi, Mehdi, Peter Higgs, Alireza Noroozi, Bahram Armoon, Bentolhoda Mousavi, Rosa Alikhani, Mohammad Rafi Bazrafshan, Ali Nazeri Astaneh, Azadeh Bayani, and Ladan Fattah Moghaddam. 2020. <span>“<span class="nocase">Methamphetamine use and HIV risk behavior among men who inject drugs: Causal inference using coarsened exact matching</span>.”</span> <em>Harm Reduction Journal</em> 17 (66). <a href="https://doi.org/10.1186/s12954-020-00411-1">https://doi.org/10.1186/s12954-020-00411-1</a>.
+</div>
+<div id="ref-Pan2018" class="csl-entry" role="listitem">
+Pan, Yao, Stephen C. Smith, and Munshi Sulaiman. 2018. <span>“<span class="nocase">Agricultural extension and technology adoption for food security: Evidence from Uganda</span>.”</span> <em>American Journal of Agricultural Economics</em> 100 (4): 1012–31. <a href="https://doi.org/10.1093/ajae/aay012">https://doi.org/10.1093/ajae/aay012</a>.
+</div>
+<div id="ref-Ramachandra2019" class="csl-entry" role="listitem">
+Ramachandra, Vikas. 2019. <span>“<span class="nocase">Causal inference for climate change events from satellite image time series using computer vision and deep learning</span>.”</span> <a href="http://arxiv.org/abs/1910.11492">http://arxiv.org/abs/1910.11492</a>.
+</div>
+<div id="ref-Rubin1974" class="csl-entry" role="listitem">
+Rubin, Donald B. 1974. <span>“<span class="nocase">Estimating Causal Effects of Treatments in Experimental and Observational Studies</span>.”</span> <em>Journal of Educational Psychology</em> 66 (5): 688–701. <a href="https://doi.org/10.1002/j.2333-8504.1972.tb00631.x">https://doi.org/10.1002/j.2333-8504.1972.tb00631.x</a>.
+</div>
+<div id="ref-Neyman1923" class="csl-entry" role="listitem">
+Splawa-Neyman, Jerzy. 1923. <span>“<span class="nocase">On the application of probability theory to agricultural experiments. Essay on principles. Section 9</span>.”</span> PhD thesis. <a href="https://doi.org/10.1214/ss/1177012031">https://doi.org/10.1214/ss/1177012031</a>.
+</div>
+<div id="ref-Tafforin2022" class="csl-entry" role="listitem">
+Tafforin, Carole, and Nancy L. Segal. 2022. <span>“<span class="nocase">An experiment in cotwin control: Adaptation to space travel</span>.”</span> In <em>Twin Research for Everyone</em>, 617–24. Elsevier Inc. https://doi.org/<a href="https://doi.org/10.1016/C2019-0-02208-X">https://doi.org/10.1016/C2019-0-02208-X</a>.
+</div>
+<div id="ref-Tibshirani1996" class="csl-entry" role="listitem">
+Tibshirani, Robert. 1996. <span>“<span class="nocase">Regression Shrinkage and Selection via the Lasso</span>.”</span> <em>Journal of the Royal Statistical Society</em> 58 (1): 267–88. <a href="https://www.jstor.org/stable/pdf/2346178.pdf?refreqid=fastly-default{\%}3Aff57285d6b8854126d21a135984fc4ca{\&amp;}ab{\_}segments={\&amp;}origin={\&amp;}initiator={\&amp;}acceptTC=1">https://www.jstor.org/stable/pdf/2346178.pdf?refreqid=fastly-default{\%}3Aff57285d6b8854126d21a135984fc4ca{\&amp;}ab{\_}segments={\&amp;}origin={\&amp;}initiator={\&amp;}acceptTC=1</a>.
+</div>
+<div id="ref-Zhou2021a" class="csl-entry" role="listitem">
+Zhou, Xiaodan, Kevin Josey, Leila Kamareddine, Miah C. Caine, Tianjia Liu, Loretta J. Mickley, Matthew Cooper, and Francesca Dominici. 2021. <span>“<span class="nocase">Excess of COVID-19 cases and deaths due to fine particulate matter exposure during the 2020 wildfires in the United States</span>.”</span> <em>Science Advances</em> 7 (33). <a href="https://doi.org/10.1126/sciadv.abi8789">https://doi.org/10.1126/sciadv.abi8789</a>.
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>I particularly reccomend any interested reader use <a href="https://www.dagitty.net/" class="uri">https://www.dagitty.net/</a> which allows users to draw DAGs and then convert them into LaTeX or R code for the corresponding R package. Additionally, Chapter 3 of <span class="citation" data-cites="C3Mixtape2021">Cunningham (<a href="#ref-C3Mixtape2021" role="doc-biblioref">2021</a>)</span> provides and intuitive and application focused explanation of DAGs.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
