@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>propensity</title>
+<title>3&nbsp; Propensity Scores with Machine Learning – My project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,11 +78,14 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./metalearners.html" rel="next">
+<link href="./background.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -163,18 +166,162 @@ window.Quarto = {
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./propensity.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Propensity Scores with Machine Learning</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">My project</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction ()</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./background.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background: Causal Inference and Machine Learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./propensity.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Propensity Scores with Machine Learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metalearners.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meta-Learners</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./trees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Causal Trees and Forests</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-conventional-approach-propensity-scores-and-balance" id="toc-a-conventional-approach-propensity-scores-and-balance" class="nav-link active" data-scroll-target="#a-conventional-approach-propensity-scores-and-balance"><span class="header-section-number">3.1</span> A Conventional Approach: Propensity Scores and Balance</a>
+  <ul class="collapse">
+  <li><a href="#propensity-score-modelling-with-logistic-regression" id="toc-propensity-score-modelling-with-logistic-regression" class="nav-link" data-scroll-target="#propensity-score-modelling-with-logistic-regression"><span class="header-section-number">3.1.1</span> Propensity Score Modelling with Logistic Regression</a></li>
+  </ul></li>
+  <li><a href="#probability-machines-probability-theory-and-machine-learning" id="toc-probability-machines-probability-theory-and-machine-learning" class="nav-link" data-scroll-target="#probability-machines-probability-theory-and-machine-learning"><span class="header-section-number">3.2</span> Probability Machines: Probability Theory and Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#choice-of-loss-function-and-probability-prediction" id="toc-choice-of-loss-function-and-probability-prediction" class="nav-link" data-scroll-target="#choice-of-loss-function-and-probability-prediction"><span class="header-section-number">3.2.1</span> Choice of Loss Function and Probability Prediction</a></li>
+  <li><a href="#sec-bagg-rf-probmachines" id="toc-sec-bagg-rf-probmachines" class="nav-link" data-scroll-target="#sec-bagg-rf-probmachines"><span class="header-section-number">3.2.2</span> Bagging and Random Forest as Probability Machines</a></li>
+  <li><a href="#gradient-boosting-machines-as-probability-machines" id="toc-gradient-boosting-machines-as-probability-machines" class="nav-link" data-scroll-target="#gradient-boosting-machines-as-probability-machines"><span class="header-section-number">3.2.3</span> Gradient Boosting Machines as Probability Machines</a></li>
+  <li><a href="#overfitting" id="toc-overfitting" class="nav-link" data-scroll-target="#overfitting"><span class="header-section-number">3.2.4</span> Overfitting</a></li>
+  <li><a href="#sec-mlps-sims" id="toc-sec-mlps-sims" class="nav-link" data-scroll-target="#sec-mlps-sims"><span class="header-section-number">3.2.5</span> Comparison of Machine Learning Algorithms: Simulation Results</a></li>
+  </ul></li>
+  <li><a href="#implimentation-and-hyperparameter-tuning-with-weightit-andgbm-in-r" id="toc-implimentation-and-hyperparameter-tuning-with-weightit-andgbm-in-r" class="nav-link" data-scroll-target="#implimentation-and-hyperparameter-tuning-with-weightit-andgbm-in-r"><span class="header-section-number">3.3</span> Implimentation and Hyperparameter Tuning with <code>WeightIt</code> and<code>gbm</code> in R</a>
+  <ul class="collapse">
+  <li><a href="#sec-gbm-tune-workflow" id="toc-sec-gbm-tune-workflow" class="nav-link" data-scroll-target="#sec-gbm-tune-workflow"><span class="header-section-number">3.3.1</span> Hyperparameter Tuning and Workflow</a></li>
+  </ul></li>
+  <li><a href="#example-nsw-jobs-dataset-using-r" id="toc-example-nsw-jobs-dataset-using-r" class="nav-link" data-scroll-target="#example-nsw-jobs-dataset-using-r"><span class="header-section-number">3.4</span> Example: NSW Jobs Dataset Using R</a>
+  <ul class="collapse">
+  <li><a href="#step-1-6-model-fitting-and-tuning" id="toc-step-1-6-model-fitting-and-tuning" class="nav-link" data-scroll-target="#step-1-6-model-fitting-and-tuning"><span class="header-section-number">3.4.1</span> Step 1-6: Model Fitting and Tuning</a></li>
+  <li><a href="#sec-nsw-balance" id="toc-sec-nsw-balance" class="nav-link" data-scroll-target="#sec-nsw-balance"><span class="header-section-number">3.4.2</span> Step 7 and 8: Assessing Balance</a></li>
+  <li><a href="#step-9-results" id="toc-step-9-results" class="nav-link" data-scroll-target="#step-9-results"><span class="header-section-number">3.4.3</span> Step 9: Results</a></li>
+  </ul></li>
+  <li><a href="#replication-study-dont-read-this.-needs-an-honest-days-work" id="toc-replication-study-dont-read-this.-needs-an-honest-days-work" class="nav-link" data-scroll-target="#replication-study-dont-read-this.-needs-an-honest-days-work"><span class="header-section-number">3.5</span> Replication Study (Don’t read this. needs an honest days work)</a>
+  <ul class="collapse">
+  <li><a href="#replication-of-original-results" id="toc-replication-of-original-results" class="nav-link" data-scroll-target="#replication-of-original-results"><span class="header-section-number">3.5.1</span> Replication of Original Results</a></li>
+  <li><a href="#further-modelling" id="toc-further-modelling" class="nav-link" data-scroll-target="#further-modelling"><span class="header-section-number">3.5.2</span> Further Modelling</a></li>
+  <li><a href="#comparison-of-methodologies" id="toc-comparison-of-methodologies" class="nav-link" data-scroll-target="#comparison-of-methodologies"><span class="header-section-number">3.5.3</span> Comparison of Methodologies</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-propensity" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Propensity Scores with Machine Learning</span></span></h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <!-- To-do:   -->
@@ -194,55 +341,53 @@ window.Quarto = {
 <!-- - clarify the gini splitting vs accuracy loss function for rf/bag -->
 <!-- add rf and bagging to reduce words. replace all.  -->
 <!-- ensure that covariate balance measures are noted and that there is a clear flow down to the simulation settting where balance is discussed.  -->
-<section id="sec-propensity" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Propensity Scores with Machine Learning</h1>
-<section id="a-conventional-approach-propensity-scores-and-balance" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="a-conventional-approach-propensity-scores-and-balance"><span class="header-section-number">1.1</span> A Conventional Approach: Propensity Scores and Balance</h2>
-<p>In a randomised control trial (RCT), researchers believe treatment and control groups are similar because of randomisation and so the average treatment effect is a contrast of means from <strong>?@eq-ate-estimate</strong>. In observational data, the exposure to a given treatment is not random, implying there may be systematic differences between groups. As groups are not comparable, <strong>?@eq-ate-estimate</strong> will lead to a biased estimate of the treatment effect. For example, consider the causal question: <em>“How much does attending university increase lifetime earnings?”</em>. Individuals who complete a bachelor’s degree are not selected at random for university programs (treatment) and may have different observable characteristics than those who do not attend a university (control). Perhaps those who attend university have higher academic abilities, higher motivation, or grew up with parents who have professional jobs. Because of these systematic group covariate differences, a simple comparison of mean income could lead to attributing university attendance as the <em>cause</em> of higher incomes when the effect is confounded by the differences in covariates between groups. This discussion introduces the idea of <em>covariate balance</em> which is a key concept behind underlying propensity score methods.</p>
+<section id="a-conventional-approach-propensity-scores-and-balance" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="a-conventional-approach-propensity-scores-and-balance"><span class="header-section-number">3.1</span> A Conventional Approach: Propensity Scores and Balance</h2>
+<p>In a randomised control trial (RCT), researchers believe treatment and control groups are similar because of randomisation and so the average treatment effect is a contrast of means from <a href="background.html#eq-ate-estimate" class="quarto-xref">Equation&nbsp;<span>2.3</span></a>. In observational data, the exposure to a given treatment is not random, implying there may be systematic differences between groups. As groups are not comparable, <a href="background.html#eq-ate-estimate" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> will lead to a biased estimate of the treatment effect. For example, consider the causal question: <em>“How much does attending university increase lifetime earnings?”</em>. Individuals who complete a bachelor’s degree are not selected at random for university programs (treatment) and may have different observable characteristics than those who do not attend a university (control). Perhaps those who attend university have higher academic abilities, higher motivation, or grew up with parents who have professional jobs. Because of these systematic group covariate differences, a simple comparison of mean income could lead to attributing university attendance as the <em>cause</em> of higher incomes when the effect is confounded by the differences in covariates between groups. This discussion introduces the idea of <em>covariate balance</em> which is a key concept behind underlying propensity score methods.</p>
 <div id="nte-balance-intution" class="callout callout-style-default callout-note callout-titled" title="What is Covariate Balance">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;1: What is Covariate Balance
+Note&nbsp;3.1: What is Covariate Balance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Covariate balance is the idea that covariates are approximately equivalent across treatment and control groups and implies exchangeability between observations. Recall that defining unconfoundedness as <strong>?@eq-independence</strong> also implies exchangeability, implying that covariate balance should eliminate the confounding effect of variables associated with both the treatment and the outcome. If the distributions of the covariates are the same for each group, then those covariates are balanced, implying exchangeability with respect to those covariates.</p>
+<p>Covariate balance is the idea that covariates are approximately equivalent across treatment and control groups and implies exchangeability between observations. Recall that defining unconfoundedness as <a href="background.html#eq-independence" class="quarto-xref">Equation&nbsp;<span>2.6</span></a> also implies exchangeability, implying that covariate balance should eliminate the confounding effect of variables associated with both the treatment and the outcome. If the distributions of the covariates are the same for each group, then those covariates are balanced, implying exchangeability with respect to those covariates.</p>
 </div>
 </div>
 <p>From our bachelor’s degree example, suppose that comparable treatment and control individuals are matched together to create balanced pairs. All pairs have the same academic ability, motivation, parent income, geographic residence etc. Comparing our matched pairs should result in a robust estimate of the effect of a bachelor’s degree on earnings, as the individuals are exchangeable by definition. However, there is a serious dimensionality problem and exact matches cannot be made as the number of matched covariates increases.</p>
 <p><span class="citation" data-cites="Rosenbaum1983">Rosenbaum and Rubin (<a href="#ref-Rosenbaum1983" role="doc-biblioref">1983</a>)</span> offers a valuable tool for analysing observational data called the propensity score. The propensity score is the probability of treatment assignment conditional on observed covariates and reduces the dimension of the number of covariates to a single dimension. The propensity score, denoted as <span class="math inline">\(e(X)\)</span>, it is expressed as:</p>
 <p><span id="eq-pscore"><span class="math display">\[
 e(X)=P(T=1|X)
-\tag{1}\]</span></span></p>
-<p>Conditioning on this propensity score should balance the data and meet the conditional independence assumption stated in <strong>?@eq-conditional-independence</strong>. There are many sources that offer a comprehensive guide to propensity score methods.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+\tag{3.1}\]</span></span></p>
+<p>Conditioning on this propensity score should balance the data and meet the conditional independence assumption stated in <a href="background.html#eq-conditional-independence" class="quarto-xref">Equation&nbsp;<span>2.7</span></a>. There are many sources that offer a comprehensive guide to propensity score methods.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div id="nte-balance-pscore" class="callout callout-style-default callout-note callout-titled" title="Balance and Propensity Scores">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;2: Balance and Propensity Scores
+Note&nbsp;3.2: Balance and Propensity Scores
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note that an RCT will satisfy <strong>?@eq-independence</strong> as randomisation implies the potential outcomes are independent of the treatment assignment. Propensity score methods aim to satisfy <strong>?@eq-conditional-independence</strong> as the potential outcomes are independent of the treatment status conditioned on some covariates. Conditioning on the propensity score aims to replicate an RCT in the observational data by balancing covariates between groups. We desire that, when units are balanced on their propensity score, differences in outcomes can be confidently attributed to the treatment itself, rather than to pre-existing differences in covariates. The variables used to predict the propensity model are said to be conditioned on.</p>
+<p>Note that an RCT will satisfy <a href="background.html#eq-independence" class="quarto-xref">Equation&nbsp;<span>2.6</span></a> as randomisation implies the potential outcomes are independent of the treatment assignment. Propensity score methods aim to satisfy <a href="background.html#eq-conditional-independence" class="quarto-xref">Equation&nbsp;<span>2.7</span></a> as the potential outcomes are independent of the treatment status conditioned on some covariates. Conditioning on the propensity score aims to replicate an RCT in the observational data by balancing covariates between groups. We desire that, when units are balanced on their propensity score, differences in outcomes can be confidently attributed to the treatment itself, rather than to pre-existing differences in covariates. The variables used to predict the propensity model are said to be conditioned on.</p>
 </div>
 </div>
 <!-- there is repetition here of eqs in the boxes and writing.  -->
 <p>Two common methods that use propensity scores are propensity score matching (PSM) and inverse propensity weighting (IPW). PSM creates matched pairs with similar propensity scores. IPW creates a balanced pseudo-population, where observations are weighted on the inverse of the propensity score. The pseudo-population is created by up-weighting observations with a low propensity score and down-weighting observations with a high propensity score.</p>
 <p><span class="citation" data-cites="King2019">King and Nielsen (<a href="#ref-King2019" role="doc-biblioref">2019</a>)</span> provide a notable criticism of propensity score matching, which is a very interesting read. In the following examples, IPW is used due to theoretical advantages and ease of software implementation.</p>
-<section id="propensity-score-modelling-with-logistic-regression" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="propensity-score-modelling-with-logistic-regression"><span class="header-section-number">1.1.1</span> Propensity Score Modelling with Logistic Regression</h3>
+<section id="propensity-score-modelling-with-logistic-regression" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="propensity-score-modelling-with-logistic-regression"><span class="header-section-number">3.1.1</span> Propensity Score Modelling with Logistic Regression</h3>
 <p>A conventional propensity score model most commonly uses logistic regression to predict a probability between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Model specification may include interaction terms and polynomial terms to best achieve covariate balance. There are a range of approaches for specifying a propensity score model, but the process is driven by heuristics <span class="citation" data-cites="Brookhart2006 Heinrich2010">(<a href="#ref-Brookhart2006" role="doc-biblioref">Brookhart et al. 2006</a>; <a href="#ref-Heinrich2010" role="doc-biblioref">Heinrich 2010</a>)</span>. One suggestion is to include two-way interaction terms between covariates and squared terms and then remove terms which are statistically significant. Many researchers do not discuss the specification of their propensity model in papers. <span class="citation" data-cites="Austin2008">Austin (<a href="#ref-Austin2008" role="doc-biblioref">2008</a>)</span> review 47 papers that use propensity scores and few assess balance, perform adequate model selection and diagnosis, or apply correct statistical tests.</p>
 <p>It’s important to note that the true value of a propensity score is never observable. A propensity score that is close to the theoretical probability is well calibrated. Using poorly calibrated propensity scores may result in poor balance and biased estimation of the treatment effect. The calibration of propensity scores depends on correctly specifying the model used to estimate them. Covariates may be omitted by error, poorly measured, or be unobservable. If the true relationship is non-linear or involves complex interactions between covariates, logistic regression may not predict calibrated scores. Another important note is that the propensity model itself does not have an informative causal interpretation. In logistic regression, the coefficients are the log-odds of the treatment assignment for a variable which is not informative of the desired estimand.</p>
 <p>The first application of machine learning in causal inference was to predict propensity scores. Despite this, logistic regression still appears to be the most common model for predicting propensity scores.</p>
 </section>
 </section>
-<section id="probability-machines-probability-theory-and-machine-learning" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="probability-machines-probability-theory-and-machine-learning"><span class="header-section-number">1.2</span> Probability Machines: Probability Theory and Machine Learning</h2>
+<section id="probability-machines-probability-theory-and-machine-learning" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="probability-machines-probability-theory-and-machine-learning"><span class="header-section-number">3.2</span> Probability Machines: Probability Theory and Machine Learning</h2>
 <p>Predicting probabilities is not a typical machine learning task. Supervised machine learning usually focuses on classifying observations into groups, or regression to predict continuous outcomes. Probability prediction is a hybrid of these tasks, aiming to predict the continuous probability that an observation will belong to a certain class. In this context, these applications are sometimes called probability machines.</p>
 <p>Probability machines are valuable in applications requiring calibrated probability predictions. Probability machines can predict loan defaults or other adverse events in finance. They estimate the likelihood of customer response to a campaign in marketing. In criminal justice, they help forecast recidivism or future arrests, informing parole decisions. Weather forecasting uses probability machines to predict events like the chance of rain. Gamblers and bettors want robust probability predictions to enhance their betting strategies. Probability machines can be applied wherever calibrated probability predictions are needed.</p>
 <p>Probability machines offer many advantages over parametric methods like logistic regression:</p>
@@ -254,16 +399,16 @@ Note&nbsp;2: Balance and Propensity Scores
 <li><p><strong>Simplified Data Exploration</strong>: By exploring complex data structures in a data-driven way, probability machines simplify model specification. For instance, tree-based models remain unaffected by adding squared or interaction terms, streamlining the modeling process.</p></li>
 </ol>
 <p>In causal inference, probability machines can predict propensity scores to maximize covariate balance and better estimate treatment effects. The first use of machine learning in economics and social sciences was for predicting propensity scores, driven by strong theoretical and practical motivations. This discussion aims to clarify the use of probability machines in causal inference given the sometimes unique requirements of propensity score specification. Probability machines are theoretically complex and there are unanswered questions in this space.</p>
-<p>Please note that this chapter assumes a reader is familiar with <em>CART (Classification and Regression Tree)</em>, <em>Boosting</em>, <em>Bagging (Bootstrap Aggregation)</em>, <em>Random Forests</em>, <em>LASSO (Least Absolute Shrinkage and Selection Operator</em>, and <em>Logistic Regression</em>. These methods are briefly discussed in <strong>?@sec-background-ml</strong>.</p>
-<section id="choice-of-loss-function-and-probability-prediction" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="choice-of-loss-function-and-probability-prediction"><span class="header-section-number">1.2.1</span> Choice of Loss Function and Probability Prediction</h3>
+<p>Please note that this chapter assumes a reader is familiar with <em>CART (Classification and Regression Tree)</em>, <em>Boosting</em>, <em>Bagging (Bootstrap Aggregation)</em>, <em>Random Forests</em>, <em>LASSO (Least Absolute Shrinkage and Selection Operator</em>, and <em>Logistic Regression</em>. These methods are briefly discussed in <a href="background.html#sec-background-ml" class="quarto-xref"><span>Section 2.2</span></a>.</p>
+<section id="choice-of-loss-function-and-probability-prediction" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="choice-of-loss-function-and-probability-prediction"><span class="header-section-number">3.2.1</span> Choice of Loss Function and Probability Prediction</h3>
 <p>The loss function measures the difference between a model’s predictions and the actual target values, serving as an measure of the model’s performance. The model with the lowest error is found when the loss function is minimised. In standard least squares regression, the loss function is the residual sum of squares that can be stated as: <span class="math inline">\(\text{RSS} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span>. This loss function says that the model must reduce the squared differences between the observed and predicted values. Different loss functions influence the model’s behaviour and so the choice of loss function is important.</p>
 <p>Classification models determine the category to which each observation belongs. For instance, in fraud detection, banks use classifiers to distinguish between fraudulent and routine transactions. Another example is in email filtering, where classifiers are used to predict whether or not an email is spam. Given these binary classification objectives, many loss functions minimize classification errors and improve accuracy.</p>
-<p>A probability machine might employ a classification approach suitable for binary outcomes. While a loss function like the Gini (introduced in <strong>?@sec-background-cart</strong>) index is effective for classification problems, its effectiveness in calculating class probabilities is uncertain. In other words, minimizing misclassification error may not lead to accurate probability predictions.</p>
+<p>A probability machine might employ a classification approach suitable for binary outcomes. While a loss function like the Gini (introduced in <a href="background.html#sec-background-cart" class="quarto-xref"><span>Section 2.2.1</span></a>) index is effective for classification problems, its effectiveness in calculating class probabilities is uncertain. In other words, minimizing misclassification error may not lead to accurate probability predictions.</p>
 <p>To classify an observation as either <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>, a model needs to determine if <span class="math inline">\(P(A)\)</span> is less than or greater than <span class="math inline">\(0.5\)</span>. Thus, it is trivial if the probability of that classification is <span class="math inline">\(0.51\)</span> or <span class="math inline">\(0.99\)</span> as this makes no difference to the classification. For a probability machine, the difference between <span class="math inline">\(\hat{P}(A) = 0.51\)</span> and <span class="math inline">\(\hat{P}(A) = 0.99\)</span> is extreme. Understanding that classification models are optimized for classification accuracy rather than probability prediction is important. This distinction affects the performance of ensemble methods like random forests or bagging ensembles which use classification trees.</p>
 </section>
-<section id="sec-bagg-rf-probmachines" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="sec-bagg-rf-probmachines"><span class="header-section-number">1.2.2</span> Bagging and Random Forest as Probability Machines</h3>
+<section id="sec-bagg-rf-probmachines" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="sec-bagg-rf-probmachines"><span class="header-section-number">3.2.2</span> Bagging and Random Forest as Probability Machines</h3>
 <!-- todo:  -->
 <!-- - reference to appendix -->
 <!-- - additional reserach for nsw inclding the cite ther.  -->
@@ -271,14 +416,14 @@ Note&nbsp;2: Balance and Propensity Scores
 <p>In a bagging or random forest ensemble, class probabilities are determined through a <em>vote count</em> method. Each tree in the ensemble makes a class prediction based on the majority class in a terminal node. For instance, if <span class="math inline">\(x_i\)</span> lies in a terminal node where <span class="math inline">\(80\%\)</span> of the observations are classified as <span class="math inline">\(A\)</span>, that <em>individual tree</em> will classify <span class="math inline">\(x_i\)</span> as <span class="math inline">\(A\)</span>. The ensemble’s overall prediction for <span class="math inline">\(x_i\)</span> is derived from the proportion of trees that classify <span class="math inline">\(x_i\)</span> as <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>. Let <span class="math inline">\(T\)</span> be the total number of trees and <span class="math inline">\(b_t\)</span> be the <span class="math inline">\(t\)</span>-th tree in the ensemble. Let <span class="math inline">\(\mathbb{I}(b_t(x_i) = A)\)</span> be the indicator function that returns <span class="math inline">\(1\)</span> when <span class="math inline">\(b_t\)</span> predicts that observation <span class="math inline">\(x_i\)</span> belongs to class <span class="math inline">\(A\)</span>. The probability of class <span class="math inline">\(A\)</span> for observation <span class="math inline">\(x_i\)</span> is calculated as:</p>
 <p><span id="eq-ensemble-vote-method"><span class="math display">\[
 \Pr(x_i = A) = \frac{1}{T} \sum_{t=1}^{T} \mathbb{I}(b_t(x_i) = A).
-\tag{2}\]</span></span></p>
+\tag{3.2}\]</span></span></p>
 <p>In discussing the theoretical properties of random forests and bagging ensembles for probability predictions, <span class="citation" data-cites="Olson2018">Olson and Wyner (<a href="#ref-Olson2018" role="doc-biblioref">2018</a>)</span> notes a potential bias towards predictions of <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> when trees in an ensemble are highly correlated and a voting mechanism is used. When trees in an ensemble are highly correlated, a vote count method can bias predicted probabilities towards <span class="math inline">\(\hat{P}(x_i=A) \in \{0,1\}\)</span> because each individual tree gives an identical prediction for each <span class="math inline">\(x_i\)</span>. Across the whole ensemble, probability predictions will bias towards <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Although having an ensemble of identical trees is unrealistic, the notion illustrates that tree correlation can introduce a <em>divergence bias</em>. Notably, divergence bias is not problematic in classification applications, as a larger number of trees correctly classifying the observation is encouraging.</p>
 <p>However, divergence bias is problematic in probability applications. If <span class="math inline">\(x_i\)</span> has a known membership of <span class="math inline">\(A\)</span>, and an unknown <span class="math inline">\(P_{\text{true}}(x_i=A) = 0.6\)</span>, the ensemble might classify <span class="math inline">\(x_i\)</span> correctly <span class="math inline">\(90\%\)</span> of the time leading to <span class="math inline">\(\hat{P}(x_i=A) = 0.9\)</span>. As a probability machine, the ensemble has overestimated the probability by <span class="math inline">\(0.3\)</span> even though <span class="math inline">\(90\%\)</span> accuracy is excellent. To predict <span class="math inline">\(P_{\text{true}}(x_i=A) = 0.6\)</span>, an ensemble would need to incorrectly classify <span class="math inline">\(x_i\)</span> in <span class="math inline">\(40\%\)</span> of its trees. However, random forests are designed to maximize classification accuracy and there is no incentive for the model to intentionally achieve a specific misclassification rate that aligns with the true probability.</p>
 <p>To reduce tree correlation, bagging ensembles use bootstrap aggregation and train each tree on a randomly selected subset of the data. Random forests further reduce tree correlation by considering only a random number of variables at each split, referred to as <span class="math inline">\(mtry\)</span>. When <span class="math inline">\(mtry\)</span> is near to to number of predictors, the model considers more variables at each split, making the random forest closer to a bagging ensemble. A lower <span class="math inline">\(mtry\)</span> should reduce the correlation between trees and decrease divergence bias, but a lower <span class="math inline">\(mtry\)</span> also introduces other theoretical problems.</p>
 <p>Consider the scenario where the binary outcome of the ensemble is strongly related to a single predictor and weakly related to other noisy predictors. If <span class="math inline">\(mtry\)</span> is low then each split may not consider the strong predictor and more commonly splits on weak or noisy predictors. For example, each predictor has a chance of <span class="math inline">\(\frac{mtry}{\text{number of predictors}}\)</span> of selection at each split implying a lower <span class="math inline">\(mtry\)</span> decreases the chance of a split considering the strong predictor. Splits on the weak or noisy predictors may not result in a meaningful increase in node purity and successive splits may result in impure terminal nodes that poorly predict the class of <span class="math inline">\(x_i\)</span> in each tree. Additionally, consider there is a class imbalance and the majority of obvervations are classified as <span class="math inline">\(A\)</span> not <span class="math inline">\(B\)</span>. If sucessive noisy splits result in impure terminal nodes, then terminal nodes may be dominated by the majority class <span class="math inline">\(A\)</span>. Consequently, there is a <em>majority class</em> effect as each tree in the ensemble is more likely to misclassify an observation as an <span class="math inline">\(A\)</span> because the terminal nodes have a higher proportion of <span class="math inline">\(A\)</span> due to the higher proportion of <span class="math inline">\(A\)</span>’s in the data overall.</p>
-<p>To exemplify this theoretical discussion, consider the National Supported Work (NSW) programme, which is a commonly discussed dataset in causal inference. The data results from a randomized controlled trial with <span class="math inline">\(445\)</span> total participants, <span class="math inline">\(185\)</span> in the program group, and <span class="math inline">\(260\)</span> in the control group, so the true probability of treatment for each individual can be calculated as <span class="math inline">\(185/445=0.42\)</span> or <span class="math inline">\(42\)</span>%. Further information about this data is found in <strong>?@sec-data-nsw-jobs</strong>.</p>
-<p>Randomisation should ensure that the probability of treatment is independent of the predictors and so all predictors should be noisy or weak. Although <a href="#fig-rf-varimp" class="quarto-xref">Figure&nbsp;2</a> and <a href="#tbl-combined-btab" class="quarto-xref">Table&nbsp;1</a> do suggest some covariates do have a greater impact on the probability of participating in the programme, which echoes research by <span class="citation" data-cites="Smith2005">Smith and Todd (<a href="#ref-Smith2005" role="doc-biblioref">2005</a>)</span> who suggests that self-selection bias is prevalent in the NSW data.</p>
-<p><a href="#fig-rf-theory-demo" class="quarto-xref">Figure&nbsp;1</a> shows both divergence bias and majority class effect using <code>randomForest</code> to fit both the random forest and bagging ensemble. Recall that a bagging ensemble is a random forest model when <span class="math inline">\(mtry\)</span> is equal to the number of predictors and so specifying <code>mtry = 7</code> in the <code>randomForest</code> function will fit a bagging ensemble. Logistic regression using the <code>gbm()</code> function provides a meaningful comparison.</p>
+<p>To exemplify this theoretical discussion, consider the National Supported Work (NSW) programme, which is a commonly discussed dataset in causal inference. The data results from a randomized controlled trial with <span class="math inline">\(445\)</span> total participants, <span class="math inline">\(185\)</span> in the program group, and <span class="math inline">\(260\)</span> in the control group, so the true probability of treatment for each individual can be calculated as <span class="math inline">\(185/445=0.42\)</span> or <span class="math inline">\(42\)</span>%. Further information about this data is found in <a href="appendix.html#sec-data-nsw-jobs" class="quarto-xref"><span>Section 7.1.1</span></a>.</p>
+<p>Randomisation should ensure that the probability of treatment is independent of the predictors and so all predictors should be noisy or weak. Although <a href="#fig-rf-varimp" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> and <a href="#tbl-combined-btab" class="quarto-xref">Table&nbsp;<span>3.1</span></a> do suggest some covariates do have a greater impact on the probability of participating in the programme, which echoes research by <span class="citation" data-cites="Smith2005">Smith and Todd (<a href="#ref-Smith2005" role="doc-biblioref">2005</a>)</span> who suggests that self-selection bias is prevalent in the NSW data.</p>
+<p><a href="#fig-rf-theory-demo" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> shows both divergence bias and majority class effect using <code>randomForest</code> to fit both the random forest and bagging ensemble. Recall that a bagging ensemble is a random forest model when <span class="math inline">\(mtry\)</span> is equal to the number of predictors and so specifying <code>mtry = 7</code> in the <code>randomForest</code> function will fit a bagging ensemble. Logistic regression using the <code>gbm()</code> function provides a meaningful comparison.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the Code to Create the Plot</summary>
@@ -335,7 +480,7 @@ Note&nbsp;2: Balance and Propensity Scores
 <img src="propensity_files/figure-html/fig-rf-theory-demo-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rf-theory-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: This figure compares the kernel density estimates of propensity score of each observation in the National Supported Work programme. The random forest and bagging ensemle are fitted with the randomForest default value of 500 trees.
+Figure&nbsp;3.1: This figure compares the kernel density estimates of propensity score of each observation in the National Supported Work programme. The random forest and bagging ensemle are fitted with the randomForest default value of 500 trees.
 </figcaption>
 </figure>
 </div>
@@ -375,7 +520,7 @@ Figure&nbsp;1: This figure compares the kernel density estimates of propensity s
 <img src="propensity_files/figure-html/fig-rf-varimp-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rf-varimp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The figure compares the variable importance assigned to each variable from a baggin ensemble. The data originates from the National Supported Work programme. The difference in relative important of some variables indicates that randomisation may not have created exchangability between the groups.
+Figure&nbsp;3.2: The figure compares the variable importance assigned to each variable from a baggin ensemble. The data originates from the National Supported Work programme. The difference in relative important of some variables indicates that randomisation may not have created exchangability between the groups.
 </figcaption>
 </figure>
 </div>
@@ -383,20 +528,20 @@ Figure&nbsp;2: The figure compares the variable importance assigned to each vari
 </div>
 <p>The logistic regression model has identified a central tendency and most probabilities are between <span class="math inline">\(0.25\)</span> and <span class="math inline">\(0.75\)</span> which roughly aligns with the true probability. For the random forest with <span class="math inline">\(mtry=1\)</span>, a significant number of the treatment and control observations are centred near <span class="math inline">\(0\)</span> with a wide range of other predictions. Such behaviour is consistent with a model overly predicting the majority class and having unstable predictions otherwise. The bagging ensemble has clear evidence of divergence and the majority of predictions are outside <span class="math inline">\(0.25\)</span> and <span class="math inline">\(0.75\)</span>. Compared to the theoretically true probability, both random forest and bagging ensembles have performed poorly.</p>
 <p>The tuning of <span class="math inline">\(mtry\)</span> faces double jeopardy and is another important area of discussion in probability machines. The selection of <span class="math inline">\(mtry\)</span> is typically completed in with a classification loss function such as accuracy or out-of-bag error. <span class="citation" data-cites="Olson2018">Olson and Wyner (<a href="#ref-Olson2018" role="doc-biblioref">2018</a>)</span> compares tuning <span class="math inline">\(mtry\)</span> measured by classification accuracy and mean square error of known simulation probabilities and finds that the optimal value of <span class="math inline">\(mtry\)</span> for classification differs greatly from for probability prediction.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> In other words, if a grid search finds that <span class="math inline">\(mtry=3\)</span> is optimal for a classification task, this does not imply that <span class="math inline">\(mtry=3\)</span> is optimal for predicting probabilities.</p>
-<p>Random forests and bagging ensembles seem to be troubled as probability machines but this does not mean that bagging and random forest cannot perform well. In various simulation studies, they perform excellently as discussed in <a href="#sec-mlps-sims" class="quarto-xref">Section&nbsp;1.2.5</a>. Perhaps the nature of the data is informative for the potential success of a random forest or bagging ensemble.</p>
+<p>Random forests and bagging ensembles seem to be troubled as probability machines but this does not mean that bagging and random forest cannot perform well. In various simulation studies, they perform excellently as discussed in <a href="#sec-mlps-sims" class="quarto-xref"><span>Section 3.2.5</span></a>. Perhaps the nature of the data is informative for the potential success of a random forest or bagging ensemble.</p>
 <p>Anecdotally, divergence bias and majority class effects will most effect a probability machine when there is considerable overlap between groups. If there is overlap and a central region of true probabilities, then the effects of divergence bias may be very pronounced. Similarly, common overlap may make it even harder to increase purity in child nodes, as the covariates will lack clear split points. When combined with weak predictors relating to a low <span class="math inline">\(mtry\)</span>, the terminal nodes of each tree may be relatively impure leading to a majority class effect. Alternatively, if true probabilities exist near <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> and there is a clear separation of class, divergence effects may trivially effect probability estimation as the probabilities already exist in that region. If there is a clear separation of class, then weak predictors relating to a low <span class="math inline">\(mtry\)</span> may still create meaningful splits and pure terminal nodes. It is worth noting that propensity score methods require datasets with overlap to meet the assumptions required to determine causality.</p>
 <!-- maybe need a little chat about cross entropy here and why its not as good as in the gbm case.  -->
 </section>
-<section id="gradient-boosting-machines-as-probability-machines" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="gradient-boosting-machines-as-probability-machines"><span class="header-section-number">1.2.3</span> Gradient Boosting Machines as Probability Machines</h3>
+<section id="gradient-boosting-machines-as-probability-machines" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="gradient-boosting-machines-as-probability-machines"><span class="header-section-number">3.2.3</span> Gradient Boosting Machines as Probability Machines</h3>
 <!-- needs a little more comparison to rf and bagging. perhaps do some more reserach about why these are good. note and differentiate the different types of boosting. perhaps also clarify how the gradient descent works for my own learning (dont write it to be too technical).  -->
 <p>Moving beyond classification trees in random forests or bagging ensembles, <span class="citation" data-cites="Friedman2001">Friedman (<a href="#ref-Friedman2001" role="doc-biblioref">2001</a>)</span> introduced the <em>Gradient Boosting Machine</em> (GBM). A GBM sequentially constructs CART trees to correct errors made by previous trees. Employing a gradient descent process, each new tree is fit on the pseudo-residuals of the previous iteration. This means that with each iteration, the GBM takes a gradient step down the global loss function, incrementally minimizing the loss until it reaches its minimum.</p>
 <p>GBM’s can be be <em>generalised</em> to many different applications by providing different loss functions that can be specified as any continuously differentiable function. For binary outcomes, a GBM employs multiple <em>boosted</em> regression trees and a logistic function to transform regression predictions into probabilities. This logistic function is the same as in logistic regression, and so a GBM with a binary class is sometimes called boosted logistic regression. The ensemble aims to minimize the Bernoulli deviance, which is equivalent to maximizing the Bernoulli log-likelihood function. The model is expected to be well-calibrated, as maximizing the log-likelihood ensures that the predicted probability distribution is as close as possible to the true probability distribution given the data. The GBM outputs probability predictions, avoiding the issues associated with vote count methods used by random forests and bagging ensembles.</p>
 <p>Additionally, each split considers all variables and makes the most informative splits that descend the loss function most effectively. GBMs utilize many weak learners, where each learner is only slightly better than random guessing. These weak learners are often regression stumps, which are CART models with only a single split. However, additional splits enable the model to capture interactions between terms which may increase performance in complex or high-dimensional datasets.</p>
-<p>By outputting probability predictions and avoiding the flaws of vote methods in other ensemble techniques as well as allowing a probability distribution based loss function optimal for probability prediction, GBMs stand out as a highly effective probability machine. The implementation and workflow to fit a GBM for propensity scores, is discussed in <a href="#sec-gbm-tune-workflow" class="quarto-xref">Section&nbsp;1.3.1</a>.</p>
+<p>By outputting probability predictions and avoiding the flaws of vote methods in other ensemble techniques as well as allowing a probability distribution based loss function optimal for probability prediction, GBMs stand out as a highly effective probability machine. The implementation and workflow to fit a GBM for propensity scores, is discussed in <a href="#sec-gbm-tune-workflow" class="quarto-xref"><span>Section 3.3.1</span></a>.</p>
 </section>
-<section id="overfitting" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="overfitting"><span class="header-section-number">1.2.4</span> Overfitting</h3>
+<section id="overfitting" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="overfitting"><span class="header-section-number">3.2.4</span> Overfitting</h3>
 <p>Overfitting is a common concern when fitting machine learning models, as models can capture noise and random variations in the training data. An overfit model will typically show excellent performance on the training data but will perform poorly on new, unseen data because it cannot generalise beyond the specific patterns of the training set. For instance, consider a machine learning algorithm used by a bank for fraud detection. In this scenario, an overfit model would struggle to classify transactions correctly as it has learned the noise and specific variation in the training data rather than the underlying patterns of fraud. Cross validation or test/train splitting is used to prevent overfitting to ensure a model can generalize to unseen data.</p>
 <p>However, the model is not required to generalise when predicting propensity scores, as a different propensity score model is fit for a other datasets. Instead, the emphasis of predicting propensity scores is to create balance in the data. A model is effective if it balances covariates between groups, even if it is overfit in a conventional sense.</p>
 <div id="nte-overfit-logistic" class="callout callout-style-default callout-note callout-titled" title="Overfitting in Logistic Regression">
@@ -405,7 +550,7 @@ Figure&nbsp;2: The figure compares the variable importance assigned to each vari
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;3: Overfitting in Logistic Regression
+Note&nbsp;3.3: Overfitting in Logistic Regression
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -415,8 +560,8 @@ Note&nbsp;3: Overfitting in Logistic Regression
 <p><span class="citation" data-cites="Lee2010">Lee, Lessler, and Stuart (<a href="#ref-Lee2010" role="doc-biblioref">2010</a>)</span> simulates a comparison of machine learning methods for propensity score prediction and finds that an overfit CART model performs better than a pruned CART model in terms of balance and treatment effect estimation bias. While not conclusive, this suggests that conventionally overfit trees are appropriate and potentially beneficial for propensity score modelling.</p>
 <p>If overfitting was to occur, this could be interpreted as balance between groups getting worse decreases with a higher model complexity. Although various software packages use a stopping rule to prevent this. As conventional advice states, creating balance should be the aim of estimating propensity scores.</p>
 </section>
-<section id="sec-mlps-sims" class="level3" data-number="1.2.5">
-<h3 data-number="1.2.5" class="anchored" data-anchor-id="sec-mlps-sims"><span class="header-section-number">1.2.5</span> Comparison of Machine Learning Algorithms: Simulation Results</h3>
+<section id="sec-mlps-sims" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-mlps-sims"><span class="header-section-number">3.2.5</span> Comparison of Machine Learning Algorithms: Simulation Results</h3>
 <!-- todo:  -->
 <!-- fix early cite -->
 <!-- clarify that sim studies are propensity score based. maybe look for general probability machine example sims.  -->
@@ -438,14 +583,14 @@ Note&nbsp;3: Overfitting in Logistic Regression
 </ol>
 </section>
 </section>
-<section id="implimentation-and-hyperparameter-tuning-with-weightit-andgbm-in-r" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="implimentation-and-hyperparameter-tuning-with-weightit-andgbm-in-r"><span class="header-section-number">1.3</span> Implimentation and Hyperparameter Tuning with <code>WeightIt</code> and<code>gbm</code> in R</h2>
+<section id="implimentation-and-hyperparameter-tuning-with-weightit-andgbm-in-r" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="implimentation-and-hyperparameter-tuning-with-weightit-andgbm-in-r"><span class="header-section-number">3.3</span> Implimentation and Hyperparameter Tuning with <code>WeightIt</code> and<code>gbm</code> in R</h2>
 <p>Based on <span class="citation" data-cites="Friedman2001">Friedman (<a href="#ref-Friedman2001" role="doc-biblioref">2001</a>)</span>, the <code>gbm</code> package implements a <em>Generalized Boosting Machine</em>. Here, the “generalized” is because the package provides generalisations of the boosting framework to other distributions such as Bernoulli, Poisson, and Cox-proportional hazards partial likelihood of class probability predictions. <code>gbm</code> also supports stochastic gradient boosting, which performs random bootstrap sampling for each tree using the <code>bag.fraction</code> parameter.</p>
 <p>To fit and tune a GBM for propensity scores, wrapper packages facilitate optimal hyperparameter tuning for covariate balance. An effective approach involves fitting the model and computing balance statistics at each hyperparameter combination. Since the <code>gbm</code> package does not support this type of tuning, a wrapper package like <code>WeightIt</code> is necessary. <code>WeightIt</code> allows for hyperparameter tuning based on covariate balance and inverse propensity weighting (IPW). <code>WeightIt</code> supports hyperparameter turning of <code>shrinkage</code>, <code>interaction.depth</code>, and <code>n.trees</code>. Once the best model is identified, propensity scores are predicted inside <code>WeightIt</code>. These can be used inside <code>WeightIt</code> to perform IPW or extracted for other implementations. <code>WeightIt</code> also supports an offset meaning that logistic regression predictions are supplied to the <code>GBM</code> package.</p>
 <p>Multiple sources, including package documentation and other research, suggest values for hyperparameters <span class="citation" data-cites="McCaffrey2004 Ridgeway2024">(see <a href="#ref-McCaffrey2004" role="doc-biblioref">McCaffrey, Ridgeway, and Morral 2004</a>; <a href="#ref-Ridgeway2024" role="doc-biblioref">Ridgeway et al. 2024</a>)</span>. A very low learning rate, such as <span class="math inline">\(0.01\)</span> or <span class="math inline">\(0.0005\)</span>, allows a smooth descent of the loss function. The model should include a high number of trees, with <span class="math inline">\(10,000\)</span> or <span class="math inline">\(20,000\)</span> being a typical default value. While this may seem excessive, it is required when a low learning rate is used. A grid search process should consider many options including a very high number of trees and even though the optimal model may contain fewer trees. While GBMs often use shallow trees like stumps, allowing a few splits per tree can better model non-linearity and additivity. The package default allows for <span class="math inline">\(3\)</span> splits. Based on anecdotal experience, <span class="math inline">\(1\)</span> to <span class="math inline">\(5\)</span> splits per tree is optimal, consistent with recommendations by <span class="citation" data-cites="McCaffrey2004">McCaffrey, Ridgeway, and Morral (<a href="#ref-McCaffrey2004" role="doc-biblioref">2004</a>)</span>.</p>
 <p>Another package, <code>twang</code>, proves functionality to tune the number of trees, but there are no inbuilt options for tuning of other hyperparameters and so accessory packages such as <code>caret</code> must be used. Although <code>twang</code> has other useful functionalities which users may wish to implement.</p>
-<section id="sec-gbm-tune-workflow" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="sec-gbm-tune-workflow"><span class="header-section-number">1.3.1</span> Hyperparameter Tuning and Workflow</h3>
+<section id="sec-gbm-tune-workflow" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="sec-gbm-tune-workflow"><span class="header-section-number">3.3.1</span> Hyperparameter Tuning and Workflow</h3>
 <!-- might be useful: @McCaffrey2004 suggest that a learning rate as low as $0.0005$ is optimal with $20,000$ trees. In conventional machine learning contexts, such significant number of trees is likely to causa overiftting, however this may not be a concern in the context of propensity scores.  -->
 <p>The <code>WeigthtIt</code> package seems to have the best options for hyperparameter tuning and integration with a package for assessing balance called <code>cobalt</code>. The best information for this package can be found on this <a href="https://ngreifer.github.io/WeightIt/index.html">website</a> or accessed with <code>vignette("WeightIt")</code> inside R after installation using <code>install.packages("WeightIt")</code>.</p>
 <p>A workflow for hyperparameter tuning in <code>WeightIt</code> may be completed as follows:</p>
@@ -456,31 +601,31 @@ Note&nbsp;3: Overfitting in Logistic Regression
 <li><p>The model is fit and a grid search is performed. The tune grid and balance statistics can be retrieved with <code>my_weightit_object$info$best.tune</code>.</p></li>
 <li><p>The best model should be inspected and to determine if the initial grid is appropriate. If the selection of the best model is at the boundary of a grid search, then a new grid should be created and step 3 and 4 are repeated. For example, if the initial fit is completed with <code>interaction.depth = 1:5</code> and the best fit is <span class="math inline">\(5\)</span>, then a new search can consider <code>interaction.depth = 3:7</code> so that the local area around <span class="math inline">\(5\)</span> can be searched.</p></li>
 <li><p>Experiment with <code>bag.fraction</code>, which means each tree will consider a drawn proportion of observations equal to <code>bag.fraction</code>. Iteratively changing <code>bag.fraction</code> and assessing balance at each value should be practical. Consider <span class="math inline">\(0.5\)</span>, <span class="math inline">\(0.67\)</span>, and <span class="math inline">\(1\)</span>.</p></li>
-<li><p>Assess balance of covariates and model fit. Covariate balance can be assessed with a balance table or visualisation of the variables using <code>love.plot()</code> such as <a href="#fig-coffee-replication-lplot" class="quarto-xref">Figure&nbsp;4</a>.</p></li>
+<li><p>Assess balance of covariates and model fit. Covariate balance can be assessed with a balance table or visualisation of the variables using <code>love.plot()</code> such as <a href="#fig-coffee-replication-lplot" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>.</p></li>
 <li><p>The tuning process is stated and reported. Balance tables are presented and discussed. Comparison to other methods of estimation if relevant.</p></li>
 <li><p>Estimation and reporting of treatment effect.</p></li>
 </ol>
 </section>
 </section>
-<section id="example-nsw-jobs-dataset-using-r" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="example-nsw-jobs-dataset-using-r"><span class="header-section-number">1.4</span> Example: NSW Jobs Dataset Using R</h2>
-<p>For demonstration, propensity scores are estimated following the workflow discussed in <a href="#sec-gbm-tune-workflow" class="quarto-xref">Section&nbsp;1.3.1</a> to estimate inverse propensity weights (IPW). The NSW jobs dataset arises from a randomised setting as described in <strong>?@sec-data-nsw-jobs</strong>. Randomisation should eliminate structural differences between groups, but <span class="citation" data-cites="Rosenbaum1983">Rosenbaum and Rubin (<a href="#ref-Rosenbaum1983" role="doc-biblioref">1983</a>)</span> notes that randomisation only addresses structural balance and does not account for chance imbalance. To address this, propensity scores can mitigate any remaining chance imbalance, providing a more accurate estimate of the treatment effect. This example will include the fitting process of a GBM using <code>WeightIt</code> and a logistic regression model using <code>glm()</code>. Additionally, balance statistics will be computed leading to a robust estimate of the treatment effect. All code to replicate this process and results is provided.</p>
+<section id="example-nsw-jobs-dataset-using-r" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="example-nsw-jobs-dataset-using-r"><span class="header-section-number">3.4</span> Example: NSW Jobs Dataset Using R</h2>
+<p>For demonstration, propensity scores are estimated following the workflow discussed in <a href="#sec-gbm-tune-workflow" class="quarto-xref"><span>Section 3.3.1</span></a> to estimate inverse propensity weights (IPW). The NSW jobs dataset arises from a randomised setting as described in <a href="appendix.html#sec-data-nsw-jobs" class="quarto-xref"><span>Section 7.1.1</span></a>. Randomisation should eliminate structural differences between groups, but <span class="citation" data-cites="Rosenbaum1983">Rosenbaum and Rubin (<a href="#ref-Rosenbaum1983" role="doc-biblioref">1983</a>)</span> notes that randomisation only addresses structural balance and does not account for chance imbalance. To address this, propensity scores can mitigate any remaining chance imbalance, providing a more accurate estimate of the treatment effect. This example will include the fitting process of a GBM using <code>WeightIt</code> and a logistic regression model using <code>glm()</code>. Additionally, balance statistics will be computed leading to a robust estimate of the treatment effect. All code to replicate this process and results is provided.</p>
 <div id="nte-ipw" class="callout callout-style-default callout-note callout-titled" title="Inverse Probability of Treatment Weighting">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;4: Inverse Probability of Treatment Weighting
+Note&nbsp;3.4: Inverse Probability of Treatment Weighting
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Inverse probability of treatment weighting or inverse propensity weighting (IPW) adjusts for confounding in observational data by weighting individuals based on the inverse of their probability of receiving the treatment they actually got. This method creates a <em>pseudo-population</em> where treatment assignment is independent of observed covariates, similar to a randomized controlled trial. In this re-weighted population, the treatment and control groups should be have covariate balance, allowing for unbiased estimation of treatment effects. Essentially, IPW simulates random treatment assignment by rebalancing the sample, thereby eliminating confounding and enabling more accurate causal inferences.</p>
 </div>
 </div>
-<section id="step-1-6-model-fitting-and-tuning" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="step-1-6-model-fitting-and-tuning"><span class="header-section-number">1.4.1</span> Step 1-6: Model Fitting and Tuning</h3>
-<p>The <code>glm()</code> function will fit a conventional propensity score model with logistic regression in R. Logistic regression is performed by specifying the family to be the <code>binomial()</code>. Recall the <code>nsw_formula</code> is specified in <a href="#sec-bagg-rf-probmachines" class="quarto-xref">Section&nbsp;1.2.2</a></p>
+<section id="step-1-6-model-fitting-and-tuning" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="step-1-6-model-fitting-and-tuning"><span class="header-section-number">3.4.1</span> Step 1-6: Model Fitting and Tuning</h3>
+<p>The <code>glm()</code> function will fit a conventional propensity score model with logistic regression in R. Logistic regression is performed by specifying the family to be the <code>binomial()</code>. Recall the <code>nsw_formula</code> is specified in <a href="#sec-bagg-rf-probmachines" class="quarto-xref"><span>Section 3.2.2</span></a></p>
 <div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>nsw_logit_pmodel <span class="ot">&lt;-</span> <span class="fu">glm</span>(nsw_formula, <span class="at">data =</span> nsw_data,</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">family=</span><span class="fu">binomial</span>())</span>
 <span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -561,7 +706,7 @@ Note&nbsp;4: Inverse Probability of Treatment Weighting
 </div>
 </div>
 <!-- cite what the balance statistics should be in the intro when discussing propensity score and balance.  -->
-<p>The best balance across all tuning combinations yields an average SMD of <span class="math inline">\(0.023\)</span> showing strong balance. Note averages can conceal extremes and a low average SMD does not mean all variables are balanced. A full balance table is presented in <a href="#sec-nsw-balance" class="quarto-xref">Section&nbsp;1.4.2</a> accompanying a discussion of balance.</p>
+<p>The best balance across all tuning combinations yields an average SMD of <span class="math inline">\(0.023\)</span> showing strong balance. Note averages can conceal extremes and a low average SMD does not mean all variables are balanced. A full balance table is presented in <a href="#sec-nsw-balance" class="quarto-xref"><span>Section 3.4.2</span></a> accompanying a discussion of balance.</p>
 <p>The best machine has a learning rate of <span class="math inline">\(0.3\)</span> and contains <span class="math inline">\(2392\)</span> decision stumps (trees with a depth of 1). The learning rate is on the boundary of the initial tuning grid showing that the tuning grid should be re-specified to include values near to <span class="math inline">\(0.3\)</span>. A reduction in the depth of tree and number of trees will reduce computation time.</p>
 <p>The new tune grid will consider <code>shrinkage = c(0.25, 0.3, 0.35, 0.4, 0.45, 0.5)</code> as this allows the GBM to consider values between <span class="math inline">\(0.2\)</span> and <span class="math inline">\(0.3\)</span> and above <span class="math inline">\(0.3\)</span> which were missing in the previous grid.</p>
 <div class="cell">
@@ -586,7 +731,7 @@ Note&nbsp;4: Inverse Probability of Treatment Weighting
 </div>
 </div>
 <p>Comparing the two iterations, there is a reduction from <span class="math inline">\(0.022\)</span> to <span class="math inline">\(0.02\)</span>. The optimal tuning values are towards the centre of the tuning grid, implying that an adequate search of the local area has been completed. The best machine has a learning rate of <span class="math inline">\(0.45\)</span>, a tree depth of <span class="math inline">\(2\)</span>, and <span class="math inline">\(95\)</span> trees. The learning rate is higher than expected, but this also explains why fewer trees are optimal.</p>
-<p>Plotting the relationship between the number of trees and the average SMD is informative for the behaviour of the machine. Additionally, <a href="#fig-balance-iterations" class="quarto-xref">Figure&nbsp;3</a> shows the optimal number of trees is highly variable. If the learning rate is set to <code>shrinkage = 0.05</code>, then the best balance is not achieved until near to <span class="math inline">\(20,000\)</span> trees.</p>
+<p>Plotting the relationship between the number of trees and the average SMD is informative for the behaviour of the machine. Additionally, <a href="#fig-balance-iterations" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> shows the optimal number of trees is highly variable. If the learning rate is set to <code>shrinkage = 0.05</code>, then the best balance is not achieved until near to <span class="math inline">\(20,000\)</span> trees.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the Code to Make the Plot</summary>
@@ -630,7 +775,7 @@ Note&nbsp;4: Inverse Probability of Treatment Weighting
 <img src="propensity_files/figure-html/fig-balance-iterations-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-balance-iterations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Average Standardised Mean Differernce (Covaraite Balance) and the number of interations. Please note the difference in horozontal scale between the two plots.
+Figure&nbsp;3.3: Average Standardised Mean Differernce (Covaraite Balance) and the number of interations. Please note the difference in horozontal scale between the two plots.
 </figcaption>
 </figure>
 </div>
@@ -640,8 +785,8 @@ Figure&nbsp;3: Average Standardised Mean Differernce (Covaraite Balance) and the
 font family 'Source Sans Pro' not found, will use 'sans' instead. perhaps need to define the font in side the plot_annotation()-->
 <p>For the optimal machine fit, finding that balance worsens as the number of trees increases is just as informative as knowing the correct number of trees. Provided sufficient computational performance, a wide grid search is beneficial in the long run to ensure that each model specification reaches the best balance possible.</p>
 </section>
-<section id="sec-nsw-balance" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="sec-nsw-balance"><span class="header-section-number">1.4.2</span> Step 7 and 8: Assessing Balance</h3>
+<section id="sec-nsw-balance" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="sec-nsw-balance"><span class="header-section-number">3.4.2</span> Step 7 and 8: Assessing Balance</h3>
 <div class="callout callout-style-default callout-warning callout-titled" title="The Importance of Discussing Balance">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -748,7 +893,7 @@ The Importance of Discussing Balance
 <div id="tbl-combined-btab" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-combined-btab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Balance Table for NSW Data
+Table&nbsp;3.1: Balance Table for NSW Data
 </figcaption>
 <div aria-describedby="tbl-combined-btab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="tbl-combined-btab" class="cell anchored">
@@ -930,11 +1075,11 @@ Table&nbsp;1: Balance Table for NSW Data
 </figure>
 </div>
 <!-- double check that the variables are in the righ tpalces in the table  -->
-<p><a href="#tbl-combined-btab" class="quarto-xref">Table&nbsp;1</a> shows that both logistic regression and the GBM have reduced imbalance. The raw data exhibits imbalance across age, years of education, if someone is gispanic, and if someone has a bachelors degree. Imbalanced datasets leads to biased treatment effect estimation so the estimate of the treatment effect in the raw data may be biased. In this example, logistic regression appears to achieve the best covariate balance although GBM achieves slightly better variance ratios.</p>
+<p><a href="#tbl-combined-btab" class="quarto-xref">Table&nbsp;<span>3.1</span></a> shows that both logistic regression and the GBM have reduced imbalance. The raw data exhibits imbalance across age, years of education, if someone is gispanic, and if someone has a bachelors degree. Imbalanced datasets leads to biased treatment effect estimation so the estimate of the treatment effect in the raw data may be biased. In this example, logistic regression appears to achieve the best covariate balance although GBM achieves slightly better variance ratios.</p>
 <!-- perhaps find the threshold for variance ratios -->
 </section>
-<section id="step-9-results" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="step-9-results"><span class="header-section-number">1.4.3</span> Step 9: Results</h3>
+<section id="step-9-results" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="step-9-results"><span class="header-section-number">3.4.3</span> Step 9: Results</h3>
 <p>Finally, the treatment effect can be estimated using <code>lm_weightit()</code> from the <code>WeightIt</code> package and <code>avg_comparisons()</code> from the <code>marginaleffects</code> package. <code>lm_weightit()</code> fits a linear model with a covariance matrix that accounts for the estimation of weights using IPW. Additionally, <code>avg_comparisons()</code> computes the contrast between the treatment and control group to obtain an estimate of the treatment effect.</p>
 <p>These steps perform G-computation, meaning that potential outcomes are estimated under treatment and control for each observation <span class="citation" data-cites="Naimi2017">(<a href="#ref-Naimi2017" role="doc-biblioref">Naimi, Cole, and Kennedy 2017</a>)</span>. The contrast of the mean of each of the two potential outcomes is the estimate of the treatment effect. Note that the outcome variable is <code>re78</code> which is real income in 1978 meaning that the income is adjusted for inflation. Previously, the treatment indicator was the outcome variable because the propensity scores are a prediction of the treatment indicator.</p>
 <div class="sourceCode" id="annotated-cell-10"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-10-1" class="code-annotation-target"><a href="#annotated-cell-10-1" aria-hidden="true" tabindex="-1"></a>nsw_boosted_lm <span class="ot">&lt;-</span> <span class="fu">lm_weightit</span>(re78 <span class="sc">~</span> treat <span class="sc">*</span> (age <span class="sc">+</span> educ <span class="sc">+</span> re75 <span class="sc">+</span> black <span class="sc">+</span></span>
@@ -980,7 +1125,7 @@ Table&nbsp;1: Balance Table for NSW Data
 <div id="tbl-nsw-comparisons" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nsw-comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Comparison of ATE Estimates
+Table&nbsp;3.2: Comparison of ATE Estimates
 </figcaption>
 <div aria-describedby="tbl-nsw-comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
@@ -1022,14 +1167,14 @@ Table&nbsp;2: Comparison of ATE Estimates
 </div>
 </figure>
 </div>
-<p><a href="#tbl-nsw-comparisons" class="quarto-xref">Table&nbsp;2</a> shows that both estimates of the treatment effect are nearly identical at <span class="math inline">\(\$1610\)</span> with logistic regression inferring a <span class="math inline">\(\$0.86\)</span> larger treatment effect. Additionally, these results are statistically significant at the <span class="math inline">\(5\%\)</span> level with nearly identical standard errors.</p>
+<p><a href="#tbl-nsw-comparisons" class="quarto-xref">Table&nbsp;<span>3.2</span></a> shows that both estimates of the treatment effect are nearly identical at <span class="math inline">\(\$1610\)</span> with logistic regression inferring a <span class="math inline">\(\$0.86\)</span> larger treatment effect. Additionally, these results are statistically significant at the <span class="math inline">\(5\%\)</span> level with nearly identical standard errors.</p>
 </section>
 </section>
-<section id="replication-study-dont-read-this.-needs-an-honest-days-work" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="replication-study-dont-read-this.-needs-an-honest-days-work"><span class="header-section-number">1.5</span> Replication Study (Don’t read this. needs an honest days work)</h2>
+<section id="replication-study-dont-read-this.-needs-an-honest-days-work" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="replication-study-dont-read-this.-needs-an-honest-days-work"><span class="header-section-number">3.5</span> Replication Study (Don’t read this. needs an honest days work)</h2>
 <p><span class="citation" data-cites="coffecite">(<a href="#ref-coffecite" role="doc-biblioref"><strong>coffecite?</strong></a>)</span> aims to estimate the impact of the certification of coffee cooperatives on small-scale Ethiopian farmers’ livelihoods. Certification is seen as a potential tool for socioeconomic change and environmental sustainability and so it is important to understand the impact on small-scale farmers. Propensity scores are used to balance covariates between certified and non-certified farmers, isolating the certification’s effect on income.The paper did not assess the balance of propensity scores and it is difficult to replicate the results in the paper using best practice. However, this provides a good oppourtunity to assess covarate balance in the inital paper and the repeat the analysis using a machine learning propensity model.</p>
-<section id="replication-of-original-results" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="replication-of-original-results"><span class="header-section-number">1.5.1</span> Replication of Original Results</h3>
+<section id="replication-of-original-results" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="replication-of-original-results"><span class="header-section-number">3.5.1</span> Replication of Original Results</h3>
 <p>The paper is written inside Stata using psmatch2. I use R’s <code>MatchIt</code> package to replicate results. I have been able to reproduce the results of the paper using the below code including the estimate of the treatment effect. I have not been able to replicate the standard errors due to lack of support for <span class="citation" data-cites="abade">(<a href="#ref-abade" role="doc-biblioref"><strong>abade?</strong></a>)</span> SE’s. Although these are reproducable using Stata and the code provided in the original replication pacakge.</p>
 <div class="cell">
 <details class="code-fold">
@@ -1091,12 +1236,12 @@ Type:  response </code></pre>
 </div>
 </div>
 </div>
-<p>Viewing <a href="#fig-coffee-replication-lplot" class="quarto-xref">Figure&nbsp;4</a>, we can see that balance in the dataset is very poor for making inferences. Not a single variable is balanced using the <span class="math inline">\(10\%\)</span> cutoff and key variables that are likely strong predictors of both treatment and income are not balanced either. Balance in the study is not assessed for any variable which is a “red flag” for propensity score inference. For key variables such as Age, Gender, or Education, this balance is especially important. On a theoretical level, we expect that people who are more educated are more likely to become certified as they are better able to engage with the application process and also are expected to earn more as increased education should lead to greater productivity. There likely exists gender discrimination given the time period and geographic area which suggests woman are less likely to be certified than men while also earning less due to a wide gender pay gap. These variables are strong confounders in theory and so emphasising balance in these variables is critical to making a robust causal inference.</p>
+<p>Viewing <a href="#fig-coffee-replication-lplot" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>, we can see that balance in the dataset is very poor for making inferences. Not a single variable is balanced using the <span class="math inline">\(10\%\)</span> cutoff and key variables that are likely strong predictors of both treatment and income are not balanced either. Balance in the study is not assessed for any variable which is a “red flag” for propensity score inference. For key variables such as Age, Gender, or Education, this balance is especially important. On a theoretical level, we expect that people who are more educated are more likely to become certified as they are better able to engage with the application process and also are expected to earn more as increased education should lead to greater productivity. There likely exists gender discrimination given the time period and geographic area which suggests woman are less likely to be certified than men while also earning less due to a wide gender pay gap. These variables are strong confounders in theory and so emphasising balance in these variables is critical to making a robust causal inference.</p>
 <p>It is also worth noting that this result has partially achieved balance as 34 observations of which 33 are treated and 1 are control are dropped as they do not meet a common support requirement. This increases balance as the trimmed observations are extreme data points. When observations are discarded, the ATT, ATC, or ATE cannot be claimed. Instead, this is refereed to as the average treatment effect on the matched or ATM.</p>
 <p>Overall, this model fit using logistic regression and propensity score matching has resulted in a poor model due to covariate imbalance and unidentifiable estimands. It is likely that improvement can be made using</p>
 </section>
-<section id="further-modelling" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="further-modelling"><span class="header-section-number">1.5.2</span> Further Modelling</h3>
+<section id="further-modelling" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="further-modelling"><span class="header-section-number">3.5.2</span> Further Modelling</h3>
 <p>In the following model fitting process, I aim to obtain better results while preserving the estimand. To assess how much imbalance is caused by propensity score matching compared to weighting, I fit a logistic regression model and use IPTW instead of PSM. Additionally, I fit a generalised boosting model also using inverse probability of treatment weighting. My implementation will be using the <code>WeightIt</code> package as above. There are two interesting comparisons to be mad in this process. Firstly, what is the difference in balance between PSM and IPTW. Second, the relative performance of logistic regression and generalised boosting machines.</p>
 <p>A logistic regression fit is simple to estimate.</p>
 <div class="cell">
@@ -1130,7 +1275,7 @@ Discussion of Tuning
 <div id="tbl-raw-btab" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-raw-btab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3
+Table&nbsp;3.3
 </figcaption>
 <div aria-describedby="tbl-raw-btab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -1140,8 +1285,8 @@ Table&nbsp;3
 </figure>
 </div>
 </section>
-<section id="comparison-of-methodologies" class="level3" data-number="1.5.3">
-<h3 data-number="1.5.3" class="anchored" data-anchor-id="comparison-of-methodologies"><span class="header-section-number">1.5.3</span> Comparison of Methodologies</h3>
+<section id="comparison-of-methodologies" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="comparison-of-methodologies"><span class="header-section-number">3.5.3</span> Comparison of Methodologies</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the Code Prepairing the Balance Table for Presentation</summary>
@@ -1186,7 +1331,7 @@ Table&nbsp;3
 <div id="tbl-coffee-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-coffee-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: Comparison of Balance for Coffee Data Using Different Propensity Models
+Table&nbsp;3.4: Comparison of Balance for Coffee Data Using Different Propensity Models
 </figcaption>
 <div aria-describedby="tbl-coffee-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1536,7 +1681,7 @@ A treshold of |0.1| is used to determine variable balance.</td>
 <div id="tbl-coffee-love-all" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-coffee-love-all-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5: Comparison of Balance for Coffee Data Using Different Methods
+Table&nbsp;3.5: Comparison of Balance for Coffee Data Using Different Methods
 </figcaption>
 <div aria-describedby="tbl-coffee-love-all-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
@@ -1639,7 +1784,6 @@ Smith, Jeffrey A., and Petra E. Todd. 2005. <em><span class="nocase">Does matchi
 Tu, Chunhao. 2019. <span>“<span class="nocase">Comparison of various machine learning algorithms for estimating generalized propensity score</span>.”</span> <em>Journal of Statistical Computation and Simulation</em> 89 (4): 708–19. <a href="https://doi.org/10.1080/00949655.2019.1571059">https://doi.org/10.1080/00949655.2019.1571059</a>.
 </div>
 </div>
-</section>
 </section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
@@ -2075,6 +2219,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./background.html" class="pagination-link" aria-label="Background: Causal Inference and Machine Learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background: Causal Inference and Machine Learning</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./metalearners.html" class="pagination-link" aria-label="Meta-Learners">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meta-Learners</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
