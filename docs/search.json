@@ -12,81 +12,91 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction ()",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
     "section": "",
-    "text": "1.1 Purpose and Intended Audience",
+    "text": "1.1",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#purpose-and-intended-audience",
+    "href": "intro.html#purpose-and-intended-audience",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.2 Purpose and Intended Audience",
+    "text": "1.2 Purpose and Intended Audience",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
     "objectID": "intro.html#open-science",
     "href": "intro.html#open-science",
-    "title": "1  Introduction ()",
-    "section": "1.2 Open Science",
-    "text": "1.2 Open Science",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.3 Open Science",
+    "text": "1.3 Open Science",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
     "objectID": "intro.html#layout-of-book",
     "href": "intro.html#layout-of-book",
-    "title": "1  Introduction ()",
-    "section": "1.3 Layout of Book",
-    "text": "1.3 Layout of Book\nThis book is written using Quarto which is an open-source scientific and technical publishing system.\nA background to causal inference and machine learning is provided in Chapter Chapter 2. This background is non-exhaustive but should provide an overview of all knowledge required to understand the methods and applications in this book. For readers with prior knowledge of causal inference, Chapter (background?) is unlikely to provide new information.\nFollowing this background information I discuss #number of methods and provide applications leading to a strong understanding. These methods include Meta-Learners in Chapter (metalearners?), …",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.4 Layout of Book",
+    "text": "1.4 Layout of Book\nThis book is written using Quarto which is an open-source scientific and technical publishing system.\nA background to causal inference and machine learning is provided in Chapter Chapter 2. This background is non-exhaustive but should provide an overview of all knowledge required to understand the methods and applications in this book. For readers with prior knowledge of causal inference, Chapter (background?) is unlikely to provide new information.\nFollowing this background information I discuss #number of methods and provide applications leading to a strong understanding. These methods include Meta-Learners in Chapter (metalearners?), …",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
     "objectID": "intro.html#interpretability-vs-accuracy",
     "href": "intro.html#interpretability-vs-accuracy",
-    "title": "1  Introduction ()",
-    "section": "1.4 Interpretability vs Accuracy",
-    "text": "1.4 Interpretability vs Accuracy\n\nThere exists a tradeoff between interpretability and accuracy across different machine learing and conventional statistical models. On one hand, models can be interpretable where reserachers can understand how a model",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.5 Interpretability vs Accuracy",
+    "text": "1.5 Interpretability vs Accuracy\n\nThere exists a tradeoff between interpretability and accuracy across different machine learing and conventional statistical models. On one hand, models can be interpretable where reserachers can understand how a model",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
     "objectID": "intro.html#machine-learning-and-causal-inference",
     "href": "intro.html#machine-learning-and-causal-inference",
-    "title": "1  Introduction ()",
-    "section": "1.5 Machine Learning and Causal Inference",
-    "text": "1.5 Machine Learning and Causal Inference\nGiven the lack of interpretability offered by many machine learning methods, there is often scepticism of causal learning. Cite Econometrics as a discipline has seldom interacted with machine learning as the interpretability of regression methods are favourable. While it is true that there are restrictions\nThe area where machine learning and causal inference collide is often relating to heterogeneous treatment effects. The literature on HTE’s is diverse and rapidly growing. It seems that\nmake sure to emphasises the fundamental problem in terms of machine learning. why ml is a challnedge is because we dont observe the treatment effect so we cant rely on a hold out set to provde it works.\n\n1.5.1 Two Competing Frameworks",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.6 Machine Learning and Causal Inference",
+    "text": "1.6 Machine Learning and Causal Inference\nGiven the lack of interpretability offered by many machine learning methods, there is often scepticism of causal learning. Cite Econometrics as a discipline has seldom interacted with machine learning as the interpretability of regression methods are favourable. While it is true that there are restrictions\nThe area where machine learning and causal inference collide is often relating to heterogeneous treatment effects. The literature on HTE’s is diverse and rapidly growing. It seems that\nmake sure to emphasises the fundamental problem in terms of machine learning. why ml is a challnedge is because we dont observe the treatment effect so we cant rely on a hold out set to provde it works.\n\n1.6.1 Two Competing Frameworks",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
     "objectID": "intro.html#datasets-and-languages",
     "href": "intro.html#datasets-and-languages",
-    "title": "1  Introduction ()",
-    "section": "1.6 Datasets and Languages",
-    "text": "1.6 Datasets and Languages\nThis book exclusively uses the R programming language as R provides an extensive list of packages for causal infernce and machine learning unavailable in other statistical programming languages. All data used in this book is publically available. The preparation and processing of all data is found in Section 7.1.",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.7 Datasets and Languages",
+    "text": "1.7 Datasets and Languages\nThis book exclusively uses the R programming language as R provides an extensive list of packages for causal infernce and machine learning unavailable in other statistical programming languages. All data used in this book is publically available. The preparation and processing of all data is found in Section 7.1.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
     "objectID": "intro.html#reproducability",
     "href": "intro.html#reproducability",
-    "title": "1  Introduction ()",
-    "section": "1.7 Reproducability",
-    "text": "1.7 Reproducability\nFor reproducibility, the same seed has been used in all coded examples. The seed defines the randomness introduced by various functions.\n\n“When this baby hits 88 miles per hour, you’re gonna see some serious $#*+!”\n— Doc Brown\n\nThat’s all Doc Brown says before the DeLorean Time Machine blasts off. The temporal displacement leaves a flaming trail in the parking lot, and just like that, time travel moves from theory to reality! In the world of Back to the Future, all you need is 88 mph and you’ve got yourself a time machine. A seed can be set with the following line.\n\n\nCode\nset.seed(88)",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.8 Reproducability",
+    "text": "1.8 Reproducability\n\n\n\n\n\n\n\nCode\nset.seed(88)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
     "objectID": "intro.html#theming",
     "href": "intro.html#theming",
-    "title": "1  Introduction ()",
-    "section": "1.8 Theming",
-    "text": "1.8 Theming\nThis\n\n\nCode\nlibrary(ggplot2)\nlibrary(showtext)\n\n\nLoading required package: sysfonts\n\n\nLoading required package: showtextdb\n\n\nCode\nfont_add_google(name = \"Source Sans Pro\", family = \"Source Sans Pro\")\n\nshowtext_auto()\n\ncustom_ggplot_theme &lt;- theme_classic(base_size = 11, base_family = \"Source Sans Pro\") +\n    theme(\n      text = element_text(color = \"#333333\"),\n      plot.background = element_blank(),  # No plot background\n      panel.background = element_blank(),  # No panel background\n      axis.text = element_text(color = \"#333333\"),\n      axis.title = element_text(color = \"#333333\", face = \"bold\"),\n      legend.text = element_text(color = \"#333333\"),\n      legend.title = element_text(color = \"#333333\", face = \"bold\",),\n      plot.title = element_text(size = 14, face = \"bold\", color = \"#333333\"),\n      plot.subtitle = element_text(size = 12, face = \"italic\", color = \"#333333\"),\n      strip.text = element_text(face = \"bold\", family = \"Source Sans Pro\", \n                                color = \"#333333\"),\n      legend.position=\"bottom\")\n\ntheme_set(custom_ggplot_theme)",
+    "title": "1  Introduction DONT READ THIS YET. ITS STILL BLAAA",
+    "section": "1.9 Theming",
+    "text": "1.9 Theming\n\n\nCode\nlibrary(ggplot2)\nlibrary(showtext)\n\n\nLoading required package: sysfonts\n\n\nLoading required package: showtextdb\n\n\nCode\nfont_add_google(name = \"Source Sans Pro\", family = \"Source Sans Pro\")\n\nshowtext_auto()\n\ncustom_ggplot_theme &lt;- theme_classic(base_size = 11, base_family = \"Source Sans Pro\") +\n    theme(\n      text = element_text(color = \"#333333\"),\n      plot.background = element_blank(),  # No plot background\n      panel.background = element_blank(),  # No panel background\n      axis.text = element_text(color = \"#333333\"),\n      axis.title = element_text(color = \"#333333\", face = \"bold\"),\n      legend.text = element_text(color = \"#333333\"),\n      legend.title = element_text(color = \"#333333\", face = \"bold\",),\n      plot.title = element_text(size = 14, face = \"bold\", color = \"#333333\"),\n      plot.subtitle = element_text(size = 12, face = \"italic\", color = \"#333333\"),\n      strip.text = element_text(face = \"bold\", family = \"Source Sans Pro\", \n                                color = \"#333333\"),\n      legend.position=\"bottom\")\n\ntheme_set(custom_ggplot_theme)",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction ()</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction DONT READ THIS YET. ITS STILL BLAAA</span>"
     ]
   },
   {
