@@ -308,7 +308,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-trees" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Causal Trees and Forests</span></span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-trees" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Causal Trees and Forests</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -347,12 +347,73 @@ window.Quarto = {
 <p>where <span class="math inline">\(\hat{\mu}\)</span> the estimate of the mean of each treatment group <span class="math inline">\(t \in \{0,1\}\)</span>, with attributes <span class="math inline">\(x\)</span>, contained within a given terminal node <span class="math inline">\(\ell_i\)</span>. In other words, for a given terminal node, <span class="math inline">\(\hat{\tau}(x;\ell_i)\)</span> is the contrast of the mean value between treatment and control observations. The conditional part of the CATE is implied by the structure of the tree preceding the terminal node where a particular <span class="math inline">\(\hat{\tau}(x;\ell_i))\)</span> is evaluated. Each preceding split is interpreted as a <em>decision rule</em>, defining the conditions upon which <span class="math inline">\(\hat{\tau}(x;\ell_i))\)</span> is conditioned.</p>
 <p>To achieve asymptotically consistent estimates of the treatment effect, <span class="citation" data-cites="Athey2016">Athey and Imbens (<a href="#ref-Athey2016" role="doc-biblioref">2016</a>)</span> propose an “honest” approach, whereby one sample, <span class="math inline">\(\mathcal{S}^{tr}\)</span> is used to construct the partition and another, <span class="math inline">\(\mathcal{S}^{est}\)</span> to estimate treatment effects. In other words, the tree’s structure is created using different data than is used to estimate the treatment effect. If the same data is used for training and estimation, extreme values would likely be grouped together during splitting. During estimation, these extreme values would lead to extreme results in some terminal nodes, leading to spurious results created by the chance outliers in a particular sample. Using honesty, the same extreme values will not appear in those terminal nodes, leading to more consistent results. Intuitively, the causal tree must grow the tree structure and estimate the treatment effect. Honest splitting means that half the sample is used for each task. By anticipating honest splitting leading to lower bias, the splitting rule in <a href="#eq-ctemse" class="quarto-xref">Equation&nbsp;<span>5.2</span></a> focuses on variance only. Honesty is important to guarantee desirable asymptotic properties and prevent overfitting despite the reduction in sample size for splitting and estimation.</p>
 <p>For example, <a href="#fig-ctree" class="quarto-xref">Figure&nbsp;<span>5.1</span></a> is a causal tree trained using <span class="math inline">\(\mathcal{S}^{tr}\)</span> and <span class="math inline">\(\hat{\tau}(x;\ell_i)\)</span> is calculated within the shaded terminal nodes <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> using <span class="math inline">\(\mathcal{S}^{est}\)</span>. For node <span class="math inline">\(A\)</span>, <span class="math inline">\(\hat{\tau}(x)\)</span> is evaluated by solving <a href="#eq-causal-tree-nodecalc" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> with the estimation sample, <span class="math inline">\(\mathcal{S}^{est}\)</span> falling inside <span class="math inline">\(A\)</span>, resulting in an estimate conditioned on <span class="math inline">\(X_1&gt;5\)</span>. Similarly, for <span class="math inline">\(\mathcal{S}^{est}\)</span> in <span class="math inline">\(B\)</span>, the <span class="math inline">\(\hat{\tau}(x)\)</span> is the difference in mean outcome between treatment and control, conditioned on <span class="math inline">\(X_1&lt;5\)</span> and <span class="math inline">\(X_2&gt;3.5\)</span>.</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-fig-width="6" data-fig.align="center" data-cache="true" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-ctree" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-ctree" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ctree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="trees_files/figure-html/fig-ctree-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384">
+<div>
+<svg width="576" height="480" viewbox="0.00 0.00 261.00 326.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 322)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-322 257,-322 257,4 -4,4"></polygon>
+<!-- node0 -->
+<g id="node1" class="node">
+<title>node0</title>
+<ellipse fill="white" stroke="#333333" cx="94" cy="-289" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="94" y="-285.4" font-family="Source Sans Pro" font-size="12.00">X1 &gt; 5</text>
+</g>
+<!-- node1 -->
+<g id="node2" class="node">
+<title>node1</title>
+<ellipse fill="#333333" stroke="#333333" cx="29" cy="-159" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="29" y="-155.4" font-family="Source Sans Pro" font-size="12.00" fill="white">A</text>
+</g>
+<!-- node0&#45;&gt;node1 -->
+<g id="edge1" class="edge">
+<title>node0-&gt;node1</title>
+<path fill="none" stroke="#2780e3" stroke-width="2" d="M81.16,-262.71C71.23,-243.16 57.39,-215.9 46.45,-194.37"></path>
+<polygon fill="#2780e3" stroke="#2780e3" stroke-width="2" points="49.46,-192.57 41.82,-185.24 43.22,-195.74 49.46,-192.57"></polygon>
+</g>
+<!-- node2 -->
+<g id="node3" class="node">
+<title>node2</title>
+<ellipse fill="white" stroke="#333333" cx="159" cy="-159" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="159" y="-155.4" font-family="Source Sans Pro" font-size="12.00">X2 &lt; 3.5</text>
+</g>
+<!-- node0&#45;&gt;node2 -->
+<g id="edge2" class="edge">
+<title>node0-&gt;node2</title>
+<path fill="none" stroke="#2780e3" stroke-width="2" d="M106.84,-262.71C116.77,-243.16 130.61,-215.9 141.55,-194.37"></path>
+<polygon fill="#2780e3" stroke="#2780e3" stroke-width="2" points="144.78,-195.74 146.18,-185.24 138.54,-192.57 144.78,-195.74"></polygon>
+</g>
+<!-- node3 -->
+<g id="node4" class="node">
+<title>node3</title>
+<ellipse fill="#333333" stroke="#333333" cx="94" cy="-29" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="94" y="-25.4" font-family="Source Sans Pro" font-size="12.00" fill="white">B</text>
+</g>
+<!-- node2&#45;&gt;node3 -->
+<g id="edge3" class="edge">
+<title>node2-&gt;node3</title>
+<path fill="none" stroke="#2780e3" stroke-width="2" d="M146.16,-132.71C136.23,-113.16 122.39,-85.9 111.45,-64.37"></path>
+<polygon fill="#2780e3" stroke="#2780e3" stroke-width="2" points="114.46,-62.57 106.82,-55.24 108.22,-65.74 114.46,-62.57"></polygon>
+</g>
+<!-- node4 -->
+<g id="node5" class="node">
+<title>node4</title>
+<ellipse fill="#333333" stroke="#333333" cx="224" cy="-29" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="224" y="-25.4" font-family="Source Sans Pro" font-size="12.00" fill="white">C</text>
+</g>
+<!-- node2&#45;&gt;node4 -->
+<g id="edge4" class="edge">
+<title>node2-&gt;node4</title>
+<path fill="none" stroke="#2780e3" stroke-width="2" d="M171.84,-132.71C181.77,-113.16 195.61,-85.9 206.55,-64.37"></path>
+<polygon fill="#2780e3" stroke="#2780e3" stroke-width="2" points="209.78,-65.74 211.18,-55.24 203.54,-62.57 209.78,-65.74"></polygon>
+</g>
+</g>
+</svg>
+</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ctree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5.1: Causal Tree Visualisation.
@@ -681,6 +742,8 @@ E[Y - \hat{m}^{(-i)}(x) - \tau(T - \hat{e}^{(-i)}(x)))(T - \hat{e}^{(-i)}(x)] = 
 <h2 data-number="5.3" class="anchored" data-anchor-id="application-national-supported-work-data-dont-read-some-things-have-run-into-errors-which-will-hopefully-be-a-simple-fix.-they-previously-worked-fine."><span class="header-section-number">5.3</span> Application: National Supported Work Data (DONT READ, some things have run into errors which will hopefully be a simple fix. they previously worked fine. )</h2>
 <p>While the NSW dataset has often been applied in the context of propensity score methods in textbook examples. Seldom has treatment effect heterogeneity been explored. The Causal Tree earlier suggested that age and education may be significant indicators of the success of the programme for individuals. Using the <code>grf</code> package, the model is fit using all covariates including income in earlier years.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">'grf'</span>)</span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>covars <span class="ot">&lt;-</span> nsw_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, educ, black, hisp, marr, degree, re74)</span>
@@ -694,6 +757,7 @@ E[Y - \hat{m}^{(-i)}(x) - \tau(T - \hat{e}^{(-i)}(x)))(T - \hat{e}^{(-i)}(x)] = 
 <span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>  nsw_ite_predict <span class="ot">&lt;-</span><span class="fu">predict</span>(nsw_cf_model, <span class="at">estimate.variance =</span> <span class="cn">TRUE</span>)</span>
 <span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>  nsw_ite <span class="ot">&lt;-</span> nsw_ite_predict<span class="sc">$</span>predictions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'grf'</span>)</span>
 <span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">'grf'</span>)</span>
@@ -789,27 +853,39 @@ Figure&nbsp;5.4: rewrite: The interaction between age and education is shown in 
 <p>While the response surface is still sharp in some places, there is a visible gradient showing the increase</p>
 <p>Additionally, using the causal forest, the estimates of the average treatment effect seem more likely. The effect is predicted to be positive for all individuals when holding all other individuals at their mean values. However, the general relationship and heterogeneity in the data is the same. The Causal Forest finds that increasing age and increasing education results in a higher individual treatment effect.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggplot2)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggthemes)</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># library(scales)</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(degree), y = ite) +</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(marr), y = ite) +</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(black), y = ite) +</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(hisp), y = ite) +</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
 <details class="code-fold">
@@ -865,6 +941,8 @@ Figure&nbsp;5.4: rewrite: The interaction between age and education is shown in 
 <p>Perhaps the older demographics were motivated workers but unemployed/underemployed because of structural changes in the economy such as the general decline in manufacturing jobs in the late 1970’s in the United States. Meanwhile younger applications may have personal reasons for unemployment/underemployment meaning they were less driven or motivated to to obtain higher earning jobs after the programme. While this speculation is unlikely to be the cause of this heterogeneity, it does reinforce the idea that exploratory research should not be confused wth confirmatory research. There are many hypothetical confounding relationships that exist which can be speculated upon but the key idea is that the research design does not control for some of these reasons and so we cannot conclude from the exploratory finding that there is a confirmation increased age or education leading to higher treatment effects in work programmes.</p>
 <!-- To get better smotheness a possible helper is the local linear forest. look into this. -->
 
+
+<!-- -->
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Athey2016" class="csl-entry" role="listitem">
@@ -1007,6 +1085,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1349,7 +1478,664 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include=FALSE}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="in">load(file = "my_environment.RData")</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- To-do:  --&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- - ensure that other chapters are consistent with this notation.  --&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- - add a comparison to metalearners  --&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Causal Trees and Forests {#sec-trees}</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>Traditional causal inference methods such as regression analysis provide excellent capabilities but also face several limitations. First, many conventional methods assume that treatment effects are homogeneous across the population, which is often unrealistic. In practice, the effect of a treatment can vary significantly across different subgroups or individuals, a concept known as 'treatment effect heterogeneity'. Second, traditional methods struggle with high-dimensional data where the number of covariates is large relative to the sample size. Lastly, the real-world relationships between variables are often non-linear and involve complex interactions that traditional linear models cannot capture adequately. Given these limitations, there is a clear need for non-parametric methods that could flexibly model complex relationships and treatment heterogeneity without imposing strong parametric assumptions. This need motivates the development of machine learning approaches tailored for causal inference such as causal trees and causal forests. </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>By providing a machine learning approach to handling heterogeneity in treatment effects, causal trees and forests enable researchers and practitioners to draw more targeted and nuanced conclusions from their data, ultimately leading to better-informed decision-making. Specifically of interest is personalised and targeted medicine or policy learning. By modelling treatment effect heterogeneity, there is knowledge of how a particular treatment will impact an individual or a subgroup inside a population. For example, if a medical researcher understands the effect of a medication for a specific subgroup then medical prescription can be personalized. In a policy context, decision-makers could target an intervention or programme towards those who benefit most or those where the benifit exceeds the cost of participation.</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>Recent research in causal inference has focused on developing methods to estimate treatment effect heterogeneity. This section provides a comprehensive overview of causal trees and forests, including generalized random forest methods. Additionally, these methods are exemplified using the <span class="in">`htetree`</span> and <span class="in">`grf`</span> packages available for the R statistical language. </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- perhaps add some prescision to the intro of what high dim means --&gt;</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Causal Trees: Overview and Intuition {#sec-causal-tree-intro}</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>To adapt a Classification and Regression Tree (CART) to a causal context, @Athey2016 develop the causal tree (CT). If unfirmilar with CART, please consider reading @sec-background-cart before proceeding. First, the authors derive a mean square error function allowing trees to identify heterogeneous treatment effects (HTEs). Second, they develop the honesty theorem to ensure desirable asymptotic properties for tree-based estimation of HTEs.</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>CTs function similarly to CART at a high level by partitioning the data, resulting in purity within child nodes. In a causal context, a better word for purity is *homogeneity*. Instead of splitting for purity (classification tree) or residual sum of squares (regression tree), the CT partitions a given parent node to create nodes where the conditional average treatment effect (CATE) is the most heterogeneous across the resulting child nodes. @Athey2016 develop an an expected mean square error formula, $\operatorname{EMSE}$ to select splits in the CT. This function introduces a trade-off between maximising the heterogeneity across nodes and minimising the variance of the estimate of the treatment effect within nodes. </span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>There is an intuitive parallel between matching methods and tree methods. Matching methods often match observations based on similarity, usually reduced to a single propensity score as in @sec-propensity-scores. Instead, a causal tree will partition the covariate space and pseudo-match similar observations into child nodes, thus creating neighbourhoods where a comparison between treatment and control cases is robust. Using a tree-based algorithm to define a neighbourhood is advantageous because the distance metric is adaptive. By splitting on covariates that maximise HTEs, CTs identify variables and splits that best explain the heterogeneity. Thus the definition of each neighborhood is adapted to  the splits which maximise the heterogeneity. The parallel is important to understand as it motivates the calculation of HTEs and the general philosophy of the tree-based estimation of HTEs.</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- the intro here needs to define the \ell and x --&gt;</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### Honesty Criterion and Estimation of Heterogeneous Treatment Effects</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>Assuming a tree is already built, the CATE for a given terminal node is denoted $\tau(x; \ell_i)$ and can be estimated simply due to this pseudo-matching property. Recall the calculation of the average treatment effect, denoted $\tau_{ATE}$, from @eq-ate-estimate is the contrast of treatment and control observations in a sample. A CT estimates $\tau(x; \ell_i)$ separately inside each heterogeneous neighbourhood defined by the tree structure as if it was an independent sample. Hence, across the tree each terminal node, $\tau(x; \ell_i)$ is indexed as $\ell_1,\dots,\ell_n$. Across the tree, $\tau(x; \ell_i)$ is estimated inside each separate terminal node using:</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>\hat{\tau}(x; \ell_i) = \hat{\mu}(x,1;\ell_i) - \hat{\mu}(x,0;\ell_i),</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>$$ {#eq-causal-tree-nodecalc}</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>where $\hat{\mu}$ the estimate of the mean of each treatment group $t \in <span class="sc">\{</span>0,1<span class="sc">\}</span>$, with attributes $x$, contained within a given terminal node $\ell_i$. In other words, for a given terminal node, $\hat{\tau}(x;\ell_i)$ is the contrast of the mean value between treatment and control observations. The conditional part of the CATE is implied by the structure of the tree preceding the terminal node where a particular $\hat{\tau}(x;\ell_i))$ is evaluated. Each preceding split is interpreted as a *decision rule*, defining the conditions upon which $\hat{\tau}(x;\ell_i))$ is conditioned.</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>To achieve asymptotically consistent estimates of the treatment effect, @Athey2016 propose an “honest” approach, whereby one sample, $\mathcal{S}^{tr}$ is used to construct the partition and another, $\mathcal{S}^{est}$ to estimate treatment effects. In other words, the tree's structure is created using different data than is used to estimate the treatment effect. If the same data is used for training and estimation, extreme values would likely be grouped together during splitting. During estimation, these extreme values would lead to extreme results in some terminal nodes, leading to spurious results created by the chance outliers in a particular sample. Using honesty, the same extreme values will not appear in those terminal nodes, leading to more consistent results. Intuitively, the causal tree must grow the tree structure and estimate the treatment effect. Honest splitting means that half the sample is used for each task. By anticipating honest splitting leading to lower bias, the splitting rule in @eq-ctemse focuses on variance only. Honesty is important to guarantee desirable asymptotic properties and prevent overfitting despite the reduction in sample size for splitting and estimation. </span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>For example, @fig-ctree is a causal tree trained using $\mathcal{S}^{tr}$ and $\hat{\tau}(x;\ell_i)$ is calculated within the shaded terminal nodes $A$, $B$, and $C$ using $\mathcal{S}^{est}$. For node $A$, $\hat{\tau}(x)$ is evaluated by solving @eq-causal-tree-nodecalc with the estimation sample, $\mathcal{S}^{est}$ falling inside $A$, resulting in an estimate conditioned on $X_1&gt;5$. Similarly, for $\mathcal{S}^{est}$ in $B$, the $\hat{\tau}(x)$ is the difference in mean outcome between treatment and control, conditioned on $X_1&lt;5$ and $X_2&gt;3.5$.</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{dot}</span></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="in">//| label: fig-ctree</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a><span class="in">//| fig-width: 6</span></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a><span class="in">//| echo: false</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="in">//| fig.align: center</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a><span class="in">//| cache: true</span></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="in">//| fig-cap: Causal Tree Visualisation.</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="in">digraph G {</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="in">  rankdir=TB;  // Top to bottom layout</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="in">  nodesep=1;  // Horizontal spacing between nodes</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="in">  ranksep=1;  // Vertical spacing between nodes</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="in">  node [shape=circle, style=filled, fillcolor=white, width=0.8, height=0.6, </span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="in">  fontsize=12, fontname="Source Sans Pro", fixedsize=true, color="#333333"];</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="in">  edge [color="#2780e3", penwidth=2.0, fontsize=12];</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="in">  // Define the nodes with custom colors and labels</span></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a><span class="in">  node0 [fillcolor=white, label="X1 &gt; 5"];</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="in">  node1 [fillcolor="#333333", label="A", fontcolor=white];</span></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="in">  node2 [fillcolor=white, label="X2 &lt; 3.5"];</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="in">  node3 [fillcolor="#333333", label="B", fontcolor=white];</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a><span class="in">  node4 [fillcolor="#333333", label="C", fontcolor=white];</span></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a><span class="in">  // Define the edges</span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a><span class="in">  node0 -&gt; node1;</span></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a><span class="in">  node0 -&gt; node2;</span></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a><span class="in">  node2 -&gt; node3;</span></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a><span class="in">  node2 -&gt; node4;</span></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>This approach allows us to observe HTEs between different subgroups which is the motivation for using CTs. It is important to note that subgroups are identified through a data-driven approach rather than prior knowledge. The tree-building process involves splitting the data to discover these groups and estimate their respective $\hat{\tau}(x)$. This property is very advantageous as there are many applications where there is not sufficient prior knowledge of heterogeneity to perform subgroup analysis. In this sense, causal trees are an exploratory research method with the powerful capabilities to find unknown subgroups. </span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>::: {#nte-confirmatory-exploratory-explan .callout-note title="Exploratory and Confirmatory Research"}</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>The distinction between exploratory and confirmatory research is important to ensure methods like CTs support *good science*. @Schwab2020 note that exploratory research seeks to investigate and understand something without a predefined hypothesis, such as searching for HTEs. Some may describe exploratory research with derogatory terms such as "a fishing expedition" or "data dredging". On the other hand, confirmatory research tests specific hypotheses derived from theory or prior knowledge. A summary is that exploratory research seeks to find "something", while confirmatory aims to test a specific "thing". The two are co-dependent, and both have value in research design.</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>Problems arise when exploratory and confirmatory research are accidentally confused or deliberately merged. Findings from exploratory research may result in false positives, indicating an effect where none exists. This can happen by chance, poor research design, or from completely spurious relationships. The false positive problem worsens as the amount of "exploration" increases, such as assessing more subgroups or using additional analysis methods. Additionally, a researcher may only present the interesting or convenient results leading to "cherry picking" of results. Additionally, the researcher may find the results and then specify the hypothesis as if it was previously known. This can be analogised as throwing darts then drawing the dartboard around the landing spot.</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>The two work best together in a research cycle where exploratory research generates hypothesis and confirmatory results tests them. Methods such as CTs can generate hypotheses, and confirmatory research can consider research design to test the hypothesis optimally as a part of a pre-registered study plan. </span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Technical Detail and Splitting Criteria {#sec-causal-tree-emse}</span></span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>Typically a mean square error (MSE) function takes a form similar to $\frac{1}{n}\sum(y_i-\hat{y_i})^2$ where $y_i$ is the true value, $\hat{y_i}$ is the estimated value, and $n$ is the number of observations. Intuitively, the typical mean square error says to make the predicted values the closest to the actual values. The fundamental problem discussed in @nte-fundamental means the MSE is not appropriate as we never observe true value of the individual treatment effect (ITE), denoted $\tau_i$.</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>Recall from the introduction that a CT splits to maximise heterogeneity across nodes while minimising variance of the treatment effect within nodes. To maximise heterogeneity,the CT will maximise the variance of the predictions @eq-causal-tree-nodecalc across all leaves. More variance across terminal nodes implies that the CT has found more heterogeneity of the treatment effect across the neighbourhoods identified by pseudo-matching. At the same time splits should be made so that the estimates of the treatment effect are robust and so the the splitting rule includes variance penalisation as well. </span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>Putting these elements together, @Athey2016 develop an expected mean square error function suitable for an unobserved $\tau_i$:</span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>    -\widehat{\operatorname{EMSE}}_\tau &amp; \left(\mathcal{S}^{tr}, N^{est}, \Pi\right) \equiv \alpha \frac{1}{N^{tr}} \sum_{\ell \in \Pi} \hat{\tau}^2\left(x ; \mathcal{S}^{tr}, \Pi\right)<span class="sc">\\</span></span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>    &amp;-(1-\alpha)\left(\frac{1}{N^{tr}}+\frac{1}{N^{est}}\right) \cdot \sum_{\ell \in \Pi}\left(\frac{\mathcal{S}_{\mathcal{S}_{\text {treat }}^{tr}}^2(\ell)}{p}+\frac{\mathcal{S}_{\mathcal{S}_{\text {control }}^{tr}}^2(\ell)}{1-p}\right).</span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ctemse}</span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>Let, </span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\frac{1}{N^{\operatorname{tr}}} \sum_{\ell \in \Pi} \hat{\tau}^2\left(x;\mathcal{S}^{\mathrm{tr}}, \Pi\right)$ be the variance of the treatment effect across nodes in the training sample, $\mathcal{S}^{\mathrm{tr}}$ . This expression extends @eq-causal-tree-nodecalc across all terminal leaves contained within the tree such that $\ell_1,\ell_2 \dots\ell_n \in \Pi$.</span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$N^\mathrm{tr} \text{ and } N^\mathrm{est}$ be the number of observations in the training and estimation samples.</span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\mathcal{S}^2 (\ell)$ be the variance of the estimate of the treatment effect inside terminal node $\ell$. </span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$p$ be the treatment share expressed as $N^\mathrm{tr}/ N^\mathrm{est}$.</span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- clarify that the alpha parameter might not be implimented in athey2016 so note where it comes from in a footnote </span></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="co">clarify that pi is inside the leaves initiaully before the eqn</span></span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="co">also then state that inside eqation that it is only on the training obs, perhaps also that there is cross validation. --&gt;</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\alpha$ be a scalar controlling the relative contributions of each part of the equation.</span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>::: {#nte-ctemse-intution .callout-note title="Relating back to Intuition"}</span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>The intuition behind this complex error function is key to understanding causal trees. The first term is the estimated variance of the treatment effect across leaves by definition. Similar to the general definition of variance, it is the sum of the treatment effect across terminal nodes divided by the number of training observations. Each terminal node contributes to this term and an increase in the variance across terminal nodes indicates more heterogeneity of the treatment effect (it is more different across terminal nodes.). The second term is a measure of the variance of the treatment effects within each node.</span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>The logic of the equation means that an increase in treatment effect heterogeneity between terminal nodes will reduce the (negative) of the $\operatorname{EMSE}$ and an increase in the uncertainty of the node estimates will increase the $\operatorname{EMSE}$. Thus we can say that the $\operatorname{EMSE}$ equation will reward creating heterogeneous partitions and heterogeneous terminal nodes while also obtaining appropriate estimates of the treatment effects within each terminal node.</span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>@eq-ctemse controls the relative strength of the two terms using the $\alpha$ parameter. A high value of $\alpha$ means that the variance of the treatment effect is less important. We expect that a higher $\alpha$ value will increase the depth of the trees as splits will ignore the variance of the estimated treatment effect. Contrastingly, $\alpha=0$ means that a tree will make no splits as this will make the variance of the treatment effect the lowest. If $\alpha=1$, then trees are grown very deep and will continue to split until a defined number of minimum observations in each node is reached. </span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a>Interestingly, no pruning is required after the CT model is fit as the complexity of trees is implicitly included in @eq-ctemse. If a tree gets too complex, then the variance in the terminal node estimates will increase on unseen data in $S^{est}$. The second part of @eq-ctemse punishes the model for an increase in variance in terminal nodes. Thus, the splits that lead to a relatively large variance of the $\hat{\tau}(x;\ell_i)$ will not be made. This variance penalisation also implies that small leaves will be penalised as small leaves lead to higher variance.</span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cross-Validation</span></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>Cross validation does play an important role in a causal tree but not to the same extent as in CART. Cross validation is made complex as $\tau_i$ is unknown and there is not a test/train split present as in many other machine learning applications. </span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>A CT requires honest cross validation so that the tree can discover the structure of the tree using unseen data. Noting that to make a split, the treatment effect must be evaluated in the potential child nodes. There is a cross-validation subset within $\mathcal{S}^{tr}$ that is used to evaluate @eq-ctemse. In other words, when training the tree to discover its structure, we use the cross validation set, $\mathcal{S}^{cv}$, to evaluate splits. When doing this honest cross validation, the $\widehat{\operatorname{EMSE}}$ is the same as in @eq-ctemse but uses $\mathcal{S}^{tr,cv}$ instead of $\mathcal{S}^{tr}$. Note that $\mathcal{S}^{est}$ is used after the tree is trained for the final estimation inside the terminal nodes. </span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Implimentation inside R: `htetree`</span></span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>A causal tree can be implemented inside R using the <span class="in">`htetree`</span> package which provides a large library of functions for estimating heterogeneous treatment effects with tree-based machine learning algorithms as well as visualisation.<span class="ot">[^htepackage]</span> This package uses <span class="in">`rpart`</span> which is a common implementation of CART in R.</span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a><span class="ot">[^htepackage]: </span>It appears to me that the <span class="in">`htetree`</span> package has a more comprehensive implimentation compared to the original <span class="in">`causalTree`</span> package created by Susan Athey which is hosted on <span class="co">[</span><span class="ot">Github</span><span class="co">](https://github.com/susanathey/causalTree)</span>.</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>My exposition of the CT method does not explore the results of the analysis in depth as this is explored further in the @sec-. I perform a basic fit which demonstrates the implementation followed by a simple visualisation which reinforces the intuition of a causal tree.</span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: nsw-causalTree</span></span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">88</span>)</span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret) </span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>nsw_split <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(nsw_data<span class="sc">$</span>data_id, <span class="at">p=</span><span class="fl">0.7</span>, </span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">list =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>nsw_train <span class="ot">&lt;-</span> nsw_data[nsw_split,] </span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a>nsw_est <span class="ot">&lt;-</span> nsw_data[<span class="sc">-</span>nsw_split,] </span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htetree) </span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart) </span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>nsw_causalTree <span class="ot">&lt;-</span> <span class="fu">honest.causalTree</span>(re78 <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> </span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>                                    black <span class="sc">+</span> hisp <span class="sc">+</span> degree <span class="sc">+</span> marr, </span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">data =</span> nsw_train, </span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">treatment =</span> nsw_train<span class="sc">$</span>treat, </span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">est_data =</span> nsw_est, </span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">est_treatment =</span> nsw_est<span class="sc">$</span>treat, </span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">split.Rule =</span> <span class="st">"CT"</span>, <span class="at">split.Honest =</span> T,</span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">HonestSampleSize =</span> <span class="fu">nrow</span>(nsw_est), </span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">cv.option =</span> <span class="st">"CT"</span>, <span class="at">split.alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">minsize =</span> <span class="dv">5</span>) </span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">88</span>)</span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret) <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>nsw_split <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(nsw_data<span class="sc">$</span>data_id, <span class="at">p=</span><span class="fl">0.7</span>, <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">list =</span> <span class="cn">FALSE</span>) <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a>nsw_train <span class="ot">&lt;-</span> nsw_data[nsw_split,] <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a>nsw_est <span class="ot">&lt;-</span> nsw_data[<span class="sc">-</span>nsw_split,] <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htetree) <span class="co">#&lt;2&gt;</span></span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart) <span class="co">#&lt;2&gt;</span></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>nsw_causalTree <span class="ot">&lt;-</span> <span class="fu">honest.causalTree</span>(re78 <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a>                                    black <span class="sc">+</span> hisp <span class="sc">+</span> degree <span class="sc">+</span> marr, <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">data =</span> nsw_train, <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">treatment =</span> nsw_train<span class="sc">$</span>treat, <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">est_data =</span> nsw_est, <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">est_treatment =</span> nsw_est<span class="sc">$</span>treat, <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">split.Rule =</span> <span class="st">"CT"</span>, <span class="at">split.Honest =</span> T,<span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">HonestSampleSize =</span> <span class="fu">nrow</span>(nsw_est), <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">cv.option =</span> <span class="st">"CT"</span>, <span class="at">split.alpha =</span> <span class="fl">0.5</span>, <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">minsize =</span> <span class="dv">5</span>) <span class="co">#&lt;4&gt;</span></span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>The data is split into the training and estimation set as required to fit an honest tree. This is done using the <span class="in">`createDataPartition`</span> function in the <span class="in">`caret`</span> package. Following a common rule-of-thumb, 70% of the data is used for training and 30% is used for estimation. </span>
+<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>The <span class="in">`htetree`</span> and <span class="in">`rpart`</span> packages are loaded. Both are required to fit an <span class="in">`honest.causalTree`</span> as <span class="in">`htetree`</span> uses <span class="in">`rpart`</span> to fit the model.</span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>The parameters of the <span class="in">`honest.causalTree`</span> function are specified. The process of specifying some of these objects is cumbersome.</span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>I have specified <span class="in">`minsize = 5`</span> meaning that each node must contain $5$ or more cases of both treated and control observations. *This is set for ease of visualisation not advantageous model fit.*</span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: !expr "knitr::is_html_output()"</span></span>
+<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-causalTree</span></span>
+<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Visualise the Causal Tree."</span></span>
+<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "This visualisation shows the splits selected by the Causal Tree. Darker shaded nodes correspond to a higher estimate of the CATE. Percentages indicate the percent of observations falling into a given node."</span></span>
+<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a><span class="co"># This code creates the rpart plot to visualise Figure 1plageholder</span></span>
+<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart.plot) </span>
+<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a><span class="fu">rpart.plot</span>(nsw_causalTree, <span class="at">yesno =</span> <span class="dv">2</span>, <span class="at">shadow.col =</span> <span class="st">"grey"</span>,</span>
+<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>           <span class="at">prefix =</span> <span class="st">"CATE:"</span>, <span class="at">main =</span> <span class="st">"NSW Causal Tree"</span>)</span>
+<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r }</span></span>
+<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a><span class="in">#| cache: true</span></span>
+<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: !expr "knitr::is_html_output()"</span></span>
+<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-format: png </span></span>
+<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-width: 13</span></span>
+<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-height: 10</span></span>
+<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a><span class="in">#| dpi: 50</span></span>
+<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-causalTree-3d</span></span>
+<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-summary: "Show the Code to Visualise the Causal Tree."</span></span>
+<span id="cb10-225"><a href="#cb10-225" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "The interaction between age and education is shown in the response surface of the causal tree. The visualisation is interactive when viewing as a .html file type"</span></span>
+<span id="cb10-226"><a href="#cb10-226" aria-hidden="true" tabindex="-1"></a><span class="in"># This code creates the rpart plot to visualise Figure placeholder</span></span>
+<span id="cb10-227"><a href="#cb10-227" aria-hidden="true" tabindex="-1"></a><span class="in">library(plotly)</span></span>
+<span id="cb10-228"><a href="#cb10-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-229"><a href="#cb10-229" aria-hidden="true" tabindex="-1"></a><span class="in">age_seq &lt;- seq(min(nsw_data$age), max(nsw_data$age), length.out = 50)</span></span>
+<span id="cb10-230"><a href="#cb10-230" aria-hidden="true" tabindex="-1"></a><span class="in">educ_seq &lt;- seq(min(nsw_data$educ), max(nsw_data$educ), length.out = 50)</span></span>
+<span id="cb10-231"><a href="#cb10-231" aria-hidden="true" tabindex="-1"></a><span class="in">grid &lt;- expand.grid(age = age_seq,educ = educ_seq)</span></span>
+<span id="cb10-232"><a href="#cb10-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-233"><a href="#cb10-233" aria-hidden="true" tabindex="-1"></a><span class="in">mean_values &lt;- colMeans(nsw_data, na.rm = TRUE)</span></span>
+<span id="cb10-234"><a href="#cb10-234" aria-hidden="true" tabindex="-1"></a><span class="in">other_vars &lt;- names(nsw_data)[!(names(nsw_data) %in% </span></span>
+<span id="cb10-235"><a href="#cb10-235" aria-hidden="true" tabindex="-1"></a><span class="in">                                  c("age", "educ", "response"))]</span></span>
+<span id="cb10-236"><a href="#cb10-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-237"><a href="#cb10-237" aria-hidden="true" tabindex="-1"></a><span class="in">for (var in other_vars) {</span></span>
+<span id="cb10-238"><a href="#cb10-238" aria-hidden="true" tabindex="-1"></a><span class="in">grid[[var]] &lt;- mean_values[var]}</span></span>
+<span id="cb10-239"><a href="#cb10-239" aria-hidden="true" tabindex="-1"></a><span class="in">grid$response &lt;- predict(nsw_causalTree, newdata = grid)</span></span>
+<span id="cb10-240"><a href="#cb10-240" aria-hidden="true" tabindex="-1"></a><span class="in">response_matrix &lt;- matrix(grid$response, nrow = length(educ_seq),</span></span>
+<span id="cb10-241"><a href="#cb10-241" aria-hidden="true" tabindex="-1"></a><span class="in">                          ncol = length(age_seq))</span></span>
+<span id="cb10-242"><a href="#cb10-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-243"><a href="#cb10-243" aria-hidden="true" tabindex="-1"></a><span class="in">fig &lt;- plot_ly(</span></span>
+<span id="cb10-244"><a href="#cb10-244" aria-hidden="true" tabindex="-1"></a><span class="in">  x = ~age_seq,</span></span>
+<span id="cb10-245"><a href="#cb10-245" aria-hidden="true" tabindex="-1"></a><span class="in">  y = ~educ_seq,</span></span>
+<span id="cb10-246"><a href="#cb10-246" aria-hidden="true" tabindex="-1"></a><span class="in">  z = ~response_matrix,</span></span>
+<span id="cb10-247"><a href="#cb10-247" aria-hidden="true" tabindex="-1"></a><span class="in">  type = 'surface',</span></span>
+<span id="cb10-248"><a href="#cb10-248" aria-hidden="true" tabindex="-1"></a><span class="in">  colorscale = list(</span></span>
+<span id="cb10-249"><a href="#cb10-249" aria-hidden="true" tabindex="-1"></a><span class="in">    c(0, 'rgb(0, 0, 255)'), # Dark blue</span></span>
+<span id="cb10-250"><a href="#cb10-250" aria-hidden="true" tabindex="-1"></a><span class="in">    c(0.25, 'rgb(0, 255, 255)'),# Cyan</span></span>
+<span id="cb10-251"><a href="#cb10-251" aria-hidden="true" tabindex="-1"></a><span class="in">    c(0.5, 'rgb(0, 255, 0)')), # Green</span></span>
+<span id="cb10-252"><a href="#cb10-252" aria-hidden="true" tabindex="-1"></a><span class="in">  showscale = FALSE)</span></span>
+<span id="cb10-253"><a href="#cb10-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-254"><a href="#cb10-254" aria-hidden="true" tabindex="-1"></a><span class="in">camera &lt;- list(</span></span>
+<span id="cb10-255"><a href="#cb10-255" aria-hidden="true" tabindex="-1"></a><span class="in">  eye = list(x=-1.6, y=1.6, z=1.1),</span></span>
+<span id="cb10-256"><a href="#cb10-256" aria-hidden="true" tabindex="-1"></a><span class="in">  center = list(x = 0, y = 0, z = 0),</span></span>
+<span id="cb10-257"><a href="#cb10-257" aria-hidden="true" tabindex="-1"></a><span class="in">  up = list(x = 0, y = 0, z = 1))</span></span>
+<span id="cb10-258"><a href="#cb10-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-259"><a href="#cb10-259" aria-hidden="true" tabindex="-1"></a><span class="in">fig &lt;- fig %&gt;% layout(</span></span>
+<span id="cb10-260"><a href="#cb10-260" aria-hidden="true" tabindex="-1"></a><span class="in">  scene = list(</span></span>
+<span id="cb10-261"><a href="#cb10-261" aria-hidden="true" tabindex="-1"></a><span class="in">    xaxis = list(title = 'Age'),</span></span>
+<span id="cb10-262"><a href="#cb10-262" aria-hidden="true" tabindex="-1"></a><span class="in">    yaxis = list(title = 'Education'),</span></span>
+<span id="cb10-263"><a href="#cb10-263" aria-hidden="true" tabindex="-1"></a><span class="in">    zaxis = list(title = "ITE in $'s"),</span></span>
+<span id="cb10-264"><a href="#cb10-264" aria-hidden="true" tabindex="-1"></a><span class="in">    camera = camera),</span></span>
+<span id="cb10-265"><a href="#cb10-265" aria-hidden="true" tabindex="-1"></a><span class="in">  title = '3D Response Surface of Decision Tree: Age vs Education')</span></span>
+<span id="cb10-266"><a href="#cb10-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-267"><a href="#cb10-267" aria-hidden="true" tabindex="-1"></a><span class="in">fig</span></span>
+<span id="cb10-268"><a href="#cb10-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-269"><a href="#cb10-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-270"><a href="#cb10-270" aria-hidden="true" tabindex="-1"></a>To produce @fig-causalTree-3d, all other variables have been held constant at their mean values. This is not a problem as the splits involving age and education do not interact with any other covariates.</span>
+<span id="cb10-271"><a href="#cb10-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-272"><a href="#cb10-272" aria-hidden="true" tabindex="-1"></a>The CT algorithm has identified heterogeneous subgroups and has calculated $\hat{\tau}(x)$ for heterogeneous subgroups. However, CT have some similar drawbacks to regular CART models. First, this is a *greedy* algorithm meaning that splits at earlier points are made without consideration of later splits. Secondly, the algorithm is likely to lead to quite sharp decision boundaries as visualised in @fig-causalTree-3d. In this example, an individual is younger than $26$, an increase in education from $10$ to $11$ results in a completely different $\hat{\tau}(x)$. This is unrealistic and smoother smooth decision boundaries should better replicate the real world.</span>
+<span id="cb10-273"><a href="#cb10-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-274"><a href="#cb10-274" aria-hidden="true" tabindex="-1"></a><span class="fu">### Towards a Causal Forest {#sec-towards-causal-forests}</span></span>
+<span id="cb10-275"><a href="#cb10-275" aria-hidden="true" tabindex="-1"></a>The next natural development upon causal trees (CT) is a causal forest (CF). Theoretically, a CF is preferable to a CT because ensemble learning methods such as random forest (RF) typically result in superior performance. An ensemble of CTs should smooth sharp decision boundaries, leading to much better estimates of $\tau(x)$. Consider $\tau(x)$ to be a continuous CATE function in the context of a causal forest.</span>
+<span id="cb10-276"><a href="#cb10-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-277"><a href="#cb10-277" aria-hidden="true" tabindex="-1"></a>@Wager2018hterf present a simple implementation of a CF that averages the predictions from many individual CTs, each optimising the $\operatorname{EMSE}$ from @eq-ctemse. Following the conventional philosophy of random forest as in @Breiman2001, averaging the predictions across diverse trees should lead to improved predictions and smooth decision boundaries. The final prediction from this implementation of a CF is $\hat{\tau}(x)=\frac{\sum_{b=1}^B\hat{\tau_b}(x)}{B}$ where $B$ is the number of trees and $\hat{\tau_b}(x)$ is the CATE calculated by each base tree.</span>
+<span id="cb10-278"><a href="#cb10-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-279"><a href="#cb10-279" aria-hidden="true" tabindex="-1"></a>Random forests achieve diverse trees by fitting each tree on a bootstrapped sample of the data. In other words, each tree is grown with different observations, leading to more tree diversity. Fitting individual trees with bootstrapped observations is often referred to as *bagging* or *bootstrap aggregation*, which was introduced by @Breiman1996. To further encourage tree diversity, several randomly selected variables are considered at each split to reduce the correlation between trees further. Splitting on different variables at each split prevents strong predictors from always being the initial variables selected, allowing trees to model interactions between other variables.</span>
+<span id="cb10-280"><a href="#cb10-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-281"><a href="#cb10-281" aria-hidden="true" tabindex="-1"></a>A CF cannot directly identify subgroups as the overall prediction is an individual treatment effect. The only reason CTs can identify subgroups is because sharp boundaries define heterogeneous groups. In a CT, averaging of predictions should smooth boundaries, thus making subgroups not directly interpretable. </span>
+<span id="cb10-282"><a href="#cb10-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-283"><a href="#cb10-283" aria-hidden="true" tabindex="-1"></a>A key contribution of @Wager2018hterf is the asymptotic normality of random forests, enabling valid statistical inference. The predictions made by a causal forest are asymptotically normal and unbiased, provided unconfoundedness and common support assumptions are met. The variance predictions from a CF can be estimated using a jackknife procedure developed by @Wager2014, and the estimation of confidence intervals is possible.</span>
+<span id="cb10-284"><a href="#cb10-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-285"><a href="#cb10-285" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- clarify what the contirbution of wager is. give the context of what their normality proof is --&gt;</span></span>
+<span id="cb10-286"><a href="#cb10-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-287"><a href="#cb10-287" aria-hidden="true" tabindex="-1"></a>While this implementation of a CF is appealing, there are two downsides. First, the predictions from a CF may be poor as individual CTs may be biased even when using sample splitting due to low sample size or poor tuning of the CT algorithm. Additionally, errors from tree predictions of $\hat{\tau}(x)$ may be so large that the average across tree predictions is still a poor estimate of the treatment effect. Secondly, computing splits for each tree is very time-consuming, given that @eq-ctemse is a highly complex function. These weaknesses and a desire for a generalised approach led @Athey2019grf to develop the Generalized Random Forest. </span>
+<span id="cb10-288"><a href="#cb10-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-289"><a href="#cb10-289" aria-hidden="true" tabindex="-1"></a><span class="fu">## Generalized Random Forests: Overview and Intuition {#sec-grf-basics}</span></span>
+<span id="cb10-290"><a href="#cb10-290" aria-hidden="true" tabindex="-1"></a>Causal forests belong to a family of forests called *Generalized Random Forests* (GRF), introduced by @Athey2019grf. As suggested in the name, these forests are a generalization of a random forest (RF) suited to diverse applications such as survival analysis or instrumental variable methods. At first, I first provide a simple overview of GRF and omit the details of implementation to simplify my explanation. Then, I introduce GRF on a technical level in @sec-grf-technical. However, the following explanation does not replace studying the original paper @Athey2019grf.</span>
+<span id="cb10-291"><a href="#cb10-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-292"><a href="#cb10-292" aria-hidden="true" tabindex="-1"></a>:::{#nte-cf-implimentation-differences .callout-note title="Different Implimentations of a Causal Forest"}</span>
+<span id="cb10-293"><a href="#cb10-293" aria-hidden="true" tabindex="-1"></a>To be very clear, the implementation of a CF in a GRF framework is different than a simple average of trees discussed in @sec-towards-causal-forests. More specifically, the implementation of causal forests in @Wager2018hterf and @Athey2019grf are different. The implementation in the <span class="in">`grf`</span> software follows @Athey2019grf. An "honest causal forest" using averages can be implemented with the <span class="in">`htetree`</span> package. The distinction between the implementations is commonly mistaken in the literature and care must be taken when discussing these methods as the literature continues to develop. Notably, @Jawadekar2023 make the mistake of conflating the two implementations in their paper which aimed to clarify the implimentation of a causal forest.  </span>
+<span id="cb10-294"><a href="#cb10-294" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-295"><a href="#cb10-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-296"><a href="#cb10-296" aria-hidden="true" tabindex="-1"></a>Recall from @sec-causal-tree-intro that a causal tree can be analogised to a neighbourhood pseudo-matching method where observations in the same terminal node are "matched" together. @Athey2019grf take the neighbourhood analogy further and consider GRF to be an "adaptive locally weighted estimator that first uses a forest to calculate a weighted set of neighbours for each test point, then solve a plug-in version of  a <span class="co">[</span><span class="ot">local estimating equation</span><span class="co">]</span>". Conceptually, a local estimating equation is like an equation to calculate the treatment effect but optimised locally allowing it to represent HTEs. Different specifications of the GRF framework are implemented by changing the form of the estimating equation.</span>
+<span id="cb10-297"><a href="#cb10-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-298"><a href="#cb10-298" aria-hidden="true" tabindex="-1"></a>The *forest* part of a GRF develops a weighting scheme that defines how similar observations are to each other. A single tree can create groups of observations inside nodes in a neighbourhood characterised by splits leading to the terminal node. For example, a neighbourhood in @fig-ctree comprises observations falling into each terminal node. Instead of a binary "in the neighbourhood" or "outside the neighbourhood", a forest provides a scale of closeness defined by weights. The weights for an arbitrary observation, $x$, capture the frequency of when that observation falls into the same terminal node as other observations in each tree inside the forest. </span>
+<span id="cb10-299"><a href="#cb10-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-300"><a href="#cb10-300" aria-hidden="true" tabindex="-1"></a>To estimate these weights, A GRF uses a modified random forest called GradientForest that incorporates a gradient descent process at each split to maximise the observations' total "influence" upon the parameter estimates. Each tree is grown to be "deep" using this influence-based splitting rule and a gradient descent sequence. Notably, $\operatorname{EMSE}$ from @eq-ctemse does not feature in the GRF algorithm as it is difficult to optimise and does fit the framework of a GRF.</span>
+<span id="cb10-301"><a href="#cb10-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-302"><a href="#cb10-302" aria-hidden="true" tabindex="-1"></a>A GRF uses these similarity weights to evaluate a local estimating equation that captures heterogeneity of a treatment effect. Framing random forests as a method to estimate similarity weights contradicts conventional random forests. Typically, a random forest grows many trees and then averages the predictions so that the average of each tree is a much better model than any individual tree. In GRF, each tree is used to compute weights to solve a locally-weighted heterogeneous equation.   </span>
+<span id="cb10-303"><a href="#cb10-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-304"><a href="#cb10-304" aria-hidden="true" tabindex="-1"></a><span class="fu">### Technical Explanation of GRF {#sec-grf-technical}</span></span>
+<span id="cb10-305"><a href="#cb10-305" aria-hidden="true" tabindex="-1"></a>Keeping neighbourhood finding in mind, consider that there exists some heterogeneous estimating equation in the form of a localised generalized method of moments (LGMM) estimator, as in @Lewbel2007. This LGMM equation is of the general form: </span>
+<span id="cb10-306"><a href="#cb10-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-307"><a href="#cb10-307" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-308"><a href="#cb10-308" aria-hidden="true" tabindex="-1"></a>\mathbb{E}\left<span class="co">[</span><span class="ot">\psi_{\theta(x), \nu(x)} \mid X = x\right</span><span class="co">]</span> = 0,</span>
+<span id="cb10-309"><a href="#cb10-309" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-lgmm}</span>
+<span id="cb10-310"><a href="#cb10-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-311"><a href="#cb10-311" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- more detail on what the expectation is equal to zero means  --&gt;</span></span>
+<span id="cb10-312"><a href="#cb10-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-313"><a href="#cb10-313" aria-hidden="true" tabindex="-1"></a>where $\psi_{\theta(x), \nu(x)}$ is a moment condition that I refer to as the score function. Specifically, $\theta(x)$ is an estimator of some desirable quantity such as a conditional mean, quantile or average partial effect and $\nu$ is a nuisance parameter that exists in some specifications of a GRF. @eq-grf-lgmm must hold for the local parameter estimates $\theta(x)$ to be unbiased and consistent.</span>
+<span id="cb10-314"><a href="#cb10-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-315"><a href="#cb10-315" aria-hidden="true" tabindex="-1"></a>:::{#nte-primer-mm .callout-note title="A Quick Primer on Method of Moment Estimation"}</span>
+<span id="cb10-316"><a href="#cb10-316" aria-hidden="true" tabindex="-1"></a>The Method of Moments (MoM) estimation is a method to estimate parameters in the form of moments. The method consists of equating theoretical moments to sample calculations (sometimes called an empirical moment). For example, the first moment, $E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$ is the mean with the sample calculation $\hat{\mu}=\frac{1}{n}\sum^n_{i=1} x_i$. Generalized Method of Moments (GMM) extends MoM by incorporating multiple moment conditions and a weighting matrix, allowing for more efficient and robust parameter estimation and when there are more moment conditions than parameters. Local Generalized Method of Moments (LGMM) further extends GMM by applying moment conditions locally, using a weighting matrix to focus on localities of data. This approach can capture heterogeneity and provide parameter estimates that vary smoothly across the sample, making it useful for modelling heterogeneous treatment effects.</span>
+<span id="cb10-317"><a href="#cb10-317" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-318"><a href="#cb10-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-319"><a href="#cb10-319" aria-hidden="true" tabindex="-1"></a>The solution to the LGMM estimator is found at some optimisation value. In a CF, the desirable quantity is the CATE. A GRF solves an LGMM estimator using weights, $\alpha_i(x)$ provided by a GradientForest to obtain a smooth response surface where the global variation in the surface represents treatment effect heterogeneity. The solution to the local equation is</span>
+<span id="cb10-320"><a href="#cb10-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-321"><a href="#cb10-321" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-322"><a href="#cb10-322" aria-hidden="true" tabindex="-1"></a>\left( \hat{\theta}(x), \hat{\nu}(x) \right) \in \arg\min_{\theta, \nu} \left\| \sum_{i=1}^n \alpha_i(x) \psi_{\theta, \nu}(O_i) \right\|_2.</span>
+<span id="cb10-323"><a href="#cb10-323" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-lgmm-solution}</span>
+<span id="cb10-324"><a href="#cb10-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-325"><a href="#cb10-325" aria-hidden="true" tabindex="-1"></a>A GRF can model any quantity of interest identified by a local moment condition. To specify the type of GRF, there must be an empirical version of the local moment equation to optimise. For example, in a conventional regression random forest, this local estimation equation is simply the residual sum of squares (RSS), and so a GRF implementation of a regression random forest is practically identical to the standard implementation as in <span class="in">`randomForest`</span>. </span>
+<span id="cb10-326"><a href="#cb10-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-327"><a href="#cb10-327" aria-hidden="true" tabindex="-1"></a>As the success of this method relies on estimating weights that represent heterogeneity, the forest used to calculate these weights is not a typical RF. As mentioned above, a GradientForest is optimised to create heterogeneous splits while also being computationally efficient. Being a *generalized* method, this splitting rule can take many forms but should encourage heterogeneity so the resulting weights can represent the heterogeneity of the treatment effect. </span>
+<span id="cb10-328"><a href="#cb10-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-329"><a href="#cb10-329" aria-hidden="true" tabindex="-1"></a>To make computation possible, @Athey2019grf implement a gradient descent process where the gradient of $\psi_{\hat{\theta}_P, \hat{\nu}_P}$ is computed once at each split. Let $\hat{\theta}_P$ and $\hat{\nu}_P$ be estimates of $\theta$ and $\nu$ in parent node, $P$. Each tree separately performs a gradient descent procedure similar to a Gradient Boosting Machine (GBM) introduced by @Friedman2001. The key difference is that a GBM computes the gradient once per tree and sequentially descends a loss function across the whole ensemble. In a GradientForest, each split is an iteration towards the minimum of the splitting rule, and each tree separately performs gradient descent. In other words, a GBM descends from tree to tree while a GRF descends from split to split within each tree. </span>
+<span id="cb10-330"><a href="#cb10-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-331"><a href="#cb10-331" aria-hidden="true" tabindex="-1"></a>The GRF gradient descent process iteratively applies two steps. First is creating what @Athey2019grf describe as pseudo-outcomes in a "relabelling step". Inside each parent node, $P$, the LGMM estimator in @eq-grf-lgmm-solution is solved without weights to estimate the desirable quantity $\hat{\theta}(x)$. <span class="ot">[^parent-estimation]</span> Also, the Hessian matrix of $\psi_{\hat{\theta}_P, \hat{\nu}_P}$ is computed once inside a parent node. This matrix $A_P$ is the Hessian matrix $\nabla \psi_{\hat{\theta}_P, \hat{\nu}_P}$ evaluated in $P$, normalised over the number of observations inside the parent node:</span>
+<span id="cb10-332"><a href="#cb10-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-333"><a href="#cb10-333" aria-hidden="true" tabindex="-1"></a><span class="ot">[^parent-estimation]: </span>The estimation of $\hat{\theta}(x)$ in $P$, cannot use weights, $\alpha_i(x)$ as these have not been estimated yet. </span>
+<span id="cb10-334"><a href="#cb10-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-335"><a href="#cb10-335" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-336"><a href="#cb10-336" aria-hidden="true" tabindex="-1"></a>A_P = \frac{1}{|<span class="sc">\{</span>i : x_i \in P<span class="sc">\}</span>|} \sum_{<span class="sc">\{</span>i : x_i \in P<span class="sc">\}</span>} \nabla \psi_{\hat{\theta}_P, \hat{\nu}_P}(O_i).</span>
+<span id="cb10-337"><a href="#cb10-337" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-hessian-matrix}</span>
+<span id="cb10-338"><a href="#cb10-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-339"><a href="#cb10-339" aria-hidden="true" tabindex="-1"></a>To calculate pseudo-outcomes, let $-\xi^\top$ be a operator that "picks out" the vector of $\hat{\theta}(x)$ from a the matrix. Pseudo-outcomes are a combination of the score function and the Hessian matrix of the score function evaluated at the current $\theta(x)$ estimate using observations within the parent node:</span>
+<span id="cb10-340"><a href="#cb10-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-341"><a href="#cb10-341" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-342"><a href="#cb10-342" aria-hidden="true" tabindex="-1"></a>\rho_i = -\xi^\top A_P^{-1} \psi_{\hat{\theta}_P, \hat{\nu}_P}(O_i).</span>
+<span id="cb10-343"><a href="#cb10-343" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-pseudo-outcomes}</span>
+<span id="cb10-344"><a href="#cb10-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-345"><a href="#cb10-345" aria-hidden="true" tabindex="-1"></a>Pseudo-outcomes are analogous to pseudo-residuals in a GBM. Additionally, pseudo-outcomes are a measure of influence that measures how much the omission of observation $i$ changes the parameter estimate.<span class="ot">[^influence]</span> </span>
+<span id="cb10-346"><a href="#cb10-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-347"><a href="#cb10-347" aria-hidden="true" tabindex="-1"></a><span class="ot">[^influence]: </span>Note this step aligns with the general form of the influence function. Specifically from @Weisberg1982: $I(z) = -H_{\hat{\theta}}^{-1} \nabla_{\theta} \Psi(z, \hat{\theta})$. $I(z)$ is the influence function for the point $z$. $H_{\hat{\theta}}^{-1}$ is the inverse of the Hessian matrix of the log-likelihood (or another objective function). $\nabla_{\theta} \Psi(z, \hat{\theta})$ is the gradient of the function $\Psi$.</span>
+<span id="cb10-348"><a href="#cb10-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-349"><a href="#cb10-349" aria-hidden="true" tabindex="-1"></a>Viewing these pseudo-outcomes as influence measures, splits that maximise the level of influence in the child nodes should approximately correspond to splitting directly for the desirable quantity. Being a generalized method, the intuitive representation of $\rho_i$ depends on the nature of the score function. If $\psi_{\hat{\theta}_P, \hat{\nu}_P}(O_i)$ is the RSS, then splitting to maximise $\rho_i$ is approximately equivalent to splitting to minimise RSS. If $\psi_{\hat{\theta}_P, \hat{\nu}_P}(O_i)$ is some equation to represent heterogeneity, then maximising $\rho_i$ is approximately equivalent to splitting directly for heterogeneity. </span>
+<span id="cb10-350"><a href="#cb10-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-351"><a href="#cb10-351" aria-hidden="true" tabindex="-1"></a>Splitting to maximise the total influence across all observations is computationally efficient compared to optimising a complex function such as @eq-ctemse. Specifically, the calculation of the split is normalised over the number of observations in each child node $C_j$. Let $\tilde{\Delta}(C_1, C_2)$ be a measure of influence in the child nodes:</span>
+<span id="cb10-352"><a href="#cb10-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-353"><a href="#cb10-353" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-354"><a href="#cb10-354" aria-hidden="true" tabindex="-1"></a>\tilde{\Delta}(C_1, C_2) = \sum_{j=1}^2 \frac{1}{|<span class="sc">\{</span>i : x_i \in C_j<span class="sc">\}</span>|} \left( \sum_{<span class="sc">\{</span>i : x_i \in C_j<span class="sc">\}</span>} \rho_i \right)^2.</span>
+<span id="cb10-355"><a href="#cb10-355" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-splitting-rule}</span>
+<span id="cb10-356"><a href="#cb10-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-357"><a href="#cb10-357" aria-hidden="true" tabindex="-1"></a>The GRF algorithm grows the first of many diverse trees by greedily splitting data. As in @sec-towards-causal-forests, each tree uses a bootstrapped sample of data, and each split uses a certain number of randomly selected variables.</span>
+<span id="cb10-358"><a href="#cb10-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-359"><a href="#cb10-359" aria-hidden="true" tabindex="-1"></a>Let the set of $B$ trees inside the forest be indexed as $b=1,\dots, B$ and let $L_b(x)$ be the set of observations that fall into the same terminal node as arbitrary value $x$. Weights $\alpha_i(x)$ capture the frequency with which the $i$th training example falls into the same terminal node as $x$ such that</span>
+<span id="cb10-360"><a href="#cb10-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-361"><a href="#cb10-361" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-362"><a href="#cb10-362" aria-hidden="true" tabindex="-1"></a>\alpha_i(x) = \frac{1}{B} \sum_{b=1}^B \frac{\mathbf{1}<span class="sc">\{</span>x_i \in L_b(x)<span class="sc">\}</span>}{|L_b(x)|},</span>
+<span id="cb10-363"><a href="#cb10-363" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-weights}</span>
+<span id="cb10-364"><a href="#cb10-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-365"><a href="#cb10-365" aria-hidden="true" tabindex="-1"></a>where $\mathbf{1}$ is an indicator function equal to $1$ if $x_i$ is in the same node as arbitrary point $x$ and $|L_b(x)|$ is the number of observations in the node where $x$ falls. For every observation where the score function is evaluated, a corresponding weight matrix defines how similar that point is to all other points in the data. As previously mentioned, these weights are used to solve @eq-grf-lgmm-solution to obtain $\hat{\theta}(x)$.</span>
+<span id="cb10-366"><a href="#cb10-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-367"><a href="#cb10-367" aria-hidden="true" tabindex="-1"></a><span class="fu">### Causal Forests in the General Framework</span></span>
+<span id="cb10-368"><a href="#cb10-368" aria-hidden="true" tabindex="-1"></a>Recall from @sec-background-linear that a model describes the linear relationship between the treatment, covariates, and outcome, as in @eq-linear-model. Instead, suppose a non-linear relationship exists between covariates and outcomes and heterogeneous treatment effects. This model is stated as</span>
+<span id="cb10-369"><a href="#cb10-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-370"><a href="#cb10-370" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-371"><a href="#cb10-371" aria-hidden="true" tabindex="-1"></a>Y=\tau(x)T+f(x)+\epsilon, </span>
+<span id="cb10-372"><a href="#cb10-372" aria-hidden="true" tabindex="-1"></a>$$ {#eq-nonlinear-heterogeneous}</span>
+<span id="cb10-373"><a href="#cb10-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-374"><a href="#cb10-374" aria-hidden="true" tabindex="-1"></a>where $\tau(x)$ is the CATE and $f(x)$ is a function describing the relationship between covariates and the outcome. Recall from @sec-propensity that the propensity score reduces the dimension of $f(x)$ to a single propensity score, $e(x)$. However, a propensity score approach does not allow for HTEs. In the framework of a GRF, $\tau(x)$ is solved using weights defined by the GradientForest procedure to estimate @eq-grf-lgmm. </span>
+<span id="cb10-375"><a href="#cb10-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-376"><a href="#cb10-376" aria-hidden="true" tabindex="-1"></a>Estimating @eq-nonlinear-heterogeneous seems simple but is theoretically problematic. Conceptually, a model must "understand" some elements of the data to identify HTEs. First, it must model the effect of the covariates on the outcome and potential interactions between covariates so treatment effects are isolated. Second, it must model the relationships between covariates and the treatment as these relationships drive heterogeneity. Third, it should model the conditional effect of the covariates on the probability of being treated so estimates are not subject to confounding. Finally, it must also estimate weights, $\alpha_i(x)$, that result in good estimates of the local equation. Using a single model risks "overwhelming" the model, leading to sub-optimal weights and poor treatment effect estimation. To simplify the estimation, a causal forest uses an approach called "local centering" or orthogonalisation, introduced by @Robinson1988. A Robinson transformation will "regress out" the conditional effects of the covariates on the outcome and treatment indicator. </span>
+<span id="cb10-377"><a href="#cb10-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-378"><a href="#cb10-378" aria-hidden="true" tabindex="-1"></a>Let $\mu(x)$ be the conditional outcome such that</span>
+<span id="cb10-379"><a href="#cb10-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-380"><a href="#cb10-380" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-381"><a href="#cb10-381" aria-hidden="true" tabindex="-1"></a>\mu(x) = E<span class="co">[</span><span class="ot">Y|X=x</span><span class="co">]</span>=f(x)+\tau(x)e(x).</span>
+<span id="cb10-382"><a href="#cb10-382" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-conditional-outcome}</span>
+<span id="cb10-383"><a href="#cb10-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-384"><a href="#cb10-384" aria-hidden="true" tabindex="-1"></a>Subtracting the conditional outcome, $\mu(x)$, orthogonalises @eq-nonlinear-heterogeneous:</span>
+<span id="cb10-385"><a href="#cb10-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-386"><a href="#cb10-386" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-387"><a href="#cb10-387" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb10-388"><a href="#cb10-388" aria-hidden="true" tabindex="-1"></a>Y&amp;=\tau(x)T+f(x)+\epsilon<span class="sc">\\</span></span>
+<span id="cb10-389"><a href="#cb10-389" aria-hidden="true" tabindex="-1"></a>Y - \mu(x)&amp;=\tau(x)T+f(x)-m(x)+\epsilon<span class="sc">\\</span></span>
+<span id="cb10-390"><a href="#cb10-390" aria-hidden="true" tabindex="-1"></a>Y - \mu(x)&amp;=\tau(x)T+f(x)-(f(x)+\tau(x)e(x))+\epsilon<span class="sc">\\</span></span>
+<span id="cb10-391"><a href="#cb10-391" aria-hidden="true" tabindex="-1"></a>Y - \mu(x)&amp;=\tau(x)(T-e(x))+ \epsilon</span>
+<span id="cb10-392"><a href="#cb10-392" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb10-393"><a href="#cb10-393" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb10-394"><a href="#cb10-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-395"><a href="#cb10-395" aria-hidden="true" tabindex="-1"></a>In the <span class="in">`grf`</span> package, the <span class="in">`causal_forest`</span> function estimates $\hat{e}^{(-i)}(x)$ and $\hat{m}^{(-i)}(x)$ using separate regression forests and then plugs the estimates into in the orthogonalised function: </span>
+<span id="cb10-396"><a href="#cb10-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-397"><a href="#cb10-397" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-398"><a href="#cb10-398" aria-hidden="true" tabindex="-1"></a>Y -\hat{m}^{(-i)}(x) =\tau(x)(T-\hat{e}^{(-i)}(x))+ \epsilon. </span>
+<span id="cb10-399"><a href="#cb10-399" aria-hidden="true" tabindex="-1"></a>$$ {#eq-orthogonalised-function}</span>
+<span id="cb10-400"><a href="#cb10-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-401"><a href="#cb10-401" aria-hidden="true" tabindex="-1"></a>The superscript $^{(-i)}$ indicates that the estimate for $i$ is made on a sample not including $i$. @Nie2021 develop a loss function for treatment effect estimation of this general form. Derived from @eq-orthogonalised-function, the score function is</span>
+<span id="cb10-402"><a href="#cb10-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-403"><a href="#cb10-403" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-404"><a href="#cb10-404" aria-hidden="true" tabindex="-1"></a>\psi_{\tau}= (Y - \hat{m}^{(-i)}(x) - \tau(T - \hat{e}^{(-i)}(x)))(T - \hat{e}^{(-i)}(x)), </span>
+<span id="cb10-405"><a href="#cb10-405" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-cf-score}</span>
+<span id="cb10-406"><a href="#cb10-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-407"><a href="#cb10-407" aria-hidden="true" tabindex="-1"></a>with the moment condition defined by:</span>
+<span id="cb10-408"><a href="#cb10-408" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-409"><a href="#cb10-409" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">Y - \hat{m}^{(-i)}(x) - \tau(T - \hat{e}^{(-i)}(x)))(T - \hat{e}^{(-i)}(x)</span><span class="co">]</span> = 0.</span>
+<span id="cb10-410"><a href="#cb10-410" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grf-cf-moment-condition}</span>
+<span id="cb10-411"><a href="#cb10-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-412"><a href="#cb10-412" aria-hidden="true" tabindex="-1"></a>@Robinson1988 shows us that an orthogonalisation approach is theoretically advantageous as noisy estimates of $\hat{m}^{(-i)}(x)$ and $\hat{e}^{(-i)}(x)$ will still lead to good estimates of $\tau(x)$. Particularly, $\hat{m}^{(-i)}(x)$ and $\hat{e}^{(-i)}(x)$ can converge at a slower rate but $\hat{\tau}(x)$ remains robust. Additionally, by specifying $e(x)$, the CF should be robust to confounding provided that @eq-conditional-independence is satisfied. </span>
+<span id="cb10-413"><a href="#cb10-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-414"><a href="#cb10-414" aria-hidden="true" tabindex="-1"></a>Finally, the final definition of a causal forest is the optimisation of </span>
+<span id="cb10-415"><a href="#cb10-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-416"><a href="#cb10-416" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb10-417"><a href="#cb10-417" aria-hidden="true" tabindex="-1"></a>\hat{\tau}(x) \in \arg\min_{\tau} \left\| \sum_{i=1}^n \alpha_i(x) (Y - \hat{m}^{(-i)}(x) - \tau(T - \hat{e}^{(-i)}(x)))(T - \hat{e}^{(-i)}(x)) \right\|_2,</span>
+<span id="cb10-418"><a href="#cb10-418" aria-hidden="true" tabindex="-1"></a>$$ {#eq-grfcf-solution}</span>
+<span id="cb10-419"><a href="#cb10-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-420"><a href="#cb10-420" aria-hidden="true" tabindex="-1"></a>using weights, $\alpha_i(x)$, obtained through a GradientForest.</span>
+<span id="cb10-421"><a href="#cb10-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-422"><a href="#cb10-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-423"><a href="#cb10-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-424"><a href="#cb10-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-425"><a href="#cb10-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-426"><a href="#cb10-426" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- -score functions (clarify if score functions are moment conditions in terms of LGMM?) --&gt;</span></span>
+<span id="cb10-427"><a href="#cb10-427" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- - It is also worth noting that this GRF is closely related to local kernel regression.  --&gt;</span></span>
+<span id="cb10-428"><a href="#cb10-428" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- - honesty and the asymptotics, particularly in relation to cf --&gt;</span></span>
+<span id="cb10-429"><a href="#cb10-429" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- - inference --&gt;</span></span>
+<span id="cb10-430"><a href="#cb10-430" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- need to look into the sharp cutoff boundries that seem prevalent in the grf in this data. look more into local linear forests and random forests in the "things economists should know" paper by athet.  --&gt;</span></span>
+<span id="cb10-431"><a href="#cb10-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-432"><a href="#cb10-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-433"><a href="#cb10-433" aria-hidden="true" tabindex="-1"></a><span class="fu">### Other Generalised Random Forests Algorithems Inside `grf`</span></span>
+<span id="cb10-434"><a href="#cb10-434" aria-hidden="true" tabindex="-1"></a>The <span class="in">`grf`</span> package provides a range of random forest implementations including <span class="in">`causal_forest`</span>, <span class="in">`survival_forest`</span>, <span class="in">`instrument_forest`</span>, <span class="in">`quantile_forest`</span>, and <span class="in">`probability_forest`</span>. There is notable documentation provided on the <span class="co">[</span><span class="ot">package Github</span><span class="co">](https://grf-labs.github.io/grf/)</span>. </span>
+<span id="cb10-435"><a href="#cb10-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-436"><a href="#cb10-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-437"><a href="#cb10-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-438"><a href="#cb10-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-439"><a href="#cb10-439" aria-hidden="true" tabindex="-1"></a><span class="fu">## Application: National Supported Work Data (DONT READ, some things have run into errors which will hopefully be a simple fix. they previously worked fine. )</span></span>
+<span id="cb10-440"><a href="#cb10-440" aria-hidden="true" tabindex="-1"></a>While the NSW dataset has often been applied in the context of propensity score methods in textbook examples. Seldom has treatment effect heterogeneity been explored. The Causal Tree earlier suggested that age and education may be significant indicators of the success of the programme for individuals. Using the <span class="in">`grf`</span> package, the model is fit using all covariates including income in earlier years.</span>
+<span id="cb10-441"><a href="#cb10-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-444"><a href="#cb10-444" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-445"><a href="#cb10-445" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cf_model</span></span>
+<span id="cb10-446"><a href="#cb10-446" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb10-447"><a href="#cb10-447" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">'grf'</span>)</span>
+<span id="cb10-448"><a href="#cb10-448" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-449"><a href="#cb10-449" aria-hidden="true" tabindex="-1"></a>covars <span class="ot">&lt;-</span> nsw_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, educ, black, hisp, marr, degree, re74)</span>
+<span id="cb10-450"><a href="#cb10-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-451"><a href="#cb10-451" aria-hidden="true" tabindex="-1"></a>nsw_cf_model <span class="ot">&lt;-</span> <span class="fu">causal_forest</span>(</span>
+<span id="cb10-452"><a href="#cb10-452" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> covars, <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-453"><a href="#cb10-453" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y =</span> <span class="fu">as.vector</span>(nsw_data<span class="sc">$</span>re78), <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-454"><a href="#cb10-454" aria-hidden="true" tabindex="-1"></a>  <span class="at">W =</span> <span class="fu">as.vector</span>(nsw_data<span class="sc">$</span>treat),<span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-455"><a href="#cb10-455" aria-hidden="true" tabindex="-1"></a>  <span class="at">tune.parameters =</span> <span class="st">"all"</span>,</span>
+<span id="cb10-456"><a href="#cb10-456" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">88</span>) <span class="co">#&lt;2&gt;</span></span>
+<span id="cb10-457"><a href="#cb10-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-458"><a href="#cb10-458" aria-hidden="true" tabindex="-1"></a>  nsw_ite_predict <span class="ot">&lt;-</span><span class="fu">predict</span>(nsw_cf_model, <span class="at">estimate.variance =</span> <span class="cn">TRUE</span>) <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-459"><a href="#cb10-459" aria-hidden="true" tabindex="-1"></a>  nsw_ite <span class="ot">&lt;-</span> nsw_ite_predict<span class="sc">$</span>predictions <span class="co">#&lt;4&gt;</span></span>
+<span id="cb10-460"><a href="#cb10-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-461"><a href="#cb10-461" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb10-462"><a href="#cb10-462" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'grf'</span>)</span>
+<span id="cb10-463"><a href="#cb10-463" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">'grf'</span>)</span>
+<span id="cb10-464"><a href="#cb10-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-465"><a href="#cb10-465" aria-hidden="true" tabindex="-1"></a>nsw_cf_model <span class="ot">&lt;-</span> <span class="fu">causal_forest</span>(</span>
+<span id="cb10-466"><a href="#cb10-466" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> nsw_covariates, <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-467"><a href="#cb10-467" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y =</span> nsw_dependant, <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-468"><a href="#cb10-468" aria-hidden="true" tabindex="-1"></a>  <span class="at">W =</span> nsw_treatment, <span class="co">#&lt;1&gt;</span></span>
+<span id="cb10-469"><a href="#cb10-469" aria-hidden="true" tabindex="-1"></a>  <span class="at">tune.parameters =</span> <span class="st">"all"</span>) <span class="co">#&lt;2&gt;</span></span>
+<span id="cb10-470"><a href="#cb10-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-471"><a href="#cb10-471" aria-hidden="true" tabindex="-1"></a>  nsw_ite_predict <span class="ot">&lt;-</span><span class="fu">predict</span>(nsw_cf_model, <span class="at">estimate.variance =</span> <span class="cn">TRUE</span>) <span class="co">#&lt;3&gt;</span></span>
+<span id="cb10-472"><a href="#cb10-472" aria-hidden="true" tabindex="-1"></a>  nsw_ite <span class="ot">&lt;-</span> nsw_ite_predict<span class="sc">$</span>predictions <span class="co">#&lt;4&gt;</span></span>
+<span id="cb10-473"><a href="#cb10-473" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-474"><a href="#cb10-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-475"><a href="#cb10-475" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>The observed covariates, dependant variable, and treatment variable are specified as <span class="in">`X`</span>, <span class="in">`Y`</span>, and <span class="in">`W`</span> respectively. Note that these will be in vector form such as <span class="in">`as.vector()`</span>.</span>
+<span id="cb10-476"><a href="#cb10-476" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>The <span class="in">`causal_forest()`</span> function will tune for <span class="in">`sample.fraction`</span>, <span class="in">`mtry`</span>, <span class="in">`min.node.size`</span>, <span class="in">`honesty.fraction`</span>, <span class="in">`honesty.prune.leaves`</span>, <span class="in">`alpha`</span>, and <span class="in">`imbalance.penalty`</span>. These can be manually specified but that is beyond the scope of this book. Further information can be obtained inside R using <span class="in">`?causal_forest`</span>.</span>
+<span id="cb10-477"><a href="#cb10-477" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Predictions are made from the <span class="in">`nsw_cf_model`</span> object and <span class="in">`estimated.variance`</span> is set <span class="in">`TRUE`</span> because reason.</span>
+<span id="cb10-478"><a href="#cb10-478" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>The ITE are extracted from the <span class="in">`nsw_ite_predict`</span> object. <span class="co">&lt;!-- make sure to explain the data int he intro --&gt;</span> <span class="co">&lt;!-- code annotations dont work with latex pdf --&gt;</span></span>
+<span id="cb10-479"><a href="#cb10-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-480"><a href="#cb10-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-481"><a href="#cb10-481" aria-hidden="true" tabindex="-1"></a>Using the the Causal Forest model, <span class="in">`nsw_cf_model`</span>, a response surface can be displayed as in @fig-causalTree-3d. As before, this is estimated holding all other variables at their mean. This visualisation is somewhat dubious as the various trees inside the forest will have split on other variables as well as education and age so holding them constant somewhat undermines the model structure. However, for the purposes of demonstration, this visualisation is helpful regardless.</span>
+<span id="cb10-482"><a href="#cb10-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-485"><a href="#cb10-485" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-486"><a href="#cb10-486" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-causalForest-3d</span></span>
+<span id="cb10-487"><a href="#cb10-487" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb10-488"><a href="#cb10-488" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb10-489"><a href="#cb10-489" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7</span></span>
+<span id="cb10-490"><a href="#cb10-490" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb10-491"><a href="#cb10-491" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Visualise the Causal Forest."</span></span>
+<span id="cb10-492"><a href="#cb10-492" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "rewrite: The interaction between age and education is shown in the response surface of the causal Forest The visualisation is interactive when viewing as an html web file."</span></span>
+<span id="cb10-493"><a href="#cb10-493" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb10-494"><a href="#cb10-494" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grf)</span>
+<span id="cb10-495"><a href="#cb10-495" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">age =</span> age_seq,<span class="at">educ =</span> educ_seq)</span>
+<span id="cb10-496"><a href="#cb10-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-497"><a href="#cb10-497" aria-hidden="true" tabindex="-1"></a>mean_values <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(nsw_data, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-498"><a href="#cb10-498" aria-hidden="true" tabindex="-1"></a>other_vars <span class="ot">&lt;-</span> <span class="fu">names</span>(nsw_data)[<span class="sc">!</span>(<span class="fu">names</span>(nsw_data) <span class="sc">%in%</span>  <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"educ"</span>,</span>
+<span id="cb10-499"><a href="#cb10-499" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"response"</span>,<span class="st">"ite"</span>, <span class="st">"re78"</span>,<span class="st">"re75"</span>, <span class="st">"data_id"</span>,<span class="st">"treat"</span>))]</span>
+<span id="cb10-500"><a href="#cb10-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-501"><a href="#cb10-501" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (var <span class="cf">in</span> other_vars) {</span>
+<span id="cb10-502"><a href="#cb10-502" aria-hidden="true" tabindex="-1"></a>grid[[var]] <span class="ot">&lt;-</span> mean_values[var]</span>
+<span id="cb10-503"><a href="#cb10-503" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-504"><a href="#cb10-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-505"><a href="#cb10-505" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(nsw_cf_model, <span class="at">newdata =</span> grid)</span>
+<span id="cb10-506"><a href="#cb10-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-507"><a href="#cb10-507" aria-hidden="true" tabindex="-1"></a>response_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(grid<span class="sc">$</span>predictions)),</span>
+<span id="cb10-508"><a href="#cb10-508" aria-hidden="true" tabindex="-1"></a>                          <span class="at">nrow =</span> <span class="fu">length</span>(educ_seq), <span class="at">ncol =</span> <span class="fu">length</span>(age_seq))</span>
+<span id="cb10-509"><a href="#cb10-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-510"><a href="#cb10-510" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>(</span>
+<span id="cb10-511"><a href="#cb10-511" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="sc">~</span>age_seq,</span>
+<span id="cb10-512"><a href="#cb10-512" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="sc">~</span>educ_seq,</span>
+<span id="cb10-513"><a href="#cb10-513" aria-hidden="true" tabindex="-1"></a><span class="at">z =</span> <span class="sc">~</span>response_matrix,</span>
+<span id="cb10-514"><a href="#cb10-514" aria-hidden="true" tabindex="-1"></a><span class="at">type =</span> <span class="st">'surface'</span>,</span>
+<span id="cb10-515"><a href="#cb10-515" aria-hidden="true" tabindex="-1"></a><span class="at">colorscale =</span> <span class="fu">list</span>(</span>
+<span id="cb10-516"><a href="#cb10-516" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fl">0.25</span>, <span class="st">'rgb(0, 255, 255)'</span>)</span>
+<span id="cb10-517"><a href="#cb10-517" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb10-518"><a href="#cb10-518" aria-hidden="true" tabindex="-1"></a><span class="at">showscale =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-519"><a href="#cb10-519" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-520"><a href="#cb10-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-521"><a href="#cb10-521" aria-hidden="true" tabindex="-1"></a>camera <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb10-522"><a href="#cb10-522" aria-hidden="true" tabindex="-1"></a><span class="at">eye =</span> <span class="fu">list</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">1.7</span>, <span class="at">y=</span><span class="sc">-</span><span class="fl">1.7</span>, <span class="at">z=</span><span class="fl">1.7</span>),</span>
+<span id="cb10-523"><a href="#cb10-523" aria-hidden="true" tabindex="-1"></a><span class="at">center =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">z =</span> <span class="dv">0</span>),</span>
+<span id="cb10-524"><a href="#cb10-524" aria-hidden="true" tabindex="-1"></a><span class="at">up =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">z =</span> <span class="dv">1</span>)</span>
+<span id="cb10-525"><a href="#cb10-525" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-526"><a href="#cb10-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-527"><a href="#cb10-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-528"><a href="#cb10-528" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">layout</span>(</span>
+<span id="cb10-529"><a href="#cb10-529" aria-hidden="true" tabindex="-1"></a><span class="at">scene =</span> <span class="fu">list</span>(</span>
+<span id="cb10-530"><a href="#cb10-530" aria-hidden="true" tabindex="-1"></a><span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Age'</span>),</span>
+<span id="cb10-531"><a href="#cb10-531" aria-hidden="true" tabindex="-1"></a><span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'Education'</span>),</span>
+<span id="cb10-532"><a href="#cb10-532" aria-hidden="true" tabindex="-1"></a><span class="at">zaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"ITE in $'s"</span>),</span>
+<span id="cb10-533"><a href="#cb10-533" aria-hidden="true" tabindex="-1"></a><span class="at">camera =</span> camera</span>
+<span id="cb10-534"><a href="#cb10-534" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb10-535"><a href="#cb10-535" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">'3D Response Surface of Causal Forest: Age vs Education'</span></span>
+<span id="cb10-536"><a href="#cb10-536" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-537"><a href="#cb10-537" aria-hidden="true" tabindex="-1"></a>fig</span>
+<span id="cb10-538"><a href="#cb10-538" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-539"><a href="#cb10-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-540"><a href="#cb10-540" aria-hidden="true" tabindex="-1"></a>While the response surface is still sharp in some places, there is a visible gradient showing the increase</span>
+<span id="cb10-541"><a href="#cb10-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-542"><a href="#cb10-542" aria-hidden="true" tabindex="-1"></a>Additionally, using the causal forest, the estimates of the average treatment effect seem more likely. The effect is predicted to be positive for all individuals when holding all other individuals at their mean values. However, the general relationship and heterogeneity in the data is the same. The Causal Forest finds that increasing age and increasing education results in a higher individual treatment effect.</span>
+<span id="cb10-543"><a href="#cb10-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-544"><a href="#cb10-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-545"><a href="#cb10-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-546"><a href="#cb10-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-547"><a href="#cb10-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-550"><a href="#cb10-550" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-551"><a href="#cb10-551" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggplot2)</span></span>
+<span id="cb10-552"><a href="#cb10-552" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggthemes)</span></span>
+<span id="cb10-553"><a href="#cb10-553" aria-hidden="true" tabindex="-1"></a><span class="co"># library(scales)</span></span>
+<span id="cb10-554"><a href="#cb10-554" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
+<span id="cb10-555"><a href="#cb10-555" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(degree), y = ite) +</span></span>
+<span id="cb10-556"><a href="#cb10-556" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span>
+<span id="cb10-557"><a href="#cb10-557" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-558"><a href="#cb10-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-561"><a href="#cb10-561" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-562"><a href="#cb10-562" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
+<span id="cb10-563"><a href="#cb10-563" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(marr), y = ite) +</span></span>
+<span id="cb10-564"><a href="#cb10-564" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span>
+<span id="cb10-565"><a href="#cb10-565" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-566"><a href="#cb10-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-569"><a href="#cb10-569" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-570"><a href="#cb10-570" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
+<span id="cb10-571"><a href="#cb10-571" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(black), y = ite) +</span></span>
+<span id="cb10-572"><a href="#cb10-572" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span>
+<span id="cb10-573"><a href="#cb10-573" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-574"><a href="#cb10-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-577"><a href="#cb10-577" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-578"><a href="#cb10-578" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(nsw_data) +</span></span>
+<span id="cb10-579"><a href="#cb10-579" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x = as.factor(hisp), y = ite) +</span></span>
+<span id="cb10-580"><a href="#cb10-580" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_boxplot()</span></span>
+<span id="cb10-581"><a href="#cb10-581" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-582"><a href="#cb10-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-585"><a href="#cb10-585" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-586"><a href="#cb10-586" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-causalForest-educvsite</span></span>
+<span id="cb10-587"><a href="#cb10-587" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-588"><a href="#cb10-588" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb10-589"><a href="#cb10-589" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb10-590"><a href="#cb10-590" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7</span></span>
+<span id="cb10-591"><a href="#cb10-591" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb10-592"><a href="#cb10-592" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code"</span></span>
+<span id="cb10-593"><a href="#cb10-593" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Individual Treatment Effect is Estimated by a Causal Forest"</span></span>
+<span id="cb10-594"><a href="#cb10-594" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-595"><a href="#cb10-595" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb10-596"><a href="#cb10-596" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb10-597"><a href="#cb10-597" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(nsw_data, <span class="fu">aes</span>(<span class="at">x =</span> educ, <span class="at">y =</span> nsw_ite)) <span class="sc">+</span></span>
+<span id="cb10-598"><a href="#cb10-598" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-599"><a href="#cb10-599" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-600"><a href="#cb10-600" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Visualising Treatment Effect Heterogeneity"</span>,</span>
+<span id="cb10-601"><a href="#cb10-601" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Years of Education vs. Estimated Individual Treatment Effect"</span>,</span>
+<span id="cb10-602"><a href="#cb10-602" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Individual Treatment Effect ($ Increase in Earnings in 1978)"</span>,</span>
+<span id="cb10-603"><a href="#cb10-603" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years of Education"</span>) <span class="sc">+</span></span>
+<span id="cb10-604"><a href="#cb10-604" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rangeframe</span>() <span class="sc">+</span></span>
+<span id="cb10-605"><a href="#cb10-605" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size =</span> <span class="dv">14</span>)<span class="sc">+</span></span>
+<span id="cb10-606"><a href="#cb10-606" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-607"><a href="#cb10-607" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb10-608"><a href="#cb10-608" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb10-609"><a href="#cb10-609" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb10-610"><a href="#cb10-610" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb10-611"><a href="#cb10-611" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">10</span>))</span>
+<span id="cb10-612"><a href="#cb10-612" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-613"><a href="#cb10-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-616"><a href="#cb10-616" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-617"><a href="#cb10-617" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-causalForest-agevsite</span></span>
+<span id="cb10-618"><a href="#cb10-618" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-619"><a href="#cb10-619" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb10-620"><a href="#cb10-620" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb10-621"><a href="#cb10-621" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7</span></span>
+<span id="cb10-622"><a href="#cb10-622" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb10-623"><a href="#cb10-623" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code"</span></span>
+<span id="cb10-624"><a href="#cb10-624" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Individual Treatment Effect is Estimated by a Causal Forest"</span></span>
+<span id="cb10-625"><a href="#cb10-625" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-626"><a href="#cb10-626" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb10-627"><a href="#cb10-627" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb10-628"><a href="#cb10-628" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(nsw_data, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> nsw_ite, <span class="at">color =</span> <span class="fu">as.factor</span>(degree))) <span class="sc">+</span></span>
+<span id="cb10-629"><a href="#cb10-629" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-630"><a href="#cb10-630" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-631"><a href="#cb10-631" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Visualising Treatment Effect Heterogeneity"</span>,</span>
+<span id="cb10-632"><a href="#cb10-632" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Age of Participant vs. Estimated Individual Treatment Effect"</span>,</span>
+<span id="cb10-633"><a href="#cb10-633" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Individual Treatment Effect ($ Increase in Earnings in 1978)"</span>,</span>
+<span id="cb10-634"><a href="#cb10-634" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Age (Years)"</span>) <span class="sc">+</span></span>
+<span id="cb10-635"><a href="#cb10-635" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rangeframe</span>() <span class="sc">+</span></span>
+<span id="cb10-636"><a href="#cb10-636" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size =</span> <span class="dv">14</span>)<span class="sc">+</span></span>
+<span id="cb10-637"><a href="#cb10-637" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-638"><a href="#cb10-638" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb10-639"><a href="#cb10-639" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb10-640"><a href="#cb10-640" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb10-641"><a href="#cb10-641" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb10-642"><a href="#cb10-642" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="at">n =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb10-643"><a href="#cb10-643" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="st">"Bachelor Degree Completion:"</span>,<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
+<span id="cb10-644"><a href="#cb10-644" aria-hidden="true" tabindex="-1"></a>                                                              <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"black"</span> ),</span>
+<span id="cb10-645"><a href="#cb10-645" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Degree"</span>,<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"No Degree"</span>))</span>
+<span id="cb10-646"><a href="#cb10-646" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-647"><a href="#cb10-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-648"><a href="#cb10-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-649"><a href="#cb10-649" aria-hidden="true" tabindex="-1"></a>This result makes sense heuristically for a couple of reasons. Perhaps older individuals are more likely to appreciate stable employment opportunities, leading to more engagement with the programme. @lalonde notes that older and more educated poeple completed the programme at a higher rate demonstrating their commitment. Perhaps the training programme taught skills this demographic was disproportionately lacking. Perhaps more educated individuals experience higher treatment effects due to better job readiness and adaptability to new training. Perhaps different demographics suffered from unemployment for different reasons leading to heterogeneous results.</span>
+<span id="cb10-650"><a href="#cb10-650" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-651"><a href="#cb10-651" aria-hidden="true" tabindex="-1"></a>I should remind readers of an important caveat, these results are found through exploratory research and are not confirmatory. However, they are an indication that there is substantial heterogeneity present which further research can confirm the results of. This further research likely requires a different research design to isolate the heterogeneity caused by age and education. This result could be entirely spurious or due to an unobserved confounders.</span>
+<span id="cb10-652"><a href="#cb10-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-653"><a href="#cb10-653" aria-hidden="true" tabindex="-1"></a>Perhaps the older demographics were motivated workers but unemployed/underemployed because of structural changes in the economy such as the general decline in manufacturing jobs in the late 1970's in the United States. Meanwhile younger applications may have personal reasons for unemployment/underemployment meaning they were less driven or motivated to to obtain higher earning jobs after the programme. While this speculation is unlikely to be the cause of this heterogeneity, it does reinforce the idea that exploratory research should not be confused wth confirmatory research. There are many hypothetical confounding relationships that exist which can be speculated upon but the key idea is that the research design does not control for some of these reasons and so we cannot conclude from the exploratory finding that there is a confirmation increased age or education leading to higher treatment effects in work programmes.</span>
+<span id="cb10-654"><a href="#cb10-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-655"><a href="#cb10-655" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb10-656"><a href="#cb10-656" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Provided for PDF Output</span></span>
+<span id="cb10-657"><a href="#cb10-657" aria-hidden="true" tabindex="-1"></a><span class="in">```{r get-labels, echo = FALSE}</span></span>
+<span id="cb10-658"><a href="#cb10-658" aria-hidden="true" tabindex="-1"></a><span class="in">labs = knitr::all_labels()</span></span>
+<span id="cb10-659"><a href="#cb10-659" aria-hidden="true" tabindex="-1"></a><span class="in">labs = setdiff(labs, c("get-labels", "fig-ctree", "nsw-causalTree"))</span></span>
+<span id="cb10-660"><a href="#cb10-660" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-661"><a href="#cb10-661" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-662"><a href="#cb10-662" aria-hidden="true" tabindex="-1"></a><span class="in">```{r all-code, ref.label=labs, eval=FALSE}</span></span>
+<span id="cb10-663"><a href="#cb10-663" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-664"><a href="#cb10-664" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-665"><a href="#cb10-665" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-666"><a href="#cb10-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-667"><a href="#cb10-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-668"><a href="#cb10-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-669"><a href="#cb10-669" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-670"><a href="#cb10-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-671"><a href="#cb10-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-672"><a href="#cb10-672" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- To get better smotheness a possible helper is the local linear forest. look into this. --&gt;</span></span>
+<span id="cb10-673"><a href="#cb10-673" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-674"><a href="#cb10-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-675"><a href="#cb10-675" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include=FALSE}</span></span>
+<span id="cb10-676"><a href="#cb10-676" aria-hidden="true" tabindex="-1"></a><span class="in">save.image(file = "my_environment.RData")</span></span>
+<span id="cb10-677"><a href="#cb10-677" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
