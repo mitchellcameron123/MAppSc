@@ -1209,13 +1209,16 @@ Table&nbsp;3.2: Comparison of ATE Estimates
 </section>
 <section id="replication-study" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="replication-study"><span class="header-section-number">3.5</span> Replication Study</h2>
-<p><span class="citation" data-cites="coffecite">(<a href="#ref-coffecite" role="doc-biblioref"><strong>coffecite?</strong></a>)</span> aims to estimate the impact of the certification of coffee cooperatives on small-scale Ethiopian farmers’ livelihoods. Certification is seen as a potential tool for socioeconomic change and environmental sustainability and so it is important to understand the impact on small-scale farmers. Propensity scores are used to balance covariates between certified and non-certified farmers, isolating the certification’s effect on income.The paper did not assess the balance of propensity scores and it is difficult to replicate the results in the paper using best practice. However, this provides a good opportunity to assess covariate balance in the initial paper and the repeat the analysis using a machine learning propensity model.</p>
+<p>The replication study focuses on a paper titled “The Impact of Coffee Certification on Small-Scale Producers’ Livelihoods: A Case Study from the Jimma Zone, Ethiopia,” published in Agricultural Economics (2012) by Pradyot Ranjan Jena, Bezawit Beyene Chichaibelu, Till Stellmacher, and Ulrike Grote. This paper explores the effects of coffee certification schemes on the economic wellbeing of small-scale coffee farmers in Ethiopia, particularly examining whether these schemes contribute to poverty reduction and improved livelihoods among smallholders.</p>
+<p>The central theme of the paper is the evaluation of certification schemes, such as Fairtrade and organic certification, as tools for enhancing the income stability and economic resilience of small-scale coffee producers. Certification is seen as a potential tool for economic growth and and environmental sustainability and so it is important to understand the impact on small-scale farmers.</p>
+<p><span class="citation" data-cites="Jana2012">(<a href="#ref-Jana2012" role="doc-biblioref"><strong>Jana2012?</strong></a>)</span> define livelihood as a combination of per capita income, total income, per capita consumption and yield per hectare. For simplicity, this replication will only use per capita income as a dependent variable. This measure is selected as per capita income best quantifies the individual income which most strongly impacts overall livelihood <span class="citation" data-cites="cite">(see <a href="#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>.</p>
+<p>Randomisation into certified and uncertified is not possible and it is likely that farmers who seek certification are different than farmers who don’t. Thus, there is selection bias leading to structural differences between groups so a contrast in means between the certified (treated) and uncertified (control) farmers would be biased. Propensity scores are used to create covariate balance and reduce bias of the estimated treatment effect. The paper did not assess the balance of covariates. However, this provides a good opportunity to assess covariate balance in the initial paper and the repeat the analysis using a machine learning propensity model.</p>
 <section id="replication-of-original-results" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="replication-of-original-results"><span class="header-section-number">3.5.1</span> Replication of Original Results</h3>
-<p><span class="citation" data-cites="coffeecite">(<a href="#ref-coffeecite" role="doc-biblioref"><strong>coffeecite?</strong></a>)</span> provides a replication package including Stata code that uses the psmatch2 function. Nearest neighbour matching with replacement and common support trimming is performed. Common support trimming means that any observations outside the commonly overlapping are are discarded. The results of the paper can be fully replicated using the <code>MatchIt</code> package inside R.</p>
+<p><span class="citation" data-cites="Jena2012">Jena et al. (<a href="#ref-Jena2012" role="doc-biblioref">2012</a>)</span> provides a replication package including Stata code that uses the psmatch2 function. Nearest neighbour matching with replacement and common support trimming is performed. Common support trimming means that any observations outside the commonly overlapping are are discarded. The results of the paper can be fully replicated using the <code>MatchIt</code> package inside R.</p>
 <div class="cell">
 <details class="code-fold">
-<summary>Show Code to Replicate Results of <span class="citation" data-cites="coffeecite">(<a href="#ref-coffeecite" role="doc-biblioref"><strong>coffeecite?</strong></a>)</span></summary>
+<summary>Show Code to Replicate Results of <span class="citation" data-cites="Jena2012">Jena et al. (<a href="#ref-Jena2012" role="doc-biblioref">2012</a>)</span></summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>coffee_formula <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(certified <span class="sc">~</span> age_hh <span class="sc">+</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                  agesq <span class="sc">+</span> nonfarmincome_access <span class="sc">+</span> depratio <span class="sc">+</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                  logtotal_land <span class="sc">+</span> badweat <span class="sc">+</span> edu <span class="sc">+</span> gender <span class="sc">+</span> </span>
@@ -1282,8 +1285,8 @@ Table&nbsp;3.3: Placeholder
 </figure>
 </div>
 </div>
-<p><a href="#tbl-replicated-result" class="quarto-xref">Table&nbsp;<span>3.3</span></a> shows the replicated result obtained by <span class="citation" data-cites="coffeecite">(<a href="#ref-coffeecite" role="doc-biblioref"><strong>coffeecite?</strong></a>)</span>. The intriguing finding of the paper is that the average treatment effect on the treated (ATT) of being certified on income is negative. That is, if a farmer becomes certified, this is predicted to decrease by <span class="math inline">\(\$0.15\)</span> per day. Intuition and proponents of certifications schemes suggest that certification leads to an increase of income. If certification negatively impacted well-being in this way, it would call into question a significant effort to engage in certification and fair trade practices.</p>
-<p><span class="citation" data-cites="coffeecite">(<a href="#ref-coffeecite" role="doc-biblioref"><strong>coffeecite?</strong></a>)</span> does not perform any discussion or consideration of balance in their paper and so it is not clear if their propensity score matching process has resulted in balanced covariates. A balance table created by the <code>cobalt</code> package will provide the required information for balance assessment which will be aided by a graphical visualisation using <code>love.plot()</code>.</p>
+<p><a href="#tbl-replicated-result" class="quarto-xref">Table&nbsp;<span>3.3</span></a> shows the replicated result obtained by <span class="citation" data-cites="Jena2012">Jena et al. (<a href="#ref-Jena2012" role="doc-biblioref">2012</a>)</span>. The intriguing finding of the paper is that the average treatment effect on the treated (ATT) of being certified on income is negative. That is, if a farmer becomes certified, this is predicted to decrease by <span class="math inline">\(\$0.15\)</span> per day. Intuition and proponents of certifications schemes suggest that certification leads to an increase of income. If certification negatively impacted well-being in this way, it would call into question a significant effort to engage in certification and fair trade practices.</p>
+<p><span class="citation" data-cites="Jena2012">Jena et al. (<a href="#ref-Jena2012" role="doc-biblioref">2012</a>)</span> does not perform any discussion or consideration of balance in their paper and so it is not clear if their propensity score matching process has resulted in balanced covariates. A balance table created by the <code>cobalt</code> package will provide the required information for balance assessment which will be aided by a graphical visualisation using <code>love.plot()</code>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the Code to Create <a href="#tbl-coffee-rep-kbl">Table #</a></summary>
@@ -1459,7 +1462,7 @@ Figure&nbsp;3.4: PLACEHOLDER
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#e5e5e5"</span>, <span class="st">"#2780e3"</span>), </span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Certified"</span>)) <span class="sc">+</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Propensity Scores in @coffeecite"</span>, </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Propensity Scores in @Jena2012"</span>, </span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Propensity Scores"</span>, <span class="at">y =</span> <span class="st">"Density"</span>, <span class="at">fill =</span> <span class="st">"Group:"</span>) <span class="sc">+</span></span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span> </span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>)) <span class="sc">+</span></span>
@@ -1595,7 +1598,7 @@ Discussion of Tuning
 <p>Initially, a tuning grid considering shrinkage values of <span class="math inline">\(0.001,0.005,.01,0.05,0.1,\text{ and }0.2\)</span> were considered using <span class="math inline">\(10000\)</span> trees with a depth between <span class="math inline">\(1\)</span> and <span class="math inline">\(5\)</span>. The best tuning performance was found with shrinkage of <span class="math inline">\(0.2\)</span> and <span class="math inline">\(9\)</span> trees which were three splits <span class="math inline">\(3\)</span> deep. As such, the tuning grid was redefined in a second iteration to use <span class="math inline">\(0.1, 0.15, 0.2, 0.25, 0.3,0.35,\text{ and } 0.4\)</span> with only <span class="math inline">\(1000\)</span> trees with between <span class="math inline">\(2\)</span> and <span class="math inline">\(5\)</span> depth. The second fit, suggested a learning rate of <span class="math inline">\(0.35\)</span> so the local area of <span class="math inline">\(0.3, 0.325, 0.350, 0.375, \text{ and }0.4\)</span> is searched in the final fit.</p>
 </div>
 </div>
-<p>Of course there is no guarantee that the GBM model will perform the best and so a logisic model is also fitted. An interesting comparison is between the balance visible in the matched sample like in <span class="citation" data-cites="coffeecite">(<a href="#ref-coffeecite" role="doc-biblioref"><strong>coffeecite?</strong></a>)</span> and in the weighted sample. Any difference between these two samples relates to the difference between matching and weighting on the propensity score as the score is the same in both methods (generated by logistic regression).</p>
+<p>Of course there is no guarantee that the GBM model will perform the best and so a logisic model is also fitted. An interesting comparison is between the balance visible in the matched sample like in <span class="citation" data-cites="Jena2012">Jena et al. (<a href="#ref-Jena2012" role="doc-biblioref">2012</a>)</span> and in the weighted sample. Any difference between these two samples relates to the difference between matching and weighting on the propensity score as the score is the same in both methods (generated by logistic regression).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show to Code to Fit the Logistic model using <code>WeightIt</code> and <code>cobalt</code></summary>
@@ -2054,6 +2057,9 @@ Goller, Daniel, Michael Lechner, Andreas Moczall, and Joachim Wolff. 2020. <span
 </div>
 <div id="ref-Heinrich2010" class="csl-entry" role="listitem">
 Heinrich, Carolyn. 2010. <span>“<span class="nocase">A Primer for Applying Propensity-Score Matching</span>.”</span> <em>Development</em>, no. August: 59. <a href="http://www.iadb.org/document.cfm?id=35320229">http://www.iadb.org/document.cfm?id=35320229</a>.
+</div>
+<div id="ref-Jena2012" class="csl-entry" role="listitem">
+Jena, Pradyot Ranjan, Bezawit Beyene Chichaibelu, Till Stellmacher, and Ulrike Grote. 2012. <span>“<span class="nocase">The impact of coffee certification on small-scale producers’ livelihoods: A case study from the Jimma Zone, Ethiopia</span>.”</span> <em>Agricultural Economics (United Kingdom)</em> 43 (4): 429–40. <a href="https://doi.org/10.1111/j.1574-0862.2012.00594.x">https://doi.org/10.1111/j.1574-0862.2012.00594.x</a>.
 </div>
 <div id="ref-King2019" class="csl-entry" role="listitem">
 King, Gary, and Richard Nielsen. 2019. <span>“<span class="nocase">Why Propensity Scores Should Not Be Used for Matching</span>.”</span> <em>Political Analysis</em> 27 (4): 435–54. <a href="https://doi.org/10.1017/pan.2019.11">https://doi.org/10.1017/pan.2019.11</a>.
@@ -3365,387 +3371,392 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb23-789"><a href="#cb23-789" aria-hidden="true" tabindex="-1"></a>@tbl-nsw-comparisons shows that both estimates of the treatment effect are nearly identical at $\$1610$ with logistic regression inferring a $\$0.86$ larger treatment effect. Additionally, these results are statistically significant at the $5\%$ level with nearly identical standard errors.</span>
 <span id="cb23-790"><a href="#cb23-790" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-791"><a href="#cb23-791" aria-hidden="true" tabindex="-1"></a><span class="fu">## Replication Study</span></span>
-<span id="cb23-792"><a href="#cb23-792" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-793"><a href="#cb23-793" aria-hidden="true" tabindex="-1"></a>@coffecite aims to estimate the impact of the certification of coffee cooperatives on small-scale Ethiopian farmers' livelihoods. Certification is seen as a potential tool for socioeconomic change and environmental sustainability and so it is important to understand the impact on small-scale farmers. Propensity scores are used to balance covariates between certified and non-certified farmers, isolating the certification's effect on income.The paper did not assess the balance of propensity scores and it is difficult to replicate the results in the paper using best practice. However, this provides a good opportunity to assess covariate balance in the initial paper and the repeat the analysis using a machine learning propensity model.</span>
-<span id="cb23-794"><a href="#cb23-794" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-795"><a href="#cb23-795" aria-hidden="true" tabindex="-1"></a><span class="fu">### Replication of Original Results</span></span>
-<span id="cb23-796"><a href="#cb23-796" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-797"><a href="#cb23-797" aria-hidden="true" tabindex="-1"></a>@coffeecite provides a replication package including Stata code that uses the psmatch2 function. Nearest neighbour matching with replacement and common support trimming is performed. Common support trimming means that any observations outside the commonly overlapping are are discarded. The results of the paper can be fully replicated using the <span class="in">`MatchIt`</span> package inside R.</span>
-<span id="cb23-798"><a href="#cb23-798" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-799"><a href="#cb23-799" aria-hidden="true" tabindex="-1"></a><span class="in">```{r }</span></span>
-<span id="cb23-800"><a href="#cb23-800" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
-<span id="cb23-801"><a href="#cb23-801" aria-hidden="true" tabindex="-1"></a><span class="in">#| cache: true</span></span>
-<span id="cb23-802"><a href="#cb23-802" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
-<span id="cb23-803"><a href="#cb23-803" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-summary: "Show Code to Replicate Results of @coffeecite"</span></span>
-<span id="cb23-804"><a href="#cb23-804" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: coffee_rep_code</span></span>
-<span id="cb23-805"><a href="#cb23-805" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_formula &lt;- as.formula(certified ~ age_hh + </span></span>
-<span id="cb23-806"><a href="#cb23-806" aria-hidden="true" tabindex="-1"></a><span class="in">                  agesq + nonfarmincome_access + depratio +</span></span>
-<span id="cb23-807"><a href="#cb23-807" aria-hidden="true" tabindex="-1"></a><span class="in">                  logtotal_land + badweat + edu + gender + </span></span>
-<span id="cb23-808"><a href="#cb23-808" aria-hidden="true" tabindex="-1"></a><span class="in">                  years_cofeproduction + access_credit)</span></span>
-<span id="cb23-809"><a href="#cb23-809" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-810"><a href="#cb23-810" aria-hidden="true" tabindex="-1"></a><span class="in">library(MatchIt)</span></span>
-<span id="cb23-811"><a href="#cb23-811" aria-hidden="true" tabindex="-1"></a><span class="in">library(marginaleffects)</span></span>
-<span id="cb23-812"><a href="#cb23-812" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_rep_pmodel &lt;- matchit(coffee_formula, data=coffee_data, distance="glm", </span></span>
-<span id="cb23-813"><a href="#cb23-813" aria-hidden="true" tabindex="-1"></a><span class="in">                              method="nearest", replace = T, estimand="ATT", </span></span>
-<span id="cb23-814"><a href="#cb23-814" aria-hidden="true" tabindex="-1"></a><span class="in">                              discard="both") </span></span>
-<span id="cb23-815"><a href="#cb23-815" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-816"><a href="#cb23-816" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_md &lt;- match.data(coffee_rep_pmodel)</span></span>
-<span id="cb23-817"><a href="#cb23-817" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-818"><a href="#cb23-818" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_rep_fit&lt;- lm(percapitaincome_day_maleeq ~ certified, data = coffee_logit_md, weights=weights)</span></span>
-<span id="cb23-819"><a href="#cb23-819" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-820"><a href="#cb23-820" aria-hidden="true" tabindex="-1"></a><span class="in">replicated_result &lt;- avg_comparisons(coffee_rep_fit, variables = "certified",</span></span>
-<span id="cb23-821"><a href="#cb23-821" aria-hidden="true" tabindex="-1"></a><span class="in">                vcov = TRUE,</span></span>
-<span id="cb23-822"><a href="#cb23-822" aria-hidden="true" tabindex="-1"></a><span class="in">                newdata = subset(coffee_logit_md, certified == 1),</span></span>
-<span id="cb23-823"><a href="#cb23-823" aria-hidden="true" tabindex="-1"></a><span class="in">                wts = "weights")</span></span>
-<span id="cb23-824"><a href="#cb23-824" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-825"><a href="#cb23-825" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-826"><a href="#cb23-826" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-829"><a href="#cb23-829" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-830"><a href="#cb23-830" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-831"><a href="#cb23-831" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-replicated-result</span></span>
-<span id="cb23-832"><a href="#cb23-832" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-833"><a href="#cb23-833" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-834"><a href="#cb23-834" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show to Code to Make [Figure #](#tbl-replicated-result)"</span></span>
-<span id="cb23-835"><a href="#cb23-835" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Placeholder"</span></span>
-<span id="cb23-836"><a href="#cb23-836" aria-hidden="true" tabindex="-1"></a>replicated_result_tbl <span class="ot">&lt;-</span> <span class="fu">extract_comparison_results</span>(replicated_result)</span>
-<span id="cb23-837"><a href="#cb23-837" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(replicated_result_tbl) <span class="ot">&lt;-</span> <span class="st">"Replicated Result"</span></span>
-<span id="cb23-838"><a href="#cb23-838" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(replicated_result_tbl, <span class="at">digits=</span><span class="dv">2</span>,<span class="at">booktabs=</span> T, <span class="at">align =</span> <span class="st">"c"</span>, </span>
-<span id="cb23-839"><a href="#cb23-839" aria-hidden="true" tabindex="-1"></a>      <span class="at">font_size=</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-840"><a href="#cb23-840" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T)</span>
-<span id="cb23-841"><a href="#cb23-841" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-842"><a href="#cb23-842" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-843"><a href="#cb23-843" aria-hidden="true" tabindex="-1"></a>@tbl-replicated-result shows the replicated result obtained by @coffeecite. The intriguing finding of the paper is that the average treatment effect on the treated (ATT) of being certified on income is negative. That is, if a farmer becomes certified, this is predicted to decrease by $\$0.15$ per day. Intuition and proponents of certifications schemes suggest that certification leads to an increase of income. If certification negatively impacted well-being in this way, it would call into question a significant effort to engage in certification and fair trade practices.</span>
-<span id="cb23-844"><a href="#cb23-844" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-845"><a href="#cb23-845" aria-hidden="true" tabindex="-1"></a>@coffeecite does not perform any discussion or consideration of balance in their paper and so it is not clear if their propensity score matching process has resulted in balanced covariates. A balance table created by the <span class="in">`cobalt`</span> package will provide the required information for balance assessment which will be aided by a graphical visualisation using <span class="in">`love.plot()`</span>.</span>
-<span id="cb23-846"><a href="#cb23-846" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-849"><a href="#cb23-849" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-850"><a href="#cb23-850" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-851"><a href="#cb23-851" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-852"><a href="#cb23-852" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-coffee-rep-kbl</span></span>
-<span id="cb23-853"><a href="#cb23-853" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-854"><a href="#cb23-854" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Table #](#tbl-coffee-rep-kbl)"</span></span>
-<span id="cb23-855"><a href="#cb23-855" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "PALCHOLDER"</span></span>
-<span id="cb23-856"><a href="#cb23-856" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cobalt)</span>
-<span id="cb23-857"><a href="#cb23-857" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(coffee_rep_pmodel, </span>
-<span id="cb23-858"><a href="#cb23-858" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> coffee_data, </span>
-<span id="cb23-859"><a href="#cb23-859" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean.diffs"</span>,<span class="st">"variance.ratios"</span>),</span>
-<span id="cb23-860"><a href="#cb23-860" aria-hidden="true" tabindex="-1"></a>                        <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">continuous =</span> <span class="st">"std"</span>,</span>
-<span id="cb23-861"><a href="#cb23-861" aria-hidden="true" tabindex="-1"></a>                        <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">mean.diffs =</span> <span class="fl">0.1</span>),</span>
-<span id="cb23-862"><a href="#cb23-862" aria-hidden="true" tabindex="-1"></a>                        <span class="at">s.d.denom =</span> <span class="st">"treated"</span>)</span>
-<span id="cb23-863"><a href="#cb23-863" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-864"><a href="#cb23-864" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab_ss <span class="ot">&lt;-</span> coffee_rep_btab<span class="sc">$</span>Observations</span>
-<span id="cb23-865"><a href="#cb23-865" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-866"><a href="#cb23-866" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab <span class="ot">&lt;-</span> coffee_rep_btab<span class="sc">$</span>Balance[<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</span>
-<span id="cb23-867"><a href="#cb23-867" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-868"><a href="#cb23-868" aria-hidden="true" tabindex="-1"></a>rowlabels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb23-869"><a href="#cb23-869" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Household Age"</span>, <span class="st">"Squared Household Age"</span>, <span class="st">"Non-farm Income Access"</span>, </span>
-<span id="cb23-870"><a href="#cb23-870" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Log Total Land"</span>, <span class="st">"Dependency Ratio"</span>, <span class="st">"Bad Weather"</span>,</span>
-<span id="cb23-871"><a href="#cb23-871" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Education Level"</span>, <span class="st">"Gender"</span>, <span class="st">"Years of Coffee Production"</span>, </span>
-<span id="cb23-872"><a href="#cb23-872" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Access to Credit"</span>)</span>
-<span id="cb23-873"><a href="#cb23-873" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-874"><a href="#cb23-874" aria-hidden="true" tabindex="-1"></a>colnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Variable"</span>,<span class="st">"Type"</span>, <span class="st">"SMD"</span>, <span class="st">"Balance Threshold"</span>, <span class="st">"Variance Ratio"</span>)</span>
-<span id="cb23-875"><a href="#cb23-875" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-876"><a href="#cb23-876" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(coffee_rep_btab) <span class="ot">&lt;-</span> rowlabels</span>
-<span id="cb23-877"><a href="#cb23-877" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-878"><a href="#cb23-878" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab[,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
-<span id="cb23-879"><a href="#cb23-879" aria-hidden="true" tabindex="-1"></a>          coffee_rep_btab[,<span class="dv">3</span>] <span class="sc">&gt;=</span> <span class="st">"Not Balanced, &gt;0.1"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>)</span>
+<span id="cb23-792"><a href="#cb23-792" aria-hidden="true" tabindex="-1"></a>The replication study focuses on a paper titled "The Impact of Coffee Certification on Small-Scale Producers' Livelihoods: A Case Study from the Jimma Zone, Ethiopia," published in Agricultural Economics (2012) by Pradyot Ranjan Jena, Bezawit Beyene Chichaibelu, Till Stellmacher, and Ulrike Grote. This paper explores the effects of coffee certification schemes on the economic wellbeing of small-scale coffee farmers in Ethiopia, particularly examining whether these schemes contribute to poverty reduction and improved livelihoods among smallholders.</span>
+<span id="cb23-793"><a href="#cb23-793" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-794"><a href="#cb23-794" aria-hidden="true" tabindex="-1"></a>The central theme of the paper is the evaluation of certification schemes, such as Fairtrade and organic certification, as tools for enhancing the income stability and economic resilience of small-scale coffee producers. Certification is seen as a potential tool for economic growth and and environmental sustainability and so it is important to understand the impact on small-scale farmers. </span>
+<span id="cb23-795"><a href="#cb23-795" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-796"><a href="#cb23-796" aria-hidden="true" tabindex="-1"></a>@Jana2012 define livelihood as a combination of per capita income, total income, per capita consumption and yield per hectare. For simplicity, this replication will only use per capita income as a dependent variable. This measure is selected as per capita income best quantifies the individual income which most strongly impacts overall livelihood <span class="co">[</span><span class="ot">see @cite</span><span class="co">]</span>. </span>
+<span id="cb23-797"><a href="#cb23-797" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-798"><a href="#cb23-798" aria-hidden="true" tabindex="-1"></a>Randomisation into certified and uncertified is not possible and it is likely that farmers who seek certification are different than farmers who don't. Thus, there is selection bias leading to structural differences between groups so a contrast in means between the certified (treated) and uncertified (control) farmers would be biased. Propensity scores are used to create covariate balance and reduce bias of the estimated treatment effect. The paper did not assess the balance of covariates. However, this provides a good opportunity to assess covariate balance in the initial paper and the repeat the analysis using a machine learning propensity model. </span>
+<span id="cb23-799"><a href="#cb23-799" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-800"><a href="#cb23-800" aria-hidden="true" tabindex="-1"></a><span class="fu">### Replication of Original Results</span></span>
+<span id="cb23-801"><a href="#cb23-801" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-802"><a href="#cb23-802" aria-hidden="true" tabindex="-1"></a>@Jena2012 provides a replication package including Stata code that uses the psmatch2 function. Nearest neighbour matching with replacement and common support trimming is performed. Common support trimming means that any observations outside the commonly overlapping are are discarded. The results of the paper can be fully replicated using the <span class="in">`MatchIt`</span> package inside R.</span>
+<span id="cb23-803"><a href="#cb23-803" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-804"><a href="#cb23-804" aria-hidden="true" tabindex="-1"></a><span class="in">```{r }</span></span>
+<span id="cb23-805"><a href="#cb23-805" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb23-806"><a href="#cb23-806" aria-hidden="true" tabindex="-1"></a><span class="in">#| cache: true</span></span>
+<span id="cb23-807"><a href="#cb23-807" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb23-808"><a href="#cb23-808" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-summary: "Show Code to Replicate Results of @Jena2012"</span></span>
+<span id="cb23-809"><a href="#cb23-809" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: coffee_rep_code</span></span>
+<span id="cb23-810"><a href="#cb23-810" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_formula &lt;- as.formula(certified ~ age_hh + </span></span>
+<span id="cb23-811"><a href="#cb23-811" aria-hidden="true" tabindex="-1"></a><span class="in">                  agesq + nonfarmincome_access + depratio +</span></span>
+<span id="cb23-812"><a href="#cb23-812" aria-hidden="true" tabindex="-1"></a><span class="in">                  logtotal_land + badweat + edu + gender + </span></span>
+<span id="cb23-813"><a href="#cb23-813" aria-hidden="true" tabindex="-1"></a><span class="in">                  years_cofeproduction + access_credit)</span></span>
+<span id="cb23-814"><a href="#cb23-814" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-815"><a href="#cb23-815" aria-hidden="true" tabindex="-1"></a><span class="in">library(MatchIt)</span></span>
+<span id="cb23-816"><a href="#cb23-816" aria-hidden="true" tabindex="-1"></a><span class="in">library(marginaleffects)</span></span>
+<span id="cb23-817"><a href="#cb23-817" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_rep_pmodel &lt;- matchit(coffee_formula, data=coffee_data, distance="glm", </span></span>
+<span id="cb23-818"><a href="#cb23-818" aria-hidden="true" tabindex="-1"></a><span class="in">                              method="nearest", replace = T, estimand="ATT", </span></span>
+<span id="cb23-819"><a href="#cb23-819" aria-hidden="true" tabindex="-1"></a><span class="in">                              discard="both") </span></span>
+<span id="cb23-820"><a href="#cb23-820" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-821"><a href="#cb23-821" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_md &lt;- match.data(coffee_rep_pmodel)</span></span>
+<span id="cb23-822"><a href="#cb23-822" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-823"><a href="#cb23-823" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_rep_fit&lt;- lm(percapitaincome_day_maleeq ~ certified, data = coffee_logit_md, weights=weights)</span></span>
+<span id="cb23-824"><a href="#cb23-824" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-825"><a href="#cb23-825" aria-hidden="true" tabindex="-1"></a><span class="in">replicated_result &lt;- avg_comparisons(coffee_rep_fit, variables = "certified",</span></span>
+<span id="cb23-826"><a href="#cb23-826" aria-hidden="true" tabindex="-1"></a><span class="in">                vcov = TRUE,</span></span>
+<span id="cb23-827"><a href="#cb23-827" aria-hidden="true" tabindex="-1"></a><span class="in">                newdata = subset(coffee_logit_md, certified == 1),</span></span>
+<span id="cb23-828"><a href="#cb23-828" aria-hidden="true" tabindex="-1"></a><span class="in">                wts = "weights")</span></span>
+<span id="cb23-829"><a href="#cb23-829" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-830"><a href="#cb23-830" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-831"><a href="#cb23-831" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-834"><a href="#cb23-834" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-835"><a href="#cb23-835" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-836"><a href="#cb23-836" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-replicated-result</span></span>
+<span id="cb23-837"><a href="#cb23-837" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-838"><a href="#cb23-838" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-839"><a href="#cb23-839" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show to Code to Make [Figure #](#tbl-replicated-result)"</span></span>
+<span id="cb23-840"><a href="#cb23-840" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Placeholder"</span></span>
+<span id="cb23-841"><a href="#cb23-841" aria-hidden="true" tabindex="-1"></a>replicated_result_tbl <span class="ot">&lt;-</span> <span class="fu">extract_comparison_results</span>(replicated_result)</span>
+<span id="cb23-842"><a href="#cb23-842" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(replicated_result_tbl) <span class="ot">&lt;-</span> <span class="st">"Replicated Result"</span></span>
+<span id="cb23-843"><a href="#cb23-843" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(replicated_result_tbl, <span class="at">digits=</span><span class="dv">2</span>,<span class="at">booktabs=</span> T, <span class="at">align =</span> <span class="st">"c"</span>, </span>
+<span id="cb23-844"><a href="#cb23-844" aria-hidden="true" tabindex="-1"></a>      <span class="at">font_size=</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-845"><a href="#cb23-845" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T)</span>
+<span id="cb23-846"><a href="#cb23-846" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-847"><a href="#cb23-847" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-848"><a href="#cb23-848" aria-hidden="true" tabindex="-1"></a>@tbl-replicated-result shows the replicated result obtained by @Jena2012. The intriguing finding of the paper is that the average treatment effect on the treated (ATT) of being certified on income is negative. That is, if a farmer becomes certified, this is predicted to decrease by $\$0.15$ per day. Intuition and proponents of certifications schemes suggest that certification leads to an increase of income. If certification negatively impacted well-being in this way, it would call into question a significant effort to engage in certification and fair trade practices.</span>
+<span id="cb23-849"><a href="#cb23-849" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-850"><a href="#cb23-850" aria-hidden="true" tabindex="-1"></a>@Jena2012 does not perform any discussion or consideration of balance in their paper and so it is not clear if their propensity score matching process has resulted in balanced covariates. A balance table created by the <span class="in">`cobalt`</span> package will provide the required information for balance assessment which will be aided by a graphical visualisation using <span class="in">`love.plot()`</span>.</span>
+<span id="cb23-851"><a href="#cb23-851" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-854"><a href="#cb23-854" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-855"><a href="#cb23-855" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-856"><a href="#cb23-856" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-857"><a href="#cb23-857" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-coffee-rep-kbl</span></span>
+<span id="cb23-858"><a href="#cb23-858" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-859"><a href="#cb23-859" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Table #](#tbl-coffee-rep-kbl)"</span></span>
+<span id="cb23-860"><a href="#cb23-860" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "PALCHOLDER"</span></span>
+<span id="cb23-861"><a href="#cb23-861" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cobalt)</span>
+<span id="cb23-862"><a href="#cb23-862" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(coffee_rep_pmodel, </span>
+<span id="cb23-863"><a href="#cb23-863" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> coffee_data, </span>
+<span id="cb23-864"><a href="#cb23-864" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean.diffs"</span>,<span class="st">"variance.ratios"</span>),</span>
+<span id="cb23-865"><a href="#cb23-865" aria-hidden="true" tabindex="-1"></a>                        <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">continuous =</span> <span class="st">"std"</span>,</span>
+<span id="cb23-866"><a href="#cb23-866" aria-hidden="true" tabindex="-1"></a>                        <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">mean.diffs =</span> <span class="fl">0.1</span>),</span>
+<span id="cb23-867"><a href="#cb23-867" aria-hidden="true" tabindex="-1"></a>                        <span class="at">s.d.denom =</span> <span class="st">"treated"</span>)</span>
+<span id="cb23-868"><a href="#cb23-868" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-869"><a href="#cb23-869" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab_ss <span class="ot">&lt;-</span> coffee_rep_btab<span class="sc">$</span>Observations</span>
+<span id="cb23-870"><a href="#cb23-870" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-871"><a href="#cb23-871" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab <span class="ot">&lt;-</span> coffee_rep_btab<span class="sc">$</span>Balance[<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</span>
+<span id="cb23-872"><a href="#cb23-872" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-873"><a href="#cb23-873" aria-hidden="true" tabindex="-1"></a>rowlabels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb23-874"><a href="#cb23-874" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Household Age"</span>, <span class="st">"Squared Household Age"</span>, <span class="st">"Non-farm Income Access"</span>, </span>
+<span id="cb23-875"><a href="#cb23-875" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Log Total Land"</span>, <span class="st">"Dependency Ratio"</span>, <span class="st">"Bad Weather"</span>,</span>
+<span id="cb23-876"><a href="#cb23-876" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Education Level"</span>, <span class="st">"Gender"</span>, <span class="st">"Years of Coffee Production"</span>, </span>
+<span id="cb23-877"><a href="#cb23-877" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Access to Credit"</span>)</span>
+<span id="cb23-878"><a href="#cb23-878" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-879"><a href="#cb23-879" aria-hidden="true" tabindex="-1"></a>colnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Variable"</span>,<span class="st">"Type"</span>, <span class="st">"SMD"</span>, <span class="st">"Balance Threshold"</span>, <span class="st">"Variance Ratio"</span>)</span>
 <span id="cb23-880"><a href="#cb23-880" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-881"><a href="#cb23-881" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_rep_btab, <span class="at">digits=</span><span class="dv">3</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>, <span class="at">align=</span><span class="st">"c"</span>, </span>
-<span id="cb23-882"><a href="#cb23-882" aria-hidden="true" tabindex="-1"></a>    <span class="at">font_size=</span><span class="dv">10</span>, <span class="at">col.names=</span>colnames) <span class="sc">%&gt;%</span></span>
-<span id="cb23-883"><a href="#cb23-883" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">TRUE</span>)</span>
-<span id="cb23-884"><a href="#cb23-884" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-881"><a href="#cb23-881" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(coffee_rep_btab) <span class="ot">&lt;-</span> rowlabels</span>
+<span id="cb23-882"><a href="#cb23-882" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-883"><a href="#cb23-883" aria-hidden="true" tabindex="-1"></a>coffee_rep_btab[,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb23-884"><a href="#cb23-884" aria-hidden="true" tabindex="-1"></a>          coffee_rep_btab[,<span class="dv">3</span>] <span class="sc">&gt;=</span> <span class="st">"Not Balanced, &gt;0.1"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>)</span>
 <span id="cb23-885"><a href="#cb23-885" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-888"><a href="#cb23-888" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-889"><a href="#cb23-889" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb23-890"><a href="#cb23-890" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-891"><a href="#cb23-891" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: getndropped</span></span>
-<span id="cb23-892"><a href="#cb23-892" aria-hidden="true" tabindex="-1"></a>nobs_coffee_dropped <span class="ot">&lt;-</span> <span class="fu">sum</span>(coffee_rep_pmodel<span class="sc">$</span>discarded, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
-<span id="cb23-893"><a href="#cb23-893" aria-hidden="true" tabindex="-1"></a>coffee_data<span class="sc">$</span>discarded <span class="ot">&lt;-</span> coffee_rep_pmodel<span class="sc">$</span>discarded</span>
-<span id="cb23-894"><a href="#cb23-894" aria-hidden="true" tabindex="-1"></a>nobs_coffee_Tdropped <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(coffee_data,discarded<span class="sc">==</span><span class="cn">TRUE</span><span class="sc">&amp;</span>certified<span class="sc">==</span><span class="dv">1</span>))</span>
-<span id="cb23-895"><a href="#cb23-895" aria-hidden="true" tabindex="-1"></a>nobs_coffee_Cdropped <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(coffee_data,discarded<span class="sc">==</span><span class="cn">TRUE</span><span class="sc">&amp;</span>certified<span class="sc">==</span><span class="dv">0</span>))</span>
-<span id="cb23-896"><a href="#cb23-896" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-897"><a href="#cb23-897" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-900"><a href="#cb23-900" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-901"><a href="#cb23-901" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-coffee-replication-lplot</span></span>
-<span id="cb23-902"><a href="#cb23-902" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-903"><a href="#cb23-903" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
-<span id="cb23-904"><a href="#cb23-904" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-905"><a href="#cb23-905" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#fig-coffee-replication-lplot)"</span></span>
-<span id="cb23-906"><a href="#cb23-906" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-907"><a href="#cb23-907" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "PLACEHOLDER"</span></span>
-<span id="cb23-908"><a href="#cb23-908" aria-hidden="true" tabindex="-1"></a><span class="co"># add render info for showtext to yaml. also chang legend to be more informative.  </span></span>
-<span id="cb23-909"><a href="#cb23-909" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb23-910"><a href="#cb23-910" aria-hidden="true" tabindex="-1"></a><span class="fu">love.plot</span>(coffee_formula,</span>
-<span id="cb23-911"><a href="#cb23-911" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> coffee_data, </span>
-<span id="cb23-912"><a href="#cb23-912" aria-hidden="true" tabindex="-1"></a>          <span class="at">weights =</span> <span class="fu">list</span>(<span class="at">Replication =</span> coffee_rep_pmodel),</span>
-<span id="cb23-913"><a href="#cb23-913" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.order =</span> <span class="st">"unadjusted"</span>, <span class="at">binary =</span> <span class="st">"std"</span>,</span>
-<span id="cb23-914"><a href="#cb23-914" aria-hidden="true" tabindex="-1"></a>          <span class="at">abs =</span> <span class="cn">TRUE</span>, <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#333333"</span>, <span class="st">"#2780e3"</span>), </span>
-<span id="cb23-915"><a href="#cb23-915" aria-hidden="true" tabindex="-1"></a>          <span class="at">shapes =</span> <span class="fu">c</span>(<span class="st">"circle"</span>, <span class="st">"square"</span>),</span>
-<span id="cb23-916"><a href="#cb23-916" aria-hidden="true" tabindex="-1"></a>          <span class="at">line =</span> <span class="cn">TRUE</span>, <span class="at">thresholds=</span><span class="fl">0.1</span>, <span class="at">s.d.denom=</span><span class="st">"treated"</span>) <span class="sc">+</span></span>
-<span id="cb23-917"><a href="#cb23-917" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Variable Balance"</span>,</span>
-<span id="cb23-918"><a href="#cb23-918" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Absolute Standardised Mean Differences"</span>,</span>
-<span id="cb23-919"><a href="#cb23-919" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Method"</span>) <span class="sc">+</span></span>
-<span id="cb23-920"><a href="#cb23-920" aria-hidden="true" tabindex="-1"></a>  custom_ggplot_theme <span class="sc">+</span></span>
-<span id="cb23-921"><a href="#cb23-921" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.6</span>,<span class="at">length.out=</span><span class="dv">7</span>),<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>)))</span>
-<span id="cb23-922"><a href="#cb23-922" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-923"><a href="#cb23-923" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-924"><a href="#cb23-924" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-925"><a href="#cb23-925" aria-hidden="true" tabindex="-1"></a>@tbl-coffee-rep-kbl and @fig-coffee-replication-lplot show that the propensity score matching process has obtained very poor balance. Based on the 10% rule, not a single variable is balanced and so the estimate of the treatment effect is likely to be biased by the structural differences in the groups.</span>
-<span id="cb23-926"><a href="#cb23-926" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-927"><a href="#cb23-927" aria-hidden="true" tabindex="-1"></a>For key variables such as Age, Gender, or Education, balance is especially important. On a theoretical level, we expect that people who are more educated are more likely to become certified as they are better able to engage with the application process and also are expected to earn more as increased education should lead to greater productivity. There likely exists gender discrimination given the time period and geographic area which suggests woman are less likely to be certified than men while also earning less due to a wide gender pay gap. These variables are strong confounders in theory and so emphasising balance in these variables is critical to making a robust causal inference.</span>
-<span id="cb23-928"><a href="#cb23-928" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-929"><a href="#cb23-929" aria-hidden="true" tabindex="-1"></a>@fig-replication-pscore shows trimmed regions that mostly impact the control group. @tbl-coffee-replication-ss shows <span class="in">`{r} nobs_coffee_dropped`</span> observations are dropped of which <span class="in">`{r} nobs_coffee_Tdropped`</span> are treated and <span class="in">`{r} nobs_coffee_Cdropped`</span> are control being dropped. This increases balance as the trimmed observations are extreme data points. When observations are discarded, the ATT, ATC, or ATE cannot be claimed. Instead, this is refereed to as the average treatment effect on the matched or ATM. There is a significant reduction in the effective sample size as due to dropped obervations in the control group which has an effective sample size of $21$ obervations down from $82$.</span>
-<span id="cb23-930"><a href="#cb23-930" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-933"><a href="#cb23-933" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-934"><a href="#cb23-934" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-935"><a href="#cb23-935" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
-<span id="cb23-936"><a href="#cb23-936" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 6</span></span>
-<span id="cb23-937"><a href="#cb23-937" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-replication-pscore</span></span>
-<span id="cb23-938"><a href="#cb23-938" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-939"><a href="#cb23-939" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-940"><a href="#cb23-940" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#fig-replication-pscore)"</span></span>
-<span id="cb23-941"><a href="#cb23-941" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "PLACEHOLDER"</span></span>
-<span id="cb23-942"><a href="#cb23-942" aria-hidden="true" tabindex="-1"></a>discarded_scores <span class="ot">&lt;-</span> coffee_rep_pmodel<span class="sc">$</span>distance[coffee_rep_pmodel<span class="sc">$</span>discarded]</span>
-<span id="cb23-943"><a href="#cb23-943" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-944"><a href="#cb23-944" aria-hidden="true" tabindex="-1"></a>discard_min <span class="ot">&lt;-</span> <span class="fu">min</span>(discarded_scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb23-945"><a href="#cb23-945" aria-hidden="true" tabindex="-1"></a>discard_max <span class="ot">&lt;-</span> <span class="fu">max</span>(discarded_scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb23-946"><a href="#cb23-946" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-947"><a href="#cb23-947" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coffee_data, <span class="fu">aes</span>(<span class="at">x =</span> coffee_rep_pmodel<span class="sc">$</span>distance, <span class="at">fill =</span> <span class="fu">factor</span>(certified))) <span class="sc">+</span></span>
-<span id="cb23-948"><a href="#cb23-948" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb23-949"><a href="#cb23-949" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#e5e5e5"</span>, <span class="st">"#2780e3"</span>), </span>
-<span id="cb23-950"><a href="#cb23-950" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Certified"</span>)) <span class="sc">+</span></span>
-<span id="cb23-951"><a href="#cb23-951" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Propensity Scores in @coffeecite"</span>, </span>
-<span id="cb23-952"><a href="#cb23-952" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Propensity Scores"</span>, <span class="at">y =</span> <span class="st">"Density"</span>, <span class="at">fill =</span> <span class="st">"Group:"</span>) <span class="sc">+</span></span>
-<span id="cb23-953"><a href="#cb23-953" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb23-954"><a href="#cb23-954" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb23-955"><a href="#cb23-955" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> discard_min, <span class="at">color =</span> <span class="st">"#333333"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb23-956"><a href="#cb23-956" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> discard_max, <span class="at">color =</span> <span class="st">"#333333"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb23-957"><a href="#cb23-957" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> discard_min, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"#333333"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb23-958"><a href="#cb23-958" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> discard_max, <span class="at">xmax =</span> <span class="dv">1</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"#333333"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb23-959"><a href="#cb23-959" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">0.02</span>, <span class="at">y =</span> <span class="fl">2.5</span>, </span>
-<span id="cb23-960"><a href="#cb23-960" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Discarded Range"</span>, <span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">size=</span><span class="dv">4</span>,<span class="at">fontface=</span><span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#333333"</span>) <span class="sc">+</span></span>
-<span id="cb23-961"><a href="#cb23-961" aria-hidden="true" tabindex="-1"></a>  custom_ggplot_theme</span>
-<span id="cb23-962"><a href="#cb23-962" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-963"><a href="#cb23-963" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-966"><a href="#cb23-966" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-967"><a href="#cb23-967" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-coffee-replication-ss</span></span>
-<span id="cb23-968"><a href="#cb23-968" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-969"><a href="#cb23-969" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
-<span id="cb23-970"><a href="#cb23-970" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-971"><a href="#cb23-971" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-972"><a href="#cb23-972" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Table #](#tbl-coffee-replication-ss)"</span></span>
-<span id="cb23-973"><a href="#cb23-973" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Placeholder"</span></span>
-<span id="cb23-974"><a href="#cb23-974" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-975"><a href="#cb23-975" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_rep_btab_ss, <span class="at">digits=</span><span class="dv">0</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>, <span class="at">align=</span><span class="st">"c"</span>, </span>
-<span id="cb23-976"><a href="#cb23-976" aria-hidden="true" tabindex="-1"></a>    <span class="at">font_size=</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-977"><a href="#cb23-977" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width=</span>F)</span>
-<span id="cb23-978"><a href="#cb23-978" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-886"><a href="#cb23-886" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_rep_btab, <span class="at">digits=</span><span class="dv">3</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>, <span class="at">align=</span><span class="st">"c"</span>, </span>
+<span id="cb23-887"><a href="#cb23-887" aria-hidden="true" tabindex="-1"></a>    <span class="at">font_size=</span><span class="dv">10</span>, <span class="at">col.names=</span>colnames) <span class="sc">%&gt;%</span></span>
+<span id="cb23-888"><a href="#cb23-888" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">TRUE</span>)</span>
+<span id="cb23-889"><a href="#cb23-889" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-890"><a href="#cb23-890" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-893"><a href="#cb23-893" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-894"><a href="#cb23-894" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb23-895"><a href="#cb23-895" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-896"><a href="#cb23-896" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: getndropped</span></span>
+<span id="cb23-897"><a href="#cb23-897" aria-hidden="true" tabindex="-1"></a>nobs_coffee_dropped <span class="ot">&lt;-</span> <span class="fu">sum</span>(coffee_rep_pmodel<span class="sc">$</span>discarded, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb23-898"><a href="#cb23-898" aria-hidden="true" tabindex="-1"></a>coffee_data<span class="sc">$</span>discarded <span class="ot">&lt;-</span> coffee_rep_pmodel<span class="sc">$</span>discarded</span>
+<span id="cb23-899"><a href="#cb23-899" aria-hidden="true" tabindex="-1"></a>nobs_coffee_Tdropped <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(coffee_data,discarded<span class="sc">==</span><span class="cn">TRUE</span><span class="sc">&amp;</span>certified<span class="sc">==</span><span class="dv">1</span>))</span>
+<span id="cb23-900"><a href="#cb23-900" aria-hidden="true" tabindex="-1"></a>nobs_coffee_Cdropped <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(coffee_data,discarded<span class="sc">==</span><span class="cn">TRUE</span><span class="sc">&amp;</span>certified<span class="sc">==</span><span class="dv">0</span>))</span>
+<span id="cb23-901"><a href="#cb23-901" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-902"><a href="#cb23-902" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-905"><a href="#cb23-905" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-906"><a href="#cb23-906" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-coffee-replication-lplot</span></span>
+<span id="cb23-907"><a href="#cb23-907" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-908"><a href="#cb23-908" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
+<span id="cb23-909"><a href="#cb23-909" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-910"><a href="#cb23-910" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#fig-coffee-replication-lplot)"</span></span>
+<span id="cb23-911"><a href="#cb23-911" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-912"><a href="#cb23-912" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "PLACEHOLDER"</span></span>
+<span id="cb23-913"><a href="#cb23-913" aria-hidden="true" tabindex="-1"></a><span class="co"># add render info for showtext to yaml. also chang legend to be more informative.  </span></span>
+<span id="cb23-914"><a href="#cb23-914" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb23-915"><a href="#cb23-915" aria-hidden="true" tabindex="-1"></a><span class="fu">love.plot</span>(coffee_formula,</span>
+<span id="cb23-916"><a href="#cb23-916" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> coffee_data, </span>
+<span id="cb23-917"><a href="#cb23-917" aria-hidden="true" tabindex="-1"></a>          <span class="at">weights =</span> <span class="fu">list</span>(<span class="at">Replication =</span> coffee_rep_pmodel),</span>
+<span id="cb23-918"><a href="#cb23-918" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.order =</span> <span class="st">"unadjusted"</span>, <span class="at">binary =</span> <span class="st">"std"</span>,</span>
+<span id="cb23-919"><a href="#cb23-919" aria-hidden="true" tabindex="-1"></a>          <span class="at">abs =</span> <span class="cn">TRUE</span>, <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#333333"</span>, <span class="st">"#2780e3"</span>), </span>
+<span id="cb23-920"><a href="#cb23-920" aria-hidden="true" tabindex="-1"></a>          <span class="at">shapes =</span> <span class="fu">c</span>(<span class="st">"circle"</span>, <span class="st">"square"</span>),</span>
+<span id="cb23-921"><a href="#cb23-921" aria-hidden="true" tabindex="-1"></a>          <span class="at">line =</span> <span class="cn">TRUE</span>, <span class="at">thresholds=</span><span class="fl">0.1</span>, <span class="at">s.d.denom=</span><span class="st">"treated"</span>) <span class="sc">+</span></span>
+<span id="cb23-922"><a href="#cb23-922" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Variable Balance"</span>,</span>
+<span id="cb23-923"><a href="#cb23-923" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Absolute Standardised Mean Differences"</span>,</span>
+<span id="cb23-924"><a href="#cb23-924" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Method"</span>) <span class="sc">+</span></span>
+<span id="cb23-925"><a href="#cb23-925" aria-hidden="true" tabindex="-1"></a>  custom_ggplot_theme <span class="sc">+</span></span>
+<span id="cb23-926"><a href="#cb23-926" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.6</span>,<span class="at">length.out=</span><span class="dv">7</span>),<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>)))</span>
+<span id="cb23-927"><a href="#cb23-927" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-928"><a href="#cb23-928" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-929"><a href="#cb23-929" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-930"><a href="#cb23-930" aria-hidden="true" tabindex="-1"></a>@tbl-coffee-rep-kbl and @fig-coffee-replication-lplot show that the propensity score matching process has obtained very poor balance. Based on the 10% rule, not a single variable is balanced and so the estimate of the treatment effect is likely to be biased by the structural differences in the groups.</span>
+<span id="cb23-931"><a href="#cb23-931" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-932"><a href="#cb23-932" aria-hidden="true" tabindex="-1"></a>For key variables such as Age, Gender, or Education, balance is especially important. On a theoretical level, we expect that people who are more educated are more likely to become certified as they are better able to engage with the application process and also are expected to earn more as increased education should lead to greater productivity. There likely exists gender discrimination given the time period and geographic area which suggests woman are less likely to be certified than men while also earning less due to a wide gender pay gap. These variables are strong confounders in theory and so emphasising balance in these variables is critical to making a robust causal inference.</span>
+<span id="cb23-933"><a href="#cb23-933" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-934"><a href="#cb23-934" aria-hidden="true" tabindex="-1"></a>@fig-replication-pscore shows trimmed regions that mostly impact the control group. @tbl-coffee-replication-ss shows <span class="in">`{r} nobs_coffee_dropped`</span> observations are dropped of which <span class="in">`{r} nobs_coffee_Tdropped`</span> are treated and <span class="in">`{r} nobs_coffee_Cdropped`</span> are control being dropped. This increases balance as the trimmed observations are extreme data points. When observations are discarded, the ATT, ATC, or ATE cannot be claimed. Instead, this is refereed to as the average treatment effect on the matched or ATM. There is a significant reduction in the effective sample size as due to dropped obervations in the control group which has an effective sample size of $21$ obervations down from $82$.</span>
+<span id="cb23-935"><a href="#cb23-935" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-938"><a href="#cb23-938" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-939"><a href="#cb23-939" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-940"><a href="#cb23-940" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
+<span id="cb23-941"><a href="#cb23-941" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 6</span></span>
+<span id="cb23-942"><a href="#cb23-942" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-replication-pscore</span></span>
+<span id="cb23-943"><a href="#cb23-943" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-944"><a href="#cb23-944" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-945"><a href="#cb23-945" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#fig-replication-pscore)"</span></span>
+<span id="cb23-946"><a href="#cb23-946" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "PLACEHOLDER"</span></span>
+<span id="cb23-947"><a href="#cb23-947" aria-hidden="true" tabindex="-1"></a>discarded_scores <span class="ot">&lt;-</span> coffee_rep_pmodel<span class="sc">$</span>distance[coffee_rep_pmodel<span class="sc">$</span>discarded]</span>
+<span id="cb23-948"><a href="#cb23-948" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-949"><a href="#cb23-949" aria-hidden="true" tabindex="-1"></a>discard_min <span class="ot">&lt;-</span> <span class="fu">min</span>(discarded_scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-950"><a href="#cb23-950" aria-hidden="true" tabindex="-1"></a>discard_max <span class="ot">&lt;-</span> <span class="fu">max</span>(discarded_scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-951"><a href="#cb23-951" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-952"><a href="#cb23-952" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coffee_data, <span class="fu">aes</span>(<span class="at">x =</span> coffee_rep_pmodel<span class="sc">$</span>distance, <span class="at">fill =</span> <span class="fu">factor</span>(certified))) <span class="sc">+</span></span>
+<span id="cb23-953"><a href="#cb23-953" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb23-954"><a href="#cb23-954" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#e5e5e5"</span>, <span class="st">"#2780e3"</span>), </span>
+<span id="cb23-955"><a href="#cb23-955" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"Certified"</span>)) <span class="sc">+</span></span>
+<span id="cb23-956"><a href="#cb23-956" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Propensity Scores in @Jena2012"</span>, </span>
+<span id="cb23-957"><a href="#cb23-957" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Propensity Scores"</span>, <span class="at">y =</span> <span class="st">"Density"</span>, <span class="at">fill =</span> <span class="st">"Group:"</span>) <span class="sc">+</span></span>
+<span id="cb23-958"><a href="#cb23-958" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb23-959"><a href="#cb23-959" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb23-960"><a href="#cb23-960" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> discard_min, <span class="at">color =</span> <span class="st">"#333333"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb23-961"><a href="#cb23-961" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> discard_max, <span class="at">color =</span> <span class="st">"#333333"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb23-962"><a href="#cb23-962" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> discard_min, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"#333333"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb23-963"><a href="#cb23-963" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> discard_max, <span class="at">xmax =</span> <span class="dv">1</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"#333333"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb23-964"><a href="#cb23-964" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">0.02</span>, <span class="at">y =</span> <span class="fl">2.5</span>, </span>
+<span id="cb23-965"><a href="#cb23-965" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Discarded Range"</span>, <span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">size=</span><span class="dv">4</span>,<span class="at">fontface=</span><span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"#333333"</span>) <span class="sc">+</span></span>
+<span id="cb23-966"><a href="#cb23-966" aria-hidden="true" tabindex="-1"></a>  custom_ggplot_theme</span>
+<span id="cb23-967"><a href="#cb23-967" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-968"><a href="#cb23-968" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-971"><a href="#cb23-971" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-972"><a href="#cb23-972" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-coffee-replication-ss</span></span>
+<span id="cb23-973"><a href="#cb23-973" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-974"><a href="#cb23-974" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
+<span id="cb23-975"><a href="#cb23-975" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-976"><a href="#cb23-976" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-977"><a href="#cb23-977" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Table #](#tbl-coffee-replication-ss)"</span></span>
+<span id="cb23-978"><a href="#cb23-978" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Placeholder"</span></span>
 <span id="cb23-979"><a href="#cb23-979" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-980"><a href="#cb23-980" aria-hidden="true" tabindex="-1"></a>Overall, this model fit using logistic regression and propensity score matching has resulted in a poor model due to covariate imbalance and unidentifiable estimands. It is likely that improvement can be made using</span>
-<span id="cb23-981"><a href="#cb23-981" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-982"><a href="#cb23-982" aria-hidden="true" tabindex="-1"></a><span class="fu">### Further Modelling</span></span>
-<span id="cb23-983"><a href="#cb23-983" aria-hidden="true" tabindex="-1"></a>In the following model fitting process, I aim to obtain better results while preserving the estimand. To improve the poor balance achieved by the paper there are two strategies to obtain better balance. First, the propensity scores can be re-estimated using machine learning leading to better calibrated propensity scores. Second, inverse propensity weighting (IPW) can be used instead of propensity score matching (PSM). IPW should ensure that that the sample size remains the same as no observations are lost in a matching process. Additionally, IPW is generally more efficient as the pseudo-population is based on prescise weights compared to matching that is based on approximate similarity between treatment and control. </span>
+<span id="cb23-980"><a href="#cb23-980" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_rep_btab_ss, <span class="at">digits=</span><span class="dv">0</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>, <span class="at">align=</span><span class="st">"c"</span>, </span>
+<span id="cb23-981"><a href="#cb23-981" aria-hidden="true" tabindex="-1"></a>    <span class="at">font_size=</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-982"><a href="#cb23-982" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width=</span>F)</span>
+<span id="cb23-983"><a href="#cb23-983" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb23-984"><a href="#cb23-984" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-985"><a href="#cb23-985" aria-hidden="true" tabindex="-1"></a>The machine learning propensity scores will be estimated using <span class="in">`WeightIt`</span> in the same process as @sec-demo. To select the criteria that defines the best model, consider @fig-coffee-replication-lplot that shows there is a significant range of balance levels in the raw dataset. Knowing this, the model will be tuned using <span class="in">`criterion = "smd.max"`</span> as reducing the extremely unbalanced variables is important to achieving balance even if this leads to a higher average standardised mean difference (SMD). Additionally, the model fitting process was completed using <span class="in">`criterion = "smd.max"`</span> and is shown in @sec-appendix.  </span>
-<span id="cb23-988"><a href="#cb23-988" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-989"><a href="#cb23-989" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: coffee-boost-btab</span></span>
-<span id="cb23-990"><a href="#cb23-990" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-991"><a href="#cb23-991" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-992"><a href="#cb23-992" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-993"><a href="#cb23-993" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show to Code to Fit the GBM model using `WeightIt` and `cobalt`"</span></span>
-<span id="cb23-994"><a href="#cb23-994" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WeightIt)</span>
-<span id="cb23-995"><a href="#cb23-995" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cobalt)</span>
-<span id="cb23-996"><a href="#cb23-996" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-997"><a href="#cb23-997" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">88</span>)</span>
-<span id="cb23-998"><a href="#cb23-998" aria-hidden="true" tabindex="-1"></a>coffee_boosted_weight <span class="ot">&lt;-</span> <span class="fu">weightit</span>(coffee_formula, <span class="at">data=</span>coffee_data, </span>
-<span id="cb23-999"><a href="#cb23-999" aria-hidden="true" tabindex="-1"></a>                                <span class="at">method=</span><span class="st">"gbm"</span>, <span class="at">distribution=</span><span class="st">"bernoulli"</span>,</span>
-<span id="cb23-1000"><a href="#cb23-1000" aria-hidden="true" tabindex="-1"></a>                                <span class="at">use.offset=</span><span class="fu">c</span>(T),</span>
-<span id="cb23-1001"><a href="#cb23-1001" aria-hidden="true" tabindex="-1"></a>                                <span class="at">shrinkage=</span><span class="fu">seq</span>(<span class="fl">0.15</span>, <span class="fl">0.4</span>,<span class="at">length.out=</span><span class="dv">5</span>),</span>
-<span id="cb23-1002"><a href="#cb23-1002" aria-hidden="true" tabindex="-1"></a>                                <span class="at">bag.fraction=</span><span class="fl">0.67</span>, </span>
-<span id="cb23-1003"><a href="#cb23-1003" aria-hidden="true" tabindex="-1"></a>                                <span class="at">interaction.depth=</span><span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb23-1004"><a href="#cb23-1004" aria-hidden="true" tabindex="-1"></a>                                <span class="at">n.trees=</span><span class="dv">500</span>,</span>
-<span id="cb23-1005"><a href="#cb23-1005" aria-hidden="true" tabindex="-1"></a>                                <span class="at">criterion=</span><span class="st">"smd.mean"</span>, </span>
-<span id="cb23-1006"><a href="#cb23-1006" aria-hidden="true" tabindex="-1"></a>                                <span class="at">estimand=</span><span class="st">"ATT"</span>)</span>
-<span id="cb23-1007"><a href="#cb23-1007" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1008"><a href="#cb23-1008" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1009"><a href="#cb23-1009" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1010"><a href="#cb23-1010" aria-hidden="true" tabindex="-1"></a>coffee_boosted_btab <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(coffee_boosted_weight, </span>
-<span id="cb23-1011"><a href="#cb23-1011" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> coffee_data, </span>
-<span id="cb23-1012"><a href="#cb23-1012" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean.diffs"</span>,<span class="st">"variance.ratios"</span>),</span>
-<span id="cb23-1013"><a href="#cb23-1013" aria-hidden="true" tabindex="-1"></a>                        <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">continuous =</span> <span class="st">"std"</span>,</span>
-<span id="cb23-1014"><a href="#cb23-1014" aria-hidden="true" tabindex="-1"></a>                        <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">mean.diffs =</span> <span class="fl">0.1</span>),</span>
-<span id="cb23-1015"><a href="#cb23-1015" aria-hidden="true" tabindex="-1"></a>                        <span class="at">s.d.denom =</span> <span class="st">"treated"</span>)</span>
-<span id="cb23-1016"><a href="#cb23-1016" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1017"><a href="#cb23-1017" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracts the balance tabltune# Extracts the balance table and removes unwanted columns. </span></span>
-<span id="cb23-1018"><a href="#cb23-1018" aria-hidden="true" tabindex="-1"></a>coffee_boosted_btab <span class="ot">&lt;-</span> coffee_boosted_btab<span class="sc">$</span>Balance[<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</span>
-<span id="cb23-1019"><a href="#cb23-1019" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1020"><a href="#cb23-1020" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1021"><a href="#cb23-1021" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Discussion of Tuning"}</span>
-<span id="cb23-1022"><a href="#cb23-1022" aria-hidden="true" tabindex="-1"></a>Initially, a tuning grid considering shrinkage values of $0.001,0.005,.01,0.05,0.1,\text{ and }0.2$ were considered using $10000$ trees with a depth between $1$ and $5$. The best tuning performance was found with shrinkage of $0.2$ and $9$ trees which were three splits $3$ deep. As such, the tuning grid was redefined in a second iteration to use $0.1, 0.15, 0.2, 0.25, 0.3,0.35,\text{ and } 0.4$ with only $1000$ trees with between $2$ and $5$ depth. The second fit, suggested a learning rate of $0.35$ so the local area of $0.3, 0.325, 0.350, 0.375, \text{ and }0.4$ is searched in the final fit.</span>
-<span id="cb23-1023"><a href="#cb23-1023" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb23-1024"><a href="#cb23-1024" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1025"><a href="#cb23-1025" aria-hidden="true" tabindex="-1"></a>Of course there is no guarantee that the GBM model will perform the best and so a logisic model is also fitted. An interesting comparison is between the balance visible in the matched sample like in @coffeecite and in the weighted sample. Any difference between these two samples relates to the difference between matching and weighting on the propensity score as the score is the same in both methods (generated by logistic regression). </span>
-<span id="cb23-1026"><a href="#cb23-1026" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1027"><a href="#cb23-1027" aria-hidden="true" tabindex="-1"></a><span class="in">```{r }</span></span>
-<span id="cb23-1028"><a href="#cb23-1028" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
-<span id="cb23-1029"><a href="#cb23-1029" aria-hidden="true" tabindex="-1"></a><span class="in">#| cache: true</span></span>
-<span id="cb23-1030"><a href="#cb23-1030" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: coffee_logit_weight</span></span>
-<span id="cb23-1031"><a href="#cb23-1031" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
-<span id="cb23-1032"><a href="#cb23-1032" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-summary: "Show to Code to Fit the Logistic model using `WeightIt` and `cobalt`"</span></span>
-<span id="cb23-1033"><a href="#cb23-1033" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_weight &lt;- weightit(coffee_formula, data=coffee_data, method="glm",</span></span>
-<span id="cb23-1034"><a href="#cb23-1034" aria-hidden="true" tabindex="-1"></a><span class="in">                                estimand="ATT")</span></span>
-<span id="cb23-1035"><a href="#cb23-1035" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1036"><a href="#cb23-1036" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_btab &lt;- bal.tab(coffee_logit_weight, </span></span>
-<span id="cb23-1037"><a href="#cb23-1037" aria-hidden="true" tabindex="-1"></a><span class="in">                             formula = coffee_formula,</span></span>
-<span id="cb23-1038"><a href="#cb23-1038" aria-hidden="true" tabindex="-1"></a><span class="in">                             data = coffee_data, </span></span>
-<span id="cb23-1039"><a href="#cb23-1039" aria-hidden="true" tabindex="-1"></a><span class="in">                             stats = c("mean.diffs","variance.ratios"),</span></span>
-<span id="cb23-1040"><a href="#cb23-1040" aria-hidden="true" tabindex="-1"></a><span class="in">                             binary = "std", continuous = "std",</span></span>
-<span id="cb23-1041"><a href="#cb23-1041" aria-hidden="true" tabindex="-1"></a><span class="in">                             thresholds = c(mean.diffs = 0.1),</span></span>
-<span id="cb23-1042"><a href="#cb23-1042" aria-hidden="true" tabindex="-1"></a><span class="in">                             s.d.denom = "treated")</span></span>
-<span id="cb23-1043"><a href="#cb23-1043" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1044"><a href="#cb23-1044" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_btab &lt;- coffee_logit_btab$Balance[-1,-c(2,3)]</span></span>
-<span id="cb23-1045"><a href="#cb23-1045" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1046"><a href="#cb23-1046" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1047"><a href="#cb23-1047" aria-hidden="true" tabindex="-1"></a>Additionally, the balance present in the raw data is calculated.  </span>
+<span id="cb23-985"><a href="#cb23-985" aria-hidden="true" tabindex="-1"></a>Overall, this model fit using logistic regression and propensity score matching has resulted in a poor model due to covariate imbalance and unidentifiable estimands. It is likely that improvement can be made using</span>
+<span id="cb23-986"><a href="#cb23-986" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-987"><a href="#cb23-987" aria-hidden="true" tabindex="-1"></a><span class="fu">### Further Modelling</span></span>
+<span id="cb23-988"><a href="#cb23-988" aria-hidden="true" tabindex="-1"></a>In the following model fitting process, I aim to obtain better results while preserving the estimand. To improve the poor balance achieved by the paper there are two strategies to obtain better balance. First, the propensity scores can be re-estimated using machine learning leading to better calibrated propensity scores. Second, inverse propensity weighting (IPW) can be used instead of propensity score matching (PSM). IPW should ensure that that the sample size remains the same as no observations are lost in a matching process. Additionally, IPW is generally more efficient as the pseudo-population is based on prescise weights compared to matching that is based on approximate similarity between treatment and control. </span>
+<span id="cb23-989"><a href="#cb23-989" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-990"><a href="#cb23-990" aria-hidden="true" tabindex="-1"></a>The machine learning propensity scores will be estimated using <span class="in">`WeightIt`</span> in the same process as @sec-demo. To select the criteria that defines the best model, consider @fig-coffee-replication-lplot that shows there is a significant range of balance levels in the raw dataset. Knowing this, the model will be tuned using <span class="in">`criterion = "smd.max"`</span> as reducing the extremely unbalanced variables is important to achieving balance even if this leads to a higher average standardised mean difference (SMD). Additionally, the model fitting process was completed using <span class="in">`criterion = "smd.max"`</span> and is shown in @sec-appendix.  </span>
+<span id="cb23-993"><a href="#cb23-993" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-994"><a href="#cb23-994" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: coffee-boost-btab</span></span>
+<span id="cb23-995"><a href="#cb23-995" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-996"><a href="#cb23-996" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-997"><a href="#cb23-997" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-998"><a href="#cb23-998" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show to Code to Fit the GBM model using `WeightIt` and `cobalt`"</span></span>
+<span id="cb23-999"><a href="#cb23-999" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WeightIt)</span>
+<span id="cb23-1000"><a href="#cb23-1000" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cobalt)</span>
+<span id="cb23-1001"><a href="#cb23-1001" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1002"><a href="#cb23-1002" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">88</span>)</span>
+<span id="cb23-1003"><a href="#cb23-1003" aria-hidden="true" tabindex="-1"></a>coffee_boosted_weight <span class="ot">&lt;-</span> <span class="fu">weightit</span>(coffee_formula, <span class="at">data=</span>coffee_data, </span>
+<span id="cb23-1004"><a href="#cb23-1004" aria-hidden="true" tabindex="-1"></a>                                <span class="at">method=</span><span class="st">"gbm"</span>, <span class="at">distribution=</span><span class="st">"bernoulli"</span>,</span>
+<span id="cb23-1005"><a href="#cb23-1005" aria-hidden="true" tabindex="-1"></a>                                <span class="at">use.offset=</span><span class="fu">c</span>(T),</span>
+<span id="cb23-1006"><a href="#cb23-1006" aria-hidden="true" tabindex="-1"></a>                                <span class="at">shrinkage=</span><span class="fu">seq</span>(<span class="fl">0.15</span>, <span class="fl">0.4</span>,<span class="at">length.out=</span><span class="dv">5</span>),</span>
+<span id="cb23-1007"><a href="#cb23-1007" aria-hidden="true" tabindex="-1"></a>                                <span class="at">bag.fraction=</span><span class="fl">0.67</span>, </span>
+<span id="cb23-1008"><a href="#cb23-1008" aria-hidden="true" tabindex="-1"></a>                                <span class="at">interaction.depth=</span><span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb23-1009"><a href="#cb23-1009" aria-hidden="true" tabindex="-1"></a>                                <span class="at">n.trees=</span><span class="dv">500</span>,</span>
+<span id="cb23-1010"><a href="#cb23-1010" aria-hidden="true" tabindex="-1"></a>                                <span class="at">criterion=</span><span class="st">"smd.mean"</span>, </span>
+<span id="cb23-1011"><a href="#cb23-1011" aria-hidden="true" tabindex="-1"></a>                                <span class="at">estimand=</span><span class="st">"ATT"</span>)</span>
+<span id="cb23-1012"><a href="#cb23-1012" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1013"><a href="#cb23-1013" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1014"><a href="#cb23-1014" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1015"><a href="#cb23-1015" aria-hidden="true" tabindex="-1"></a>coffee_boosted_btab <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(coffee_boosted_weight, </span>
+<span id="cb23-1016"><a href="#cb23-1016" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> coffee_data, </span>
+<span id="cb23-1017"><a href="#cb23-1017" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean.diffs"</span>,<span class="st">"variance.ratios"</span>),</span>
+<span id="cb23-1018"><a href="#cb23-1018" aria-hidden="true" tabindex="-1"></a>                        <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">continuous =</span> <span class="st">"std"</span>,</span>
+<span id="cb23-1019"><a href="#cb23-1019" aria-hidden="true" tabindex="-1"></a>                        <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">mean.diffs =</span> <span class="fl">0.1</span>),</span>
+<span id="cb23-1020"><a href="#cb23-1020" aria-hidden="true" tabindex="-1"></a>                        <span class="at">s.d.denom =</span> <span class="st">"treated"</span>)</span>
+<span id="cb23-1021"><a href="#cb23-1021" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1022"><a href="#cb23-1022" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracts the balance tabltune# Extracts the balance table and removes unwanted columns. </span></span>
+<span id="cb23-1023"><a href="#cb23-1023" aria-hidden="true" tabindex="-1"></a>coffee_boosted_btab <span class="ot">&lt;-</span> coffee_boosted_btab<span class="sc">$</span>Balance[<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</span>
+<span id="cb23-1024"><a href="#cb23-1024" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1025"><a href="#cb23-1025" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1026"><a href="#cb23-1026" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Discussion of Tuning"}</span>
+<span id="cb23-1027"><a href="#cb23-1027" aria-hidden="true" tabindex="-1"></a>Initially, a tuning grid considering shrinkage values of $0.001,0.005,.01,0.05,0.1,\text{ and }0.2$ were considered using $10000$ trees with a depth between $1$ and $5$. The best tuning performance was found with shrinkage of $0.2$ and $9$ trees which were three splits $3$ deep. As such, the tuning grid was redefined in a second iteration to use $0.1, 0.15, 0.2, 0.25, 0.3,0.35,\text{ and } 0.4$ with only $1000$ trees with between $2$ and $5$ depth. The second fit, suggested a learning rate of $0.35$ so the local area of $0.3, 0.325, 0.350, 0.375, \text{ and }0.4$ is searched in the final fit.</span>
+<span id="cb23-1028"><a href="#cb23-1028" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-1029"><a href="#cb23-1029" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1030"><a href="#cb23-1030" aria-hidden="true" tabindex="-1"></a>Of course there is no guarantee that the GBM model will perform the best and so a logisic model is also fitted. An interesting comparison is between the balance visible in the matched sample like in @Jena2012 and in the weighted sample. Any difference between these two samples relates to the difference between matching and weighting on the propensity score as the score is the same in both methods (generated by logistic regression). </span>
+<span id="cb23-1031"><a href="#cb23-1031" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1032"><a href="#cb23-1032" aria-hidden="true" tabindex="-1"></a><span class="in">```{r }</span></span>
+<span id="cb23-1033"><a href="#cb23-1033" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb23-1034"><a href="#cb23-1034" aria-hidden="true" tabindex="-1"></a><span class="in">#| cache: true</span></span>
+<span id="cb23-1035"><a href="#cb23-1035" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: coffee_logit_weight</span></span>
+<span id="cb23-1036"><a href="#cb23-1036" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-fold: true</span></span>
+<span id="cb23-1037"><a href="#cb23-1037" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-summary: "Show to Code to Fit the Logistic model using `WeightIt` and `cobalt`"</span></span>
+<span id="cb23-1038"><a href="#cb23-1038" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_weight &lt;- weightit(coffee_formula, data=coffee_data, method="glm",</span></span>
+<span id="cb23-1039"><a href="#cb23-1039" aria-hidden="true" tabindex="-1"></a><span class="in">                                estimand="ATT")</span></span>
+<span id="cb23-1040"><a href="#cb23-1040" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1041"><a href="#cb23-1041" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_btab &lt;- bal.tab(coffee_logit_weight, </span></span>
+<span id="cb23-1042"><a href="#cb23-1042" aria-hidden="true" tabindex="-1"></a><span class="in">                             formula = coffee_formula,</span></span>
+<span id="cb23-1043"><a href="#cb23-1043" aria-hidden="true" tabindex="-1"></a><span class="in">                             data = coffee_data, </span></span>
+<span id="cb23-1044"><a href="#cb23-1044" aria-hidden="true" tabindex="-1"></a><span class="in">                             stats = c("mean.diffs","variance.ratios"),</span></span>
+<span id="cb23-1045"><a href="#cb23-1045" aria-hidden="true" tabindex="-1"></a><span class="in">                             binary = "std", continuous = "std",</span></span>
+<span id="cb23-1046"><a href="#cb23-1046" aria-hidden="true" tabindex="-1"></a><span class="in">                             thresholds = c(mean.diffs = 0.1),</span></span>
+<span id="cb23-1047"><a href="#cb23-1047" aria-hidden="true" tabindex="-1"></a><span class="in">                             s.d.denom = "treated")</span></span>
 <span id="cb23-1048"><a href="#cb23-1048" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1049"><a href="#cb23-1049" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1052"><a href="#cb23-1052" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-1053"><a href="#cb23-1053" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: raw-btab</span></span>
-<span id="cb23-1054"><a href="#cb23-1054" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-1055"><a href="#cb23-1055" aria-hidden="true" tabindex="-1"></a>coffee_raw_btab <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(coffee_formula, </span>
-<span id="cb23-1056"><a href="#cb23-1056" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> coffee_data, </span>
-<span id="cb23-1057"><a href="#cb23-1057" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean.diffs"</span>,<span class="st">"variance.ratios"</span>),</span>
-<span id="cb23-1058"><a href="#cb23-1058" aria-hidden="true" tabindex="-1"></a>                        <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">continuous =</span> <span class="st">"std"</span>,</span>
-<span id="cb23-1059"><a href="#cb23-1059" aria-hidden="true" tabindex="-1"></a>                        <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">mean.diffs =</span> <span class="fl">0.1</span>),</span>
-<span id="cb23-1060"><a href="#cb23-1060" aria-hidden="true" tabindex="-1"></a>                        <span class="at">s.d.denom =</span> <span class="st">"treated"</span>)</span>
-<span id="cb23-1061"><a href="#cb23-1061" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1062"><a href="#cb23-1062" aria-hidden="true" tabindex="-1"></a>coffee_raw_btab <span class="ot">&lt;-</span> coffee_raw_btab<span class="sc">$</span>Balance[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>)]</span>
-<span id="cb23-1063"><a href="#cb23-1063" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1064"><a href="#cb23-1064" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1065"><a href="#cb23-1065" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comparison of Methods</span></span>
+<span id="cb23-1049"><a href="#cb23-1049" aria-hidden="true" tabindex="-1"></a><span class="in">coffee_logit_btab &lt;- coffee_logit_btab$Balance[-1,-c(2,3)]</span></span>
+<span id="cb23-1050"><a href="#cb23-1050" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1051"><a href="#cb23-1051" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1052"><a href="#cb23-1052" aria-hidden="true" tabindex="-1"></a>Additionally, the balance present in the raw data is calculated.  </span>
+<span id="cb23-1053"><a href="#cb23-1053" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1054"><a href="#cb23-1054" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1057"><a href="#cb23-1057" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-1058"><a href="#cb23-1058" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: raw-btab</span></span>
+<span id="cb23-1059"><a href="#cb23-1059" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-1060"><a href="#cb23-1060" aria-hidden="true" tabindex="-1"></a>coffee_raw_btab <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(coffee_formula, </span>
+<span id="cb23-1061"><a href="#cb23-1061" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> coffee_data, </span>
+<span id="cb23-1062"><a href="#cb23-1062" aria-hidden="true" tabindex="-1"></a>                        <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"mean.diffs"</span>,<span class="st">"variance.ratios"</span>),</span>
+<span id="cb23-1063"><a href="#cb23-1063" aria-hidden="true" tabindex="-1"></a>                        <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">continuous =</span> <span class="st">"std"</span>,</span>
+<span id="cb23-1064"><a href="#cb23-1064" aria-hidden="true" tabindex="-1"></a>                        <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">mean.diffs =</span> <span class="fl">0.1</span>),</span>
+<span id="cb23-1065"><a href="#cb23-1065" aria-hidden="true" tabindex="-1"></a>                        <span class="at">s.d.denom =</span> <span class="st">"treated"</span>)</span>
 <span id="cb23-1066"><a href="#cb23-1066" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1067"><a href="#cb23-1067" aria-hidden="true" tabindex="-1"></a>In each of the above code chunks, the <span class="in">`cobalt`</span> table has computed balance tables which are combined together in @tbl-coffee-comparison and @fig-coffee-love-all. </span>
-<span id="cb23-1068"><a href="#cb23-1068" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1071"><a href="#cb23-1071" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-1072"><a href="#cb23-1072" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: manipulate-btab</span></span>
-<span id="cb23-1073"><a href="#cb23-1073" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-1074"><a href="#cb23-1074" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-1075"><a href="#cb23-1075" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-1076"><a href="#cb23-1076" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code Prepairing the Balance Table for Presentation"</span></span>
-<span id="cb23-1077"><a href="#cb23-1077" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"data.table"</span>)</span>
-<span id="cb23-1078"><a href="#cb23-1078" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1079"><a href="#cb23-1079" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(<span class="fu">list</span>(coffee_raw_btab,</span>
-<span id="cb23-1080"><a href="#cb23-1080" aria-hidden="true" tabindex="-1"></a>                                       coffee_logit_btab,</span>
-<span id="cb23-1081"><a href="#cb23-1081" aria-hidden="true" tabindex="-1"></a>                                       coffee_boosted_btab), <span class="at">use.names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb23-1082"><a href="#cb23-1082" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1083"><a href="#cb23-1083" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab<span class="sc">$</span>Variable <span class="ot">&lt;-</span> <span class="fu">rep</span>(rowlabels,<span class="dv">3</span>)</span>
-<span id="cb23-1084"><a href="#cb23-1084" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1085"><a href="#cb23-1085" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab <span class="ot">&lt;-</span> coffee_combined_btab[,<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span>
-<span id="cb23-1086"><a href="#cb23-1086" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1087"><a href="#cb23-1087" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab[,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
-<span id="cb23-1088"><a href="#cb23-1088" aria-hidden="true" tabindex="-1"></a>          coffee_combined_btab[,<span class="dv">4</span>] <span class="sc">&gt;=</span> <span class="st">"Not Balanced, &gt;0.1"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>)</span>
-<span id="cb23-1089"><a href="#cb23-1089" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1090"><a href="#cb23-1090" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1067"><a href="#cb23-1067" aria-hidden="true" tabindex="-1"></a>coffee_raw_btab <span class="ot">&lt;-</span> coffee_raw_btab<span class="sc">$</span>Balance[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>)]</span>
+<span id="cb23-1068"><a href="#cb23-1068" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1069"><a href="#cb23-1069" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1070"><a href="#cb23-1070" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comparison of Methods</span></span>
+<span id="cb23-1071"><a href="#cb23-1071" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1072"><a href="#cb23-1072" aria-hidden="true" tabindex="-1"></a>In each of the above code chunks, the <span class="in">`cobalt`</span> table has computed balance tables which are combined together in @tbl-coffee-comparison and @fig-coffee-love-all. </span>
+<span id="cb23-1073"><a href="#cb23-1073" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1076"><a href="#cb23-1076" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-1077"><a href="#cb23-1077" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: manipulate-btab</span></span>
+<span id="cb23-1078"><a href="#cb23-1078" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-1079"><a href="#cb23-1079" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-1080"><a href="#cb23-1080" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-1081"><a href="#cb23-1081" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code Prepairing the Balance Table for Presentation"</span></span>
+<span id="cb23-1082"><a href="#cb23-1082" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"data.table"</span>)</span>
+<span id="cb23-1083"><a href="#cb23-1083" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1084"><a href="#cb23-1084" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(<span class="fu">list</span>(coffee_raw_btab,</span>
+<span id="cb23-1085"><a href="#cb23-1085" aria-hidden="true" tabindex="-1"></a>                                       coffee_logit_btab,</span>
+<span id="cb23-1086"><a href="#cb23-1086" aria-hidden="true" tabindex="-1"></a>                                       coffee_boosted_btab), <span class="at">use.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb23-1087"><a href="#cb23-1087" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1088"><a href="#cb23-1088" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab<span class="sc">$</span>Variable <span class="ot">&lt;-</span> <span class="fu">rep</span>(rowlabels,<span class="dv">3</span>)</span>
+<span id="cb23-1089"><a href="#cb23-1089" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1090"><a href="#cb23-1090" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab <span class="ot">&lt;-</span> coffee_combined_btab[,<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span>
 <span id="cb23-1091"><a href="#cb23-1091" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1094"><a href="#cb23-1094" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-1095"><a href="#cb23-1095" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: true</span></span>
-<span id="cb23-1096"><a href="#cb23-1096" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: false</span></span>
-<span id="cb23-1097"><a href="#cb23-1097" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-1098"><a href="#cb23-1098" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Table #](#tbl-coffee-comparison)."</span></span>
-<span id="cb23-1099"><a href="#cb23-1099" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-coffee-comparison</span></span>
-<span id="cb23-1100"><a href="#cb23-1100" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Comparison of Balance for Coffee Data Using Different Propensity Models"</span></span>
-<span id="cb23-1101"><a href="#cb23-1101" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb23-1102"><a href="#cb23-1102" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_combined_btab, <span class="at">digits=</span><span class="dv">3</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>, <span class="at">align=</span><span class="st">"c"</span>, </span>
-<span id="cb23-1103"><a href="#cb23-1103" aria-hidden="true" tabindex="-1"></a>    <span class="at">font_size=</span><span class="dv">10</span>, <span class="at">col.names=</span>colnames) <span class="sc">%&gt;%</span></span>
-<span id="cb23-1104"><a href="#cb23-1104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-1105"><a href="#cb23-1105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold=</span><span class="cn">TRUE</span>, <span class="at">width=</span><span class="st">"5cm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-1106"><a href="#cb23-1106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">bold=</span><span class="cn">FALSE</span>, <span class="at">width=</span><span class="st">"1cm"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-1107"><a href="#cb23-1107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Raw Data"</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="at">label_row_css =</span> <span class="st">"text-align: center;"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-1108"><a href="#cb23-1108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Logistic Regression and IPTW"</span>, <span class="dv">11</span>, <span class="dv">20</span>, <span class="at">label_row_css =</span> <span class="st">"text-align: center;"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-1109"><a href="#cb23-1109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Boosted Machine with IPTW"</span>, <span class="dv">21</span>, <span class="dv">30</span>, <span class="at">label_row_css =</span> <span class="st">"text-align: center;"</span>)</span>
-<span id="cb23-1110"><a href="#cb23-1110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1111"><a href="#cb23-1111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1112"><a href="#cb23-1112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1115"><a href="#cb23-1115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-1116"><a href="#cb23-1116" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-coffee-love-all</span></span>
-<span id="cb23-1117"><a href="#cb23-1117" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-1118"><a href="#cb23-1118" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
-<span id="cb23-1119"><a href="#cb23-1119" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-1120"><a href="#cb23-1120" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#fig-coffee-love-all)"</span></span>
-<span id="cb23-1121"><a href="#cb23-1121" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Comparison of Balance for Coffee Data Using Different Methods"</span></span>
-<span id="cb23-1122"><a href="#cb23-1122" aria-hidden="true" tabindex="-1"></a><span class="fu">love.plot</span>(coffee_formula,</span>
-<span id="cb23-1123"><a href="#cb23-1123" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> coffee_data, </span>
-<span id="cb23-1124"><a href="#cb23-1124" aria-hidden="true" tabindex="-1"></a>          <span class="at">weights =</span> <span class="fu">list</span>(<span class="at">Replication =</span> coffee_rep_pmodel,</span>
-<span id="cb23-1125"><a href="#cb23-1125" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Logit =</span> coffee_logit_weight,</span>
-<span id="cb23-1126"><a href="#cb23-1126" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Boosting=</span> coffee_boosted_weight),</span>
-<span id="cb23-1127"><a href="#cb23-1127" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.order =</span> <span class="st">"unadjusted"</span>, <span class="at">binary =</span> <span class="st">"std"</span>,<span class="at">continuous =</span> <span class="st">"std"</span>,</span>
-<span id="cb23-1128"><a href="#cb23-1128" aria-hidden="true" tabindex="-1"></a>          <span class="at">abs =</span> <span class="cn">TRUE</span>, <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#333333"</span>, <span class="st">"#2780e3"</span>, <span class="st">"darkblue"</span>,<span class="st">"darkred"</span>), </span>
-<span id="cb23-1129"><a href="#cb23-1129" aria-hidden="true" tabindex="-1"></a>          <span class="at">shapes =</span> <span class="fu">c</span>(<span class="st">"circle"</span>, <span class="st">"square"</span>, <span class="st">"triangle"</span>, <span class="st">"diamond"</span>),</span>
-<span id="cb23-1130"><a href="#cb23-1130" aria-hidden="true" tabindex="-1"></a>          <span class="at">line =</span> <span class="cn">TRUE</span>,<span class="at">thresholds=</span><span class="fl">0.1</span>,<span class="at">s.d.denom=</span><span class="st">"treated"</span>,<span class="at">use.grid=</span>F)<span class="sc">+</span></span>
-<span id="cb23-1131"><a href="#cb23-1131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Variable Balance Using Different Balance Methods"</span>,</span>
-<span id="cb23-1132"><a href="#cb23-1132" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Absolute Standardised Mean Differences"</span>,</span>
-<span id="cb23-1133"><a href="#cb23-1133" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Method"</span>) <span class="sc">+</span></span>
-<span id="cb23-1134"><a href="#cb23-1134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.6</span>,<span class="at">length.out=</span><span class="dv">7</span>),<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))) <span class="sc">+</span> custom_ggplot_theme</span>
-<span id="cb23-1135"><a href="#cb23-1135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1136"><a href="#cb23-1136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1137"><a href="#cb23-1137" aria-hidden="true" tabindex="-1"></a>Viewing results of our balance shows three notable findings: </span>
-<span id="cb23-1138"><a href="#cb23-1138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1139"><a href="#cb23-1139" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>PSM has performed very poorly relative to IPW even though matching dropped a significant number of observations.  </span>
-<span id="cb23-1140"><a href="#cb23-1140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1141"><a href="#cb23-1141" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>A GBM model has resulted in better covariate balance than logistic regression for most variables. Using a $10\%$ threshold for determining balance, logistic regression leaves $5$ variables unbalanced and the GBM leaves $3$ variables unbalanced. Additionally, the margin above being unbalanced is also larger for logistic regression. Although logistic regression results in better balance for "access to credit", "gender", and "education". Logistic regress has the average balance across all variables is <span class="in">`{r} mean(coffee_logit_btab$Diff.Adj)`</span> which is satisfactory. For boosting, The average standardised mean is <span class="in">`{r} mean(coffee_boosted_btab$Diff.Adj)`</span> which is quite impressive compared to the methodology used in the paper.</span>
-<span id="cb23-1142"><a href="#cb23-1142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1143"><a href="#cb23-1143" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>The variable with the worst balance for each model is Age with a SMD of $0.245$ for logistic regression and "bad weather" with $0.191$ for the GBM.</span>
-<span id="cb23-1144"><a href="#cb23-1144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1145"><a href="#cb23-1145" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Using a looser balance threshold of $0.2$, the GBM achieves balance across all covariates while the logistic regression does not balance either of the Age variables. </span>
-<span id="cb23-1146"><a href="#cb23-1146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1147"><a href="#cb23-1147" aria-hidden="true" tabindex="-1"></a>For the logistic regression model, the balance statistics are marginally balanced. Using a $10\%$ threshold, half of the variables are balanced. Using a relaxed $20\%$ threshold, only Age and Age Squared are unbalanced but balance with threshold should be interpreted with caution.  </span>
-<span id="cb23-1148"><a href="#cb23-1148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1149"><a href="#cb23-1149" aria-hidden="true" tabindex="-1"></a>Now that satisfactory covariate balance is achieved, the treatment effect can be estimated under logistic regression, the GBM, and then compared to the result in the paper. Note that the estimand in the paper is intended to be the average treatment effect (ATT) but dropped observations mean the actual treatment effect is the average treatment effect on matched (ATM) individuals. </span>
-<span id="cb23-1150"><a href="#cb23-1150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1153"><a href="#cb23-1153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb23-1154"><a href="#cb23-1154" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb23-1155"><a href="#cb23-1155" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
-<span id="cb23-1156"><a href="#cb23-1156" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb23-1157"><a href="#cb23-1157" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#tbl-comparison-coffee-results)"</span></span>
-<span id="cb23-1158"><a href="#cb23-1158" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-comparison-coffee-results</span></span>
-<span id="cb23-1159"><a href="#cb23-1159" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "PLACEHOLDER"</span></span>
-<span id="cb23-1160"><a href="#cb23-1160" aria-hidden="true" tabindex="-1"></a>coffee_att_formula <span class="ot">&lt;-</span> <span class="fu">update.formula</span>(<span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">"~"</span>, <span class="fu">paste</span>(<span class="fu">attr</span>(<span class="fu">terms</span>(coffee_formula), <span class="st">"term.labels"</span>), <span class="at">collapse =</span> <span class="st">" + "</span>))), percapitaincome_day_maleeq <span class="sc">~</span> certified <span class="sc">*</span> .)</span>
-<span id="cb23-1161"><a href="#cb23-1161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1162"><a href="#cb23-1162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1163"><a href="#cb23-1163" aria-hidden="true" tabindex="-1"></a>coffee_logit_fit <span class="ot">&lt;-</span> <span class="fu">lm_weightit</span>(coffee_att_formula,</span>
-<span id="cb23-1164"><a href="#cb23-1164" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> coffee_data, <span class="at">weightit =</span> coffee_logit_weight)</span>
-<span id="cb23-1165"><a href="#cb23-1165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1166"><a href="#cb23-1166" aria-hidden="true" tabindex="-1"></a>coffee_boosted_fit <span class="ot">&lt;-</span> <span class="fu">lm_weightit</span>(coffee_att_formula,</span>
-<span id="cb23-1167"><a href="#cb23-1167" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data =</span> coffee_data, <span class="at">weightit =</span> coffee_boosted_weight)</span>
-<span id="cb23-1168"><a href="#cb23-1168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1169"><a href="#cb23-1169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1170"><a href="#cb23-1170" aria-hidden="true" tabindex="-1"></a>coffee_logit_att <span class="ot">&lt;-</span> <span class="fu">avg_comparisons</span>(coffee_logit_fit, <span class="at">variables =</span> <span class="st">"certified"</span>)</span>
-<span id="cb23-1171"><a href="#cb23-1171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1172"><a href="#cb23-1172" aria-hidden="true" tabindex="-1"></a>coffee_boosted_att <span class="ot">&lt;-</span> <span class="fu">avg_comparisons</span>(coffee_boosted_fit, <span class="at">variables =</span> <span class="st">"certified"</span>)</span>
+<span id="cb23-1092"><a href="#cb23-1092" aria-hidden="true" tabindex="-1"></a>coffee_combined_btab[,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb23-1093"><a href="#cb23-1093" aria-hidden="true" tabindex="-1"></a>          coffee_combined_btab[,<span class="dv">4</span>] <span class="sc">&gt;=</span> <span class="st">"Not Balanced, &gt;0.1"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>)</span>
+<span id="cb23-1094"><a href="#cb23-1094" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1095"><a href="#cb23-1095" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1096"><a href="#cb23-1096" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1099"><a href="#cb23-1099" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-1100"><a href="#cb23-1100" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: true</span></span>
+<span id="cb23-1101"><a href="#cb23-1101" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: false</span></span>
+<span id="cb23-1102"><a href="#cb23-1102" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-1103"><a href="#cb23-1103" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Table #](#tbl-coffee-comparison)."</span></span>
+<span id="cb23-1104"><a href="#cb23-1104" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-coffee-comparison</span></span>
+<span id="cb23-1105"><a href="#cb23-1105" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Comparison of Balance for Coffee Data Using Different Propensity Models"</span></span>
+<span id="cb23-1106"><a href="#cb23-1106" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb23-1107"><a href="#cb23-1107" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_combined_btab, <span class="at">digits=</span><span class="dv">3</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>, <span class="at">align=</span><span class="st">"c"</span>, </span>
+<span id="cb23-1108"><a href="#cb23-1108" aria-hidden="true" tabindex="-1"></a>    <span class="at">font_size=</span><span class="dv">10</span>, <span class="at">col.names=</span>colnames) <span class="sc">%&gt;%</span></span>
+<span id="cb23-1109"><a href="#cb23-1109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-1110"><a href="#cb23-1110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold=</span><span class="cn">TRUE</span>, <span class="at">width=</span><span class="st">"5cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-1111"><a href="#cb23-1111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">bold=</span><span class="cn">FALSE</span>, <span class="at">width=</span><span class="st">"1cm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-1112"><a href="#cb23-1112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Raw Data"</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="at">label_row_css =</span> <span class="st">"text-align: center;"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-1113"><a href="#cb23-1113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Logistic Regression and IPTW"</span>, <span class="dv">11</span>, <span class="dv">20</span>, <span class="at">label_row_css =</span> <span class="st">"text-align: center;"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-1114"><a href="#cb23-1114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Boosted Machine with IPTW"</span>, <span class="dv">21</span>, <span class="dv">30</span>, <span class="at">label_row_css =</span> <span class="st">"text-align: center;"</span>)</span>
+<span id="cb23-1115"><a href="#cb23-1115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1116"><a href="#cb23-1116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1117"><a href="#cb23-1117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1120"><a href="#cb23-1120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-1121"><a href="#cb23-1121" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-coffee-love-all</span></span>
+<span id="cb23-1122"><a href="#cb23-1122" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-1123"><a href="#cb23-1123" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-showtext: true</span></span>
+<span id="cb23-1124"><a href="#cb23-1124" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-1125"><a href="#cb23-1125" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#fig-coffee-love-all)"</span></span>
+<span id="cb23-1126"><a href="#cb23-1126" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Comparison of Balance for Coffee Data Using Different Methods"</span></span>
+<span id="cb23-1127"><a href="#cb23-1127" aria-hidden="true" tabindex="-1"></a><span class="fu">love.plot</span>(coffee_formula,</span>
+<span id="cb23-1128"><a href="#cb23-1128" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> coffee_data, </span>
+<span id="cb23-1129"><a href="#cb23-1129" aria-hidden="true" tabindex="-1"></a>          <span class="at">weights =</span> <span class="fu">list</span>(<span class="at">Replication =</span> coffee_rep_pmodel,</span>
+<span id="cb23-1130"><a href="#cb23-1130" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Logit =</span> coffee_logit_weight,</span>
+<span id="cb23-1131"><a href="#cb23-1131" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Boosting=</span> coffee_boosted_weight),</span>
+<span id="cb23-1132"><a href="#cb23-1132" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.order =</span> <span class="st">"unadjusted"</span>, <span class="at">binary =</span> <span class="st">"std"</span>,<span class="at">continuous =</span> <span class="st">"std"</span>,</span>
+<span id="cb23-1133"><a href="#cb23-1133" aria-hidden="true" tabindex="-1"></a>          <span class="at">abs =</span> <span class="cn">TRUE</span>, <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#333333"</span>, <span class="st">"#2780e3"</span>, <span class="st">"darkblue"</span>,<span class="st">"darkred"</span>), </span>
+<span id="cb23-1134"><a href="#cb23-1134" aria-hidden="true" tabindex="-1"></a>          <span class="at">shapes =</span> <span class="fu">c</span>(<span class="st">"circle"</span>, <span class="st">"square"</span>, <span class="st">"triangle"</span>, <span class="st">"diamond"</span>),</span>
+<span id="cb23-1135"><a href="#cb23-1135" aria-hidden="true" tabindex="-1"></a>          <span class="at">line =</span> <span class="cn">TRUE</span>,<span class="at">thresholds=</span><span class="fl">0.1</span>,<span class="at">s.d.denom=</span><span class="st">"treated"</span>,<span class="at">use.grid=</span>F)<span class="sc">+</span></span>
+<span id="cb23-1136"><a href="#cb23-1136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Variable Balance Using Different Balance Methods"</span>,</span>
+<span id="cb23-1137"><a href="#cb23-1137" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Absolute Standardised Mean Differences"</span>,</span>
+<span id="cb23-1138"><a href="#cb23-1138" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Method"</span>) <span class="sc">+</span></span>
+<span id="cb23-1139"><a href="#cb23-1139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.6</span>,<span class="at">length.out=</span><span class="dv">7</span>),<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))) <span class="sc">+</span> custom_ggplot_theme</span>
+<span id="cb23-1140"><a href="#cb23-1140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1141"><a href="#cb23-1141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1142"><a href="#cb23-1142" aria-hidden="true" tabindex="-1"></a>Viewing results of our balance shows three notable findings: </span>
+<span id="cb23-1143"><a href="#cb23-1143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1144"><a href="#cb23-1144" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>PSM has performed very poorly relative to IPW even though matching dropped a significant number of observations.  </span>
+<span id="cb23-1145"><a href="#cb23-1145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1146"><a href="#cb23-1146" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>A GBM model has resulted in better covariate balance than logistic regression for most variables. Using a $10\%$ threshold for determining balance, logistic regression leaves $5$ variables unbalanced and the GBM leaves $3$ variables unbalanced. Additionally, the margin above being unbalanced is also larger for logistic regression. Although logistic regression results in better balance for "access to credit", "gender", and "education". Logistic regress has the average balance across all variables is <span class="in">`{r} mean(coffee_logit_btab$Diff.Adj)`</span> which is satisfactory. For boosting, The average standardised mean is <span class="in">`{r} mean(coffee_boosted_btab$Diff.Adj)`</span> which is quite impressive compared to the methodology used in the paper.</span>
+<span id="cb23-1147"><a href="#cb23-1147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1148"><a href="#cb23-1148" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>The variable with the worst balance for each model is Age with a SMD of $0.245$ for logistic regression and "bad weather" with $0.191$ for the GBM.</span>
+<span id="cb23-1149"><a href="#cb23-1149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1150"><a href="#cb23-1150" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Using a looser balance threshold of $0.2$, the GBM achieves balance across all covariates while the logistic regression does not balance either of the Age variables. </span>
+<span id="cb23-1151"><a href="#cb23-1151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1152"><a href="#cb23-1152" aria-hidden="true" tabindex="-1"></a>For the logistic regression model, the balance statistics are marginally balanced. Using a $10\%$ threshold, half of the variables are balanced. Using a relaxed $20\%$ threshold, only Age and Age Squared are unbalanced but balance with threshold should be interpreted with caution.  </span>
+<span id="cb23-1153"><a href="#cb23-1153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1154"><a href="#cb23-1154" aria-hidden="true" tabindex="-1"></a>Now that satisfactory covariate balance is achieved, the treatment effect can be estimated under logistic regression, the GBM, and then compared to the result in the paper. Note that the estimand in the paper is intended to be the average treatment effect (ATT) but dropped observations mean the actual treatment effect is the average treatment effect on matched (ATM) individuals. </span>
+<span id="cb23-1155"><a href="#cb23-1155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1158"><a href="#cb23-1158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-1159"><a href="#cb23-1159" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb23-1160"><a href="#cb23-1160" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb23-1161"><a href="#cb23-1161" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb23-1162"><a href="#cb23-1162" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Show the Code to Create [Figure #](#tbl-comparison-coffee-results)"</span></span>
+<span id="cb23-1163"><a href="#cb23-1163" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-comparison-coffee-results</span></span>
+<span id="cb23-1164"><a href="#cb23-1164" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "PLACEHOLDER"</span></span>
+<span id="cb23-1165"><a href="#cb23-1165" aria-hidden="true" tabindex="-1"></a>coffee_att_formula <span class="ot">&lt;-</span> <span class="fu">update.formula</span>(<span class="fu">as.formula</span>(<span class="fu">paste</span>(<span class="st">"~"</span>, <span class="fu">paste</span>(<span class="fu">attr</span>(<span class="fu">terms</span>(coffee_formula), <span class="st">"term.labels"</span>), <span class="at">collapse =</span> <span class="st">" + "</span>))), percapitaincome_day_maleeq <span class="sc">~</span> certified <span class="sc">*</span> .)</span>
+<span id="cb23-1166"><a href="#cb23-1166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1167"><a href="#cb23-1167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1168"><a href="#cb23-1168" aria-hidden="true" tabindex="-1"></a>coffee_logit_fit <span class="ot">&lt;-</span> <span class="fu">lm_weightit</span>(coffee_att_formula,</span>
+<span id="cb23-1169"><a href="#cb23-1169" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> coffee_data, <span class="at">weightit =</span> coffee_logit_weight)</span>
+<span id="cb23-1170"><a href="#cb23-1170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1171"><a href="#cb23-1171" aria-hidden="true" tabindex="-1"></a>coffee_boosted_fit <span class="ot">&lt;-</span> <span class="fu">lm_weightit</span>(coffee_att_formula,</span>
+<span id="cb23-1172"><a href="#cb23-1172" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data =</span> coffee_data, <span class="at">weightit =</span> coffee_boosted_weight)</span>
 <span id="cb23-1173"><a href="#cb23-1173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1174"><a href="#cb23-1174" aria-hidden="true" tabindex="-1"></a>coffee_comparisons_tab <span class="ot">&lt;-</span> <span class="fu">rbind</span>(replicated_result_tbl, <span class="fu">extract_comparison_results</span>(coffee_logit_att),</span>
-<span id="cb23-1175"><a href="#cb23-1175" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">extract_comparison_results</span>(coffee_boosted_att))</span>
-<span id="cb23-1176"><a href="#cb23-1176" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(coffee_comparisons_tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Rep. Result (Logistic with PSM)"</span>,<span class="st">"Logistic Regression and IPW"</span>, <span class="st">"Generalized Boosting Machine and IPW"</span>)</span>
-<span id="cb23-1177"><a href="#cb23-1177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1178"><a href="#cb23-1178" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_comparisons_tab, <span class="at">digits=</span><span class="dv">4</span>,<span class="at">booktabs=</span> T, <span class="at">align =</span> <span class="st">"c"</span>, </span>
-<span id="cb23-1179"><a href="#cb23-1179" aria-hidden="true" tabindex="-1"></a>      <span class="at">font_size=</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb23-1180"><a href="#cb23-1180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T)</span>
-<span id="cb23-1181"><a href="#cb23-1181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1174"><a href="#cb23-1174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1175"><a href="#cb23-1175" aria-hidden="true" tabindex="-1"></a>coffee_logit_att <span class="ot">&lt;-</span> <span class="fu">avg_comparisons</span>(coffee_logit_fit, <span class="at">variables =</span> <span class="st">"certified"</span>)</span>
+<span id="cb23-1176"><a href="#cb23-1176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1177"><a href="#cb23-1177" aria-hidden="true" tabindex="-1"></a>coffee_boosted_att <span class="ot">&lt;-</span> <span class="fu">avg_comparisons</span>(coffee_boosted_fit, <span class="at">variables =</span> <span class="st">"certified"</span>)</span>
+<span id="cb23-1178"><a href="#cb23-1178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1179"><a href="#cb23-1179" aria-hidden="true" tabindex="-1"></a>coffee_comparisons_tab <span class="ot">&lt;-</span> <span class="fu">rbind</span>(replicated_result_tbl, <span class="fu">extract_comparison_results</span>(coffee_logit_att),</span>
+<span id="cb23-1180"><a href="#cb23-1180" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">extract_comparison_results</span>(coffee_boosted_att))</span>
+<span id="cb23-1181"><a href="#cb23-1181" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(coffee_comparisons_tab) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Rep. Result (Logistic with PSM)"</span>,<span class="st">"Logistic Regression and IPW"</span>, <span class="st">"Generalized Boosting Machine and IPW"</span>)</span>
 <span id="cb23-1182"><a href="#cb23-1182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1183"><a href="#cb23-1183" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
-<span id="cb23-1184"><a href="#cb23-1184" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Provided for PDF Output</span></span>
-<span id="cb23-1185"><a href="#cb23-1185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r get-labels, echo = FALSE}</span></span>
-<span id="cb23-1186"><a href="#cb23-1186" aria-hidden="true" tabindex="-1"></a><span class="in">labs = knitr::all_labels()</span></span>
-<span id="cb23-1187"><a href="#cb23-1187" aria-hidden="true" tabindex="-1"></a><span class="in">labs = setdiff(labs, c("get-labels", "nsw_logit_pmodel", "nsw_boosted_weight", "nsw-btab-logit", "compute-ate-nsw-boosted" ))</span></span>
-<span id="cb23-1188"><a href="#cb23-1188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1189"><a href="#cb23-1189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1190"><a href="#cb23-1190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r all-code, ref.label=labs, eval=FALSE}</span></span>
-<span id="cb23-1191"><a href="#cb23-1191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb23-1192"><a href="#cb23-1192" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb23-1193"><a href="#cb23-1193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-1194"><a href="#cb23-1194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include=FALSE}</span></span>
-<span id="cb23-1195"><a href="#cb23-1195" aria-hidden="true" tabindex="-1"></a><span class="in">save.image(file = "my_environment.RData")</span></span>
+<span id="cb23-1183"><a href="#cb23-1183" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(coffee_comparisons_tab, <span class="at">digits=</span><span class="dv">4</span>,<span class="at">booktabs=</span> T, <span class="at">align =</span> <span class="st">"c"</span>, </span>
+<span id="cb23-1184"><a href="#cb23-1184" aria-hidden="true" tabindex="-1"></a>      <span class="at">font_size=</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-1185"><a href="#cb23-1185" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T)</span>
+<span id="cb23-1186"><a href="#cb23-1186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1187"><a href="#cb23-1187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1188"><a href="#cb23-1188" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb23-1189"><a href="#cb23-1189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Code Provided for PDF Output</span></span>
+<span id="cb23-1190"><a href="#cb23-1190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r get-labels, echo = FALSE}</span></span>
+<span id="cb23-1191"><a href="#cb23-1191" aria-hidden="true" tabindex="-1"></a><span class="in">labs = knitr::all_labels()</span></span>
+<span id="cb23-1192"><a href="#cb23-1192" aria-hidden="true" tabindex="-1"></a><span class="in">labs = setdiff(labs, c("get-labels", "nsw_logit_pmodel", "nsw_boosted_weight", "nsw-btab-logit", "compute-ate-nsw-boosted" ))</span></span>
+<span id="cb23-1193"><a href="#cb23-1193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1194"><a href="#cb23-1194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1195"><a href="#cb23-1195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r all-code, ref.label=labs, eval=FALSE}</span></span>
 <span id="cb23-1196"><a href="#cb23-1196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-1197"><a href="#cb23-1197" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-1198"><a href="#cb23-1198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-1199"><a href="#cb23-1199" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include=FALSE}</span></span>
+<span id="cb23-1200"><a href="#cb23-1200" aria-hidden="true" tabindex="-1"></a><span class="in">save.image(file = "my_environment.RData")</span></span>
+<span id="cb23-1201"><a href="#cb23-1201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
