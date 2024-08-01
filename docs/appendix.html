@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -257,8 +257,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="sec-data-nsw-jobs"><span class="header-section-number">7.1.1</span> NSW Jobs Dataset</h3>
 <p>The National Supported Work (NSW) Demonstration Job Training Program dataset originates from a large-scale social experiment conducted in the 1970s aimed at evaluating the impact of job training on employment and earnings among disadvantaged groups, including ex-addicts, ex-offenders, youth dropouts, and long-term unemployed women. The data contains a wide range of covariates including as age, education, pre-treatment earnings, marital status, and race.</p>
 <p>The study is a randomized controlled trial (RCT) design which is rare for jobs and employment data. Participants were randomly assigned to either a treatment group, which received job training, or a control group, which did not. This randomization is notable as it as it simplifies the calculation of a treatment effect.</p>
-<p>Initially <span class="citation" data-cites="lalonde1986">(<a href="#ref-lalonde1986" role="doc-biblioref"><strong>lalonde1986?</strong></a>)</span> used the NSW dataset to compare experimental and non-experimental estimators of the treatment effect. His findings highlighted significant discrepancies between the two, underscoring the importance of randomization in estimating causal effects. This study has been widely cited and forms the basis for many discussions on the validity of non-experimental methods. Following this, <span class="citation" data-cites="dehejia1999">(<a href="#ref-dehejia1999" role="doc-biblioref"><strong>dehejia1999?</strong></a>)</span>, who revisited LaLonde’s analysis and compared many different contemporary methods with varying results.</p>
-<p>For these reason it is commonly used in the literature as a toy dataset and features in <span class="citation" data-cites="mixtape20">(<a href="#ref-mixtape20" role="doc-biblioref"><strong>mixtape20?</strong></a>)</span>, paper,paper, paper. It serves as a practical example for students learning about causal inference, allowing them to understand and apply different econometric methods.</p>
+<p>Initially <span class="citation" data-cites="lalonde1986">(<a href="references.html#ref-lalonde1986" role="doc-biblioref"><strong>lalonde1986?</strong></a>)</span> used the NSW dataset to compare experimental and non-experimental estimators of the treatment effect. His findings highlighted significant discrepancies between the two, underscoring the importance of randomization in estimating causal effects. This study has been widely cited and forms the basis for many discussions on the validity of non-experimental methods. Following this, <span class="citation" data-cites="dehejia1999">(<a href="references.html#ref-dehejia1999" role="doc-biblioref"><strong>dehejia1999?</strong></a>)</span>, who revisited LaLonde’s analysis and compared many different contemporary methods with varying results.</p>
+<p>For these reason it is commonly used in the literature as a toy dataset and features in <span class="citation" data-cites="mixtape20">(<a href="references.html#ref-mixtape20" role="doc-biblioref"><strong>mixtape20?</strong></a>)</span>, paper,paper, paper. It serves as a practical example for students learning about causal inference, allowing them to understand and apply different econometric methods.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">'causaldata'</span>)</span>
@@ -281,8 +281,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="7.1.2" class="anchored" data-anchor-id="coffee-dataset"><span class="header-section-number">7.1.2</span> Coffee Dataset</h3>
 <p>blabla</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>coffee_data <span class="ot">&lt;-</span>  <span class="fu">read_dta</span>(<span class="st">"C:/Users/mitch/OneDrive - University of Otago/Mitchell Research/Propensity Score Replication Study/LampachMorawetzSupplementaryMaterial/Jena_etAl_LampachMorawetz.dta"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -292,14 +290,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#coffee_data &lt;- na.omit(coffee_data)</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#remeber to leave in or else cant predcit obs and shit goes wrong. </span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>coffee_data <span class="ot">&lt;-</span> coffee_data[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">56</span>,<span class="dv">84</span>,<span class="dv">156</span> ),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>liver_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"C:/Users/mitch/OneDrive - University of Otago/Mitchell Research/cirrhosis.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 418 Columns: 20
 ── Column specification ────────────────────────────────────────────────────────
@@ -316,8 +310,6 @@ dbl (13): ID, N_Days, Age, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos...
 <section id="functions" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="functions"><span class="header-section-number">7.2</span> Functions</h2>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>extract_comparison_results <span class="ot">&lt;-</span> <span class="cf">function</span>(results) {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  extracted_results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Estimate =</span> results<span class="sc">$</span>estimate,</span>
@@ -329,25 +321,19 @@ dbl (13): ID, N_Days, Age, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos...
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(extracted_results)</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="theming" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="theming"><span class="header-section-number">7.3</span> Theming</h2>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: sysfonts</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: showtextdb</code></pre>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">font_add_google</span>(<span class="at">name =</span> <span class="st">"Source Sans Pro"</span>, <span class="at">family =</span> <span class="st">"Source Sans Pro"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext_auto</span>()</span>
@@ -368,7 +354,6 @@ dbl (13): ID, N_Days, Age, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos...
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position=</span><span class="st">"bottom"</span>)</span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(custom_ggplot_theme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="agnolagements" class="level2" data-number="7.4">

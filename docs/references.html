@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -212,8 +232,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#r-version-control" id="toc-r-version-control" class="nav-link active" data-scroll-target="#r-version-control">R Version Control</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -237,10 +263,687 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-rmarkdown2024" class="csl-entry" role="listitem">
+Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier
+Luraschi, Kevin Ushey, Aron Atkins, et al. 2024. <em><span class="nocase">rmarkdown</span>: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
+</div>
+<div id="ref-Andam2008" class="csl-entry" role="listitem">
+Andam, Kwaw S., Paul J. Ferraro, Alexander Pfaff, G. Arturo
+Sanchez-Azofeifa, and Juan A. Robalino. 2008. <span>“<span class="nocase">Measuring the effectiveness of protected area networks in
+reducing deforestation</span>.”</span> <em>Proceedings of the National
+Academy of Sciences</em> 105 (42): 16089–94. <a href="https://doi.org/10.1073/pnas.0800437105">https://doi.org/10.1073/pnas.0800437105</a>.
+</div>
+<div id="ref-marginaleffects" class="csl-entry" role="listitem">
+Arel-Bundock, Vincent, Noah Greifer, and Andrew Heiss. Forthcoming.
+<span>“How to Interpret Statistical Models Using <span class="nocase">marginaleffects</span> in <span>R</span> and
+<span>Python</span>.”</span> <em>Journal of Statistical Software</em>,
+Forthcoming.
+</div>
+<div id="ref-Athey2016" class="csl-entry" role="listitem">
+Athey, Susan, and Guido Imbens. 2016. <span>“<span class="nocase">Recursive partitioning for heterogeneous causal
+effects</span>.”</span> <em>Proceedings of the National Academy of
+Sciences of the United States of America</em> 113 (27): 7353–60. <a href="https://doi.org/10.1073/pnas.1510489113">https://doi.org/10.1073/pnas.1510489113</a>.
+</div>
+<div id="ref-Athey2019grf" class="csl-entry" role="listitem">
+Athey, Susan, Julie Tibshirani, and Stefan Wager. 2019. <span>“<span class="nocase">Generalized random forests</span>.”</span> <em>Annals of
+Statistics</em> 47 (2): 1179–1203. <a href="https://doi.org/10.1214/18-AOS1709">https://doi.org/10.1214/18-AOS1709</a>.
+</div>
+<div id="ref-Austin2008" class="csl-entry" role="listitem">
+Austin, Peter C. 2008. <span>“<span class="nocase">A critical appraisal
+of propensity-score matching in the medical literature between 1996 and
+2003</span>.”</span> <em>Statistics in Medicine</em> 27 (April):
+2037–49. <a href="https://doi.org/10.1002/sim.3150">https://doi.org/10.1002/sim.3150</a>.
+</div>
+<div id="ref-Austin2011" class="csl-entry" role="listitem">
+———. 2011. <span>“<span class="nocase">An introduction to propensity
+score methods for reducing the effects of confounding in observational
+studies</span>.”</span> <em>Multivariate Behavioral Research</em> 46
+(3): 399–424. <a href="https://doi.org/10.1080/00273171.2011.568786">https://doi.org/10.1080/00273171.2011.568786</a>.
+</div>
+<div id="ref-Bader2019" class="csl-entry" role="listitem">
+Bader-El-Den, Mohammed, Eleman Teitei, and Todd Perry. 2019.
+<span>“<span class="nocase">Biased Random Forest for Dealing with the
+Class Imbalance Problem</span>.”</span> <em>IEEE Transactions on Neural
+Networks and Learning Systems</em> 30 (7): 2163–72. <a href="https://doi.org/10.1109/TNNLS.2018.2878400">https://doi.org/10.1109/TNNLS.2018.2878400</a>.
+</div>
+<div id="ref-ggdag" class="csl-entry" role="listitem">
+Barrett, Malcolm. 2024. <em><span class="nocase">ggdag</span>: Analyze
+and Create Elegant Directed Acyclic Graphs</em>. <a href="https://CRAN.R-project.org/package=ggdag">https://CRAN.R-project.org/package=ggdag</a>.
+</div>
+<div id="ref-datatable" class="csl-entry" role="listitem">
+Barrett, Tyson, Matt Dowle, Arun Srinivasan, Jan Gorecki, Michael
+Chirico, and Toby Hocking. 2024. <em><span class="nocase">data.table</span>: Extension of <span>“<span class="nocase">data.frame</span>”</span></em>. <a href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>.
+</div>
+<div id="ref-Breiman1996" class="csl-entry" role="listitem">
+Breiman, Leo. 1996. <span>“<span class="nocase">Bagging
+predictors</span>.”</span> <em>Machine Learning</em> 24: 123–40. <a href="https://doi.org/10.3390/risks8030083">https://doi.org/10.3390/risks8030083</a>.
+</div>
+<div id="ref-Breiman1984" class="csl-entry" role="listitem">
+Breiman, L, Jerome H Friedman, Richard A Olshen, and C J Stone. 1984.
+<span>“<span class="nocase">Classification and Regression
+Trees</span>.”</span> <em>Biometrics</em> 40: 874. <a href="https://api.semanticscholar.org/CorpusID:29458883">https://api.semanticscholar.org/CorpusID:29458883</a>.
+</div>
+<div id="ref-Breiman2001" class="csl-entry" role="listitem">
+Brieman, Leo. 2001. <span>“<span>Random Forests</span>.”</span>
+<em>Machine Learning</em> 45: 5–32. https://doi.org/<a href="https://doi.org/10.1023/A:1010933404324">https://doi.org/10.1023/A:1010933404324</a>.
+</div>
+<div id="ref-Brookhart2006" class="csl-entry" role="listitem">
+Brookhart, M. Alan, Sebastian Schneeweiss, Kenneth J. Rothman, Robert J.
+Glynn, Jerry Avorn, and Til Stürmer. 2006. <span>“<span class="nocase">Variable selection for propensity score
+models</span>.”</span> <em>American Journal of Epidemiology</em> 163
+(12): 1149–56. <a href="https://doi.org/10.1093/aje/kwj149">https://doi.org/10.1093/aje/kwj149</a>.
+</div>
+<div id="ref-Cannas2019" class="csl-entry" role="listitem">
+Cannas, Massimo, and Bruno Arpino. 2019. <span>“<span class="nocase">A
+comparison of machine learning algorithms and covariate balance measures
+for propensity score matching and weighting</span>.”</span>
+<em>Biometrical Journal</em> 61 (4): 1049–72. <a href="https://doi.org/10.1002/bimj.201800132">https://doi.org/10.1002/bimj.201800132</a>.
+</div>
+<div id="ref-Card1994" class="csl-entry" role="listitem">
+Card, David, and Alan B Krueger. 1994. <span>“<span class="nocase">Minimum Wages and Employment: A Case Study of the
+Fast-Food Industry in New Jersey and Pennsylvania</span>.”</span>
+<em>American Economic Review</em> 84 (4): 772–93. <a href="https://doi.org/10.3386/w4509">https://doi.org/10.3386/w4509</a>.
+</div>
+<div id="ref-Chu2019" class="csl-entry" role="listitem">
+Chu, Yu-Wei Luke, and Wilbur Townsend. 2019. <span>“<span class="nocase">Joint culpability: The effects of medical marijuana laws
+on crime</span>.”</span> <em>Journal of Economic Behavior and
+Organization</em> 159: 502–25. <a href="https://doi.org/10.1016/j.jebo.2018.07.003">https://doi.org/10.1016/j.jebo.2018.07.003</a>.
+</div>
+<div id="ref-C3Mixtape2021" class="csl-entry" role="listitem">
+Cunningham, Scott. 2021a. <span>“<span>Directed Acyclic
+Graphs</span>.”</span> In <em>Causal Inference: The Mixtape</em>,
+96–118. Yale University Press. <a href="https://doi.org/10.2307/j.ctv1c29t27.6">https://doi.org/10.2307/j.ctv1c29t27.6</a>.
+</div>
+<div id="ref-C5Mixtape2021" class="csl-entry" role="listitem">
+———. 2021b. <span>“<span class="nocase">Matching and
+Subclassification</span>.”</span> In <em>Causal Inference: The
+Mixtape</em>, 175–240. Yale University Press. <a href="https://doi.org/10.2307/j.ctv1c29t27.8">https://doi.org/10.2307/j.ctv1c29t27.8</a>.
+</div>
+<div id="ref-Ferri2020" class="csl-entry" role="listitem">
+Ferri-García, Ramón, and María Del Mar Rueda. 2020. <span>“<span class="nocase">Propensity score adjustment using machine learning
+classification algorithms to control selection bias in online
+surveys</span>.”</span> <em>PLoS ONE</em> 15 (4): 1–19. <a href="https://doi.org/10.1371/journal.pone.0231500">https://doi.org/10.1371/journal.pone.0231500</a>.
+</div>
+<div id="ref-Friedman2001" class="csl-entry" role="listitem">
+Friedman, Jerome H. 2001. <span>“<span>Greedy Function Approximation: A
+Gradient Boosting Machine</span>.”</span> <em>The Annals of
+Statistics</em> 29 (5): 1189–1232. <a href="https://www.jstor.org/stable/2699986">https://www.jstor.org/stable/2699986</a>.
+</div>
+<div id="ref-Goller2020" class="csl-entry" role="listitem">
+Goller, Daniel, Michael Lechner, Andreas Moczall, and Joachim Wolff.
+2020. <span>“<span class="nocase">Does the estimation of the propensity
+score by machine learning improve matching estimation? The case of
+Germany’s programmes for long term unemployed</span>.”</span> <em>Labour
+Economics</em> 65 (March). <a href="https://doi.org/10.1016/j.labeco.2020.101855">https://doi.org/10.1016/j.labeco.2020.101855</a>.
+</div>
+<div id="ref-cobalt" class="csl-entry" role="listitem">
+Greifer, Noah. 2024a. <em><span class="nocase">cobalt</span>: Covariate
+Balance Tables and Plots</em>. <a href="https://CRAN.R-project.org/package=cobalt">https://CRAN.R-project.org/package=cobalt</a>.
+</div>
+<div id="ref-WeightIt" class="csl-entry" role="listitem">
+———. 2024b. <em><span>WeightIt</span>: Weighting for Covariate Balance
+in Observational Studies</em>. <a href="https://CRAN.R-project.org/package=WeightIt">https://CRAN.R-project.org/package=WeightIt</a>.
+</div>
+<div id="ref-Heinrich2010" class="csl-entry" role="listitem">
+Heinrich, Carolyn. 2010. <span>“<span class="nocase">A Primer for
+Applying Propensity-Score Matching</span>.”</span> <em>Development</em>,
+no. August: 59. <a href="http://www.iadb.org/document.cfm?id=35320229">http://www.iadb.org/document.cfm?id=35320229</a>.
+</div>
+<div id="ref-MatchIt" class="csl-entry" role="listitem">
+Ho, Daniel E., Kosuke Imai, Gary King, and Elizabeth A. Stuart. 2011.
+<span>“<span>MatchIt</span>: Nonparametric Preprocessing for Parametric
+Causal Inference.”</span> <em>Journal of Statistical Software</em> 42
+(8): 1–28. <a href="https://doi.org/10.18637/jss.v042.i08">https://doi.org/10.18637/jss.v042.i08</a>.
+</div>
+<div id="ref-causaldata" class="csl-entry" role="listitem">
+Huntington-Klein, Nick, and Malcolm Barrett. 2021. <em><span class="nocase">causaldata</span>: Example Data Sets for Causal Inference
+Textbooks</em>. <a href="https://CRAN.R-project.org/package=causaldata">https://CRAN.R-project.org/package=causaldata</a>.
+</div>
+<div id="ref-Jawadekar2023" class="csl-entry" role="listitem">
+Jawadekar, Neal, Katrina Kezios, Michelle C. Odden, Jeanette A.
+Stingone, Sebastian Calonico, Kara Rudolph, and Adina Zeki Al Hazzouri.
+2023. <span>“<span class="nocase">Practical Guide to Honest Causal
+Forests for Identifying Heterogeneous Treatment Effects</span>.”</span>
+<em>American Journal of Epidemiology</em> 192 (7): 1155–65. <a href="https://doi.org/10.1093/aje/kwad043">https://doi.org/10.1093/aje/kwad043</a>.
+</div>
+<div id="ref-Jena2012" class="csl-entry" role="listitem">
+Jena, Pradyot Ranjan, Bezawit Beyene Chichaibelu, Till Stellmacher, and
+Ulrike Grote. 2012. <span>“<span class="nocase">The impact of coffee
+certification on small-scale producers’ livelihoods: A case study from
+the Jimma Zone, Ethiopia</span>.”</span> <em>Agricultural Economics
+(United Kingdom)</em> 43 (4): 429–40. <a href="https://doi.org/10.1111/j.1574-0862.2012.00594.x">https://doi.org/10.1111/j.1574-0862.2012.00594.x</a>.
+</div>
+<div id="ref-King2019" class="csl-entry" role="listitem">
+King, Gary, and Richard Nielsen. 2019. <span>“<span class="nocase">Why
+Propensity Scores Should Not Be Used for Matching</span>.”</span>
+<em>Political Analysis</em> 27 (4): 435–54. <a href="https://doi.org/10.1017/pan.2019.11">https://doi.org/10.1017/pan.2019.11</a>.
+</div>
+<div id="ref-Kovach2018" class="csl-entry" role="listitem">
+Kovach, Matthew. 2018. <span>“<span class="nocase">Causal Inference of
+Human Resources Key Performance Indicators</span>.”</span> PhD thesis,
+Bowling Green State University. <a href="https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/">https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/</a>.
+</div>
+<div id="ref-caret" class="csl-entry" role="listitem">
+Kuhn, and Max. 2008. <span>“Building Predictive Models in r Using the
+Caret Package.”</span> <em>Journal of Statistical Software</em> 28 (5):
+1–26. <a href="https://doi.org/10.18637/jss.v028.i05">https://doi.org/10.18637/jss.v028.i05</a>.
+</div>
+<div id="ref-Kunzel2019" class="csl-entry" role="listitem">
+Künzel, Sören R., Jasjeet S. Sekhon, Peter J. Bickel, and Bin Yu. 2019.
+<span>“<span class="nocase">Metalearners for estimating heterogeneous
+treatment effects using machine learning</span>.”</span> <em>Proceedings
+of the National Academy of Sciences of the United States of America</em>
+116 (10): 4156–65. <a href="https://doi.org/10.1073/pnas.1804597116">https://doi.org/10.1073/pnas.1804597116</a>.
+</div>
+<div id="ref-Lee2010" class="csl-entry" role="listitem">
+Lee, Brian K., Justin Lessler, and Elizabeth A. Stuart. 2010.
+<span>“<span class="nocase">Improving propensity score weighting using
+machine learning</span>.”</span> <em>Statistics in Medicine</em> 29:
+337–46. <a href="https://doi.org/10.1002/sim.3782">https://doi.org/10.1002/sim.3782</a>.
+</div>
+<div id="ref-Lewbel2007" class="csl-entry" role="listitem">
+Lewbel, Arthur. 2007. <span>“<span class="nocase">A local generalized
+method of moments estimator</span>.”</span> <em>Economics Letters</em>
+94 (1): 124–28. <a href="https://doi.org/10.1016/j.econlet.2006.08.011">https://doi.org/10.1016/j.econlet.2006.08.011</a>.
+</div>
+<div id="ref-randomForest" class="csl-entry" role="listitem">
+Liaw, Andy, and Matthew Wiener. 2002. <span>“Classification and
+Regression by randomForest.”</span> <em>R News</em> 2 (3): 18–22. <a href="https://CRAN.R-project.org/doc/Rnews/">https://CRAN.R-project.org/doc/Rnews/</a>.
+</div>
+<div id="ref-McCaffrey2004" class="csl-entry" role="listitem">
+McCaffrey, Daniel F., Greg Ridgeway, and Andrew R. Morral. 2004.
+<span>“<span class="nocase">Propensity score estimation with boosted
+regression for evaluating causal effects in observational
+studies</span>.”</span> <em>Psychological Methods</em> 9 (4): 403–25. <a href="https://doi.org/10.1037/1082-989X.9.4.403">https://doi.org/10.1037/1082-989X.9.4.403</a>.
+</div>
+<div id="ref-rpartplot" class="csl-entry" role="listitem">
+Milborrow, Stephen. 2024. <em><span class="nocase">rpart.plot</span>:
+Plot <span>“<span class="nocase">rpart</span>”</span> Models: An
+Enhanced Version of <span>“<span class="nocase">plot.rpart</span>”</span></em>. <a href="https://CRAN.R-project.org/package=rpart.plot">https://CRAN.R-project.org/package=rpart.plot</a>.
+</div>
+<div id="ref-Nabi2022" class="csl-entry" role="listitem">
+Nabi, Razieh, Joel Pfeiffer, Denis Charles, and Emre Kıcıman. 2022.
+<span>“<span class="nocase">Causal Inference in the Presence of
+Interference in Sponsored Search Advertising</span>.”</span>
+<em>Frontiers in Big Data</em> 5: 1–12. <a href="https://doi.org/10.3389/fdata.2022.888592">https://doi.org/10.3389/fdata.2022.888592</a>.
+</div>
+<div id="ref-Naimi2017" class="csl-entry" role="listitem">
+Naimi, Ashley I., Stephen R. Cole, and Edward H. Kennedy. 2017.
+<span>“<span class="nocase">An introduction to g methods</span>.”</span>
+<em>International Journal of Epidemiology</em> 46 (2): 756–62. <a href="https://doi.org/10.1093/ije/dyw323">https://doi.org/10.1093/ije/dyw323</a>.
+</div>
+<div id="ref-Nie2021" class="csl-entry" role="listitem">
+Nie, X., and S. Wager. 2021. <span>“<span class="nocase">Quasi-oracle
+estimation of heterogeneous treatment effects</span>.”</span>
+<em>Biometrika</em> 108 (2): 299–319. <a href="https://doi.org/10.1093/biomet/asaa076">https://doi.org/10.1093/biomet/asaa076</a>.
+</div>
+<div id="ref-Noroozi2020" class="csl-entry" role="listitem">
+Noroozi, Mehdi, Peter Higgs, Alireza Noroozi, Bahram Armoon, Bentolhoda
+Mousavi, Rosa Alikhani, Mohammad Rafi Bazrafshan, Ali Nazeri Astaneh,
+Azadeh Bayani, and Ladan Fattah Moghaddam. 2020. <span>“<span class="nocase">Methamphetamine use and HIV risk behavior among men who
+inject drugs: Causal inference using coarsened exact
+matching</span>.”</span> <em>Harm Reduction Journal</em> 17 (66). <a href="https://doi.org/10.1186/s12954-020-00411-1">https://doi.org/10.1186/s12954-020-00411-1</a>.
+</div>
+<div id="ref-Olson2018" class="csl-entry" role="listitem">
+Olson, Matthew A., and Abraham J. Wyner. 2018. <span>“<span class="nocase">Making Sense of Random Forest Probabilities: a Kernel
+Perspective</span>,”</span> 1–35. <a href="http://arxiv.org/abs/1812.05792">http://arxiv.org/abs/1812.05792</a>.
+</div>
+<div id="ref-Pan2018" class="csl-entry" role="listitem">
+Pan, Yao, Stephen C. Smith, and Munshi Sulaiman. 2018. <span>“<span class="nocase">Agricultural extension and technology adoption for food
+security: Evidence from Uganda</span>.”</span> <em>American Journal of
+Agricultural Economics</em> 100 (4): 1012–31. <a href="https://doi.org/10.1093/ajae/aay012">https://doi.org/10.1093/ajae/aay012</a>.
+</div>
+<div id="ref-patchwork" class="csl-entry" role="listitem">
+Pedersen, Thomas Lin. 2024. <em><span class="nocase">patchwork</span>:
+The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
+</div>
+<div id="ref-showtext" class="csl-entry" role="listitem">
+Qiu, Yixuan, and authors/contributors of the included software. See file
+AUTHORS for details. 2024. <em><span class="nocase">showtext</span>:
+Using Fonts More Easily in r Graphs</em>. <a href="https://CRAN.R-project.org/package=showtext">https://CRAN.R-project.org/package=showtext</a>.
+</div>
+<div id="ref-base" class="csl-entry" role="listitem">
+R Core Team. 2024. <em><span>R</span>: A Language and Environment for
+Statistical Computing</em>. Vienna, Austria: R Foundation for
+Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-Ramachandra2019" class="csl-entry" role="listitem">
+Ramachandra, Vikas. 2019. <span>“<span class="nocase">Causal inference
+for climate change events from satellite image time series using
+computer vision and deep learning</span>.”</span> <a href="http://arxiv.org/abs/1910.11492">http://arxiv.org/abs/1910.11492</a>.
+</div>
+<div id="ref-Ridgeway2024" class="csl-entry" role="listitem">
+Ridgeway, Greg, Dan Mccaffrey, Andrew Morral, Matthew Cefalu, Lane
+Burgette, and Beth Ann Griffin. 2024. <span>“<span class="nocase">Toolkit for Weighting and Analysis of Nonequivalent
+Groups: A Tutorial for the R TWANG Package</span>.”</span> <a href="https://doi.org/10.7249/tl136.1">https://doi.org/10.7249/tl136.1</a>.
+</div>
+<div id="ref-Robinson1988" class="csl-entry" role="listitem">
+Robinson, P.m. 1988. <span>“<span>Root-N-Consistent Semiparametric
+Regression</span>.”</span> <em>The Econometric Socieity</em> 56 (4):
+931–54. <a href="https://www.jstor.org/stable/1912705">https://www.jstor.org/stable/1912705</a>.
+</div>
+<div id="ref-Rosenbaum1983" class="csl-entry" role="listitem">
+Rosenbaum, Paul R., and Donald B. Rubin. 1983. <span>“<span class="nocase">The central role of the propensity score in observational
+studies for causal effects</span>.”</span> <em>Biometrika</em> 70 (1):
+41–55. <a href="https://doi.org/10.1017/CBO9780511810725.016">https://doi.org/10.1017/CBO9780511810725.016</a>.
+</div>
+<div id="ref-Rubin1974" class="csl-entry" role="listitem">
+Rubin, Donald B. 1974. <span>“<span class="nocase">Estimating Causal
+Effects of Treatments in Experimental and Observational
+Studies</span>.”</span> <em>Journal of Educational Psychology</em> 66
+(5): 688–701. <a href="https://doi.org/10.1002/j.2333-8504.1972.tb00631.x">https://doi.org/10.1002/j.2333-8504.1972.tb00631.x</a>.
+</div>
+<div id="ref-Schuster2016" class="csl-entry" role="listitem">
+Schuster, Tibor, Wilfrid Kouokam Lowe, and Robert W. Platt. 2016.
+<span>“<span class="nocase">Propensity score model overfitting led to
+inflated variance of estimated odds ratios</span>.”</span> <em>Journal
+of Clinical Epidemiology</em> 80: 97–106. <a href="https://doi.org/10.1016/j.jclinepi.2016.05.017">https://doi.org/10.1016/j.jclinepi.2016.05.017</a>.
+</div>
+<div id="ref-Schwab2020" class="csl-entry" role="listitem">
+Schwab, Simon, and Leonhard Held. 2020. <span>“<span class="nocase">Different worlds Confirmatory versus exploratory
+research</span>.”</span> <em>Significance</em> 17 (2): 8–9. <a href="https://doi.org/10.1111/1740-9713.01369">https://doi.org/10.1111/1740-9713.01369</a>.
+</div>
+<div id="ref-Setoguchi2008" class="csl-entry" role="listitem">
+Setoguchi, Soko, Sebastian Schneeweiss, Alan M. Brookhart, Robert J.
+Glynn, and Francis E. Cook. 2008. <span>“<span class="nocase">Evaluating
+uses of data mining techniques in propensity score estimation: a
+simulation study</span>.”</span> <em>Pharmacoepidemiology and Drug
+Safety</em> 17 (March): 546–55. <a href="https://doi.org/10.1002/pds">https://doi.org/10.1002/pds</a>.
+</div>
+<div id="ref-plotly" class="csl-entry" role="listitem">
+Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with
+r, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.
+</div>
+<div id="ref-Smith2005" class="csl-entry" role="listitem">
+Smith, Jeffrey A., and Petra E. Todd. 2005. <em><span class="nocase">Does matching overcome LaLonde’s critique of
+nonexperimental estimators?</span></em> Vol. 125. 1-2 SPEC. ISS. <a href="https://doi.org/10.1016/j.jeconom.2004.04.011">https://doi.org/10.1016/j.jeconom.2004.04.011</a>.
+</div>
+<div id="ref-Neyman1923" class="csl-entry" role="listitem">
+Splawa-Neyman, Jerzy. 1923. <span>“<span class="nocase">On the
+application of probability theory to agricultural experiments. Essay on
+principles. Section 9</span>.”</span> PhD thesis. <a href="https://doi.org/10.1214/ss/1177012031">https://doi.org/10.1214/ss/1177012031</a>.
+</div>
+<div id="ref-Tafforin2022" class="csl-entry" role="listitem">
+Tafforin, Carole, and Nancy L. Segal. 2022. <span>“<span class="nocase">An experiment in cotwin control: Adaptation to space
+travel</span>.”</span> In <em>Twin Research for Everyone</em>, 617–24.
+Elsevier Inc. https://doi.org/<a href="https://doi.org/10.1016/C2019-0-02208-X">https://doi.org/10.1016/C2019-0-02208-X</a>.
+</div>
+<div id="ref-dagitty" class="csl-entry" role="listitem">
+Textor, Johannes, Benito van der Zander, Mark S Gilthorpe, Maciej
+Liśkiewicz, and George TH Ellison. 2016. <span>“Robust Causal Inference
+Using Directed Acyclic Graphs: The r Package <span>‘<span class="nocase">dagitty</span>’</span>.”</span> <em>International Journal
+of Epidemiology</em> 45 (6): 1887–94. <a href="https://doi.org/10.1093/ije/dyw341">https://doi.org/10.1093/ije/dyw341</a>.
+</div>
+<div id="ref-rpart" class="csl-entry" role="listitem">
+Therneau, Terry, and Beth Atkinson. 2023. <em><span class="nocase">rpart</span>: Recursive Partitioning and Regression
+Trees</em>. <a href="https://CRAN.R-project.org/package=rpart">https://CRAN.R-project.org/package=rpart</a>.
+</div>
+<div id="ref-grf" class="csl-entry" role="listitem">
+Tibshirani, Julie, Susan Athey, Erik Sverdrup, and Stefan Wager. 2024.
+<em><span class="nocase">grf</span>: Generalized Random Forests</em>. <a href="https://CRAN.R-project.org/package=grf">https://CRAN.R-project.org/package=grf</a>.
+</div>
+<div id="ref-Tibshirani1996" class="csl-entry" role="listitem">
+Tibshirani, Robert. 1996. <span>“<span class="nocase">Regression
+Shrinkage and Selection via the Lasso</span>.”</span> <em>Journal of the
+Royal Statistical Society</em> 58 (1): 267–88. <a href="https://www.jstor.org/stable/pdf/2346178.pdf?refreqid=fastly-default{\%}3Aff57285d6b8854126d21a135984fc4ca{\&amp;}ab{\_}segments={\&amp;}origin={\&amp;}initiator={\&amp;}acceptTC=1">https://www.jstor.org/stable/pdf/2346178.pdf?refreqid=fastly-default{\%}3Aff57285d6b8854126d21a135984fc4ca{\&amp;}ab{\_}segments={\&amp;}origin={\&amp;}initiator={\&amp;}acceptTC=1</a>.
+</div>
+<div id="ref-Tu2019" class="csl-entry" role="listitem">
+Tu, Chunhao. 2019. <span>“<span class="nocase">Comparison of various
+machine learning algorithms for estimating generalized propensity
+score</span>.”</span> <em>Journal of Statistical Computation and
+Simulation</em> 89 (4): 708–19. <a href="https://doi.org/10.1080/00949655.2019.1571059">https://doi.org/10.1080/00949655.2019.1571059</a>.
+</div>
+<div id="ref-renv" class="csl-entry" role="listitem">
+Ushey, Kevin, and Hadley Wickham. 2024. <em><span class="nocase">renv</span>: Project Environments</em>. <a href="https://CRAN.R-project.org/package=renv">https://CRAN.R-project.org/package=renv</a>.
+</div>
+<div id="ref-Wager2018hterf" class="csl-entry" role="listitem">
+Wager, Stefan, and Susan Athey. 2018. <span>“<span class="nocase">Estimation and Inference of Heterogeneous Treatment
+Effects using Random Forests</span>.”</span> <em>Journal of the American
+Statistical Association</em> 113 (523): 1228–42. <a href="https://doi.org/10.1080/01621459.2017.1319839">https://doi.org/10.1080/01621459.2017.1319839</a>.
+</div>
+<div id="ref-Wager2014" class="csl-entry" role="listitem">
+Wager, Stefan, Trevor Hastie, and Bradley Efron. 2014. <span>“<span class="nocase">Confidence intervals for random forests: The jackknife
+and the infinitesimal jackknife</span>.”</span> <em>Journal of Machine
+Learning Research</em> 15: 1625–51. <a href="https://arxiv.org/abs/1311.4555">https://arxiv.org/abs/1311.4555</a>.
+</div>
+<div id="ref-Weisberg1982" class="csl-entry" role="listitem">
+Weisberg, Sanford, and R D Cook. 1982. <em><span class="nocase">Residuals and Influence in Regression</span></em>.
+Chapman <span>&amp;</span> Hall.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
+D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
+<span>“Welcome to the <span class="nocase">tidyverse</span>.”</span>
+<em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-knitr2014" class="csl-entry" role="listitem">
+Xie, Yihui. 2014. <span>“<span class="nocase">knitr</span>: A
+Comprehensive Tool for Reproducible Research in <span>R</span>.”</span>
+In <em>Implementing Reproducible Computational Research</em>, edited by
+Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman;
+Hall/CRC.
+</div>
+<div id="ref-knitr2015" class="csl-entry" role="listitem">
+———. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd
+ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-knitr2024" class="csl-entry" role="listitem">
+———. 2024. <em><span class="nocase">knitr</span>: A General-Purpose
+Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-rmarkdown2018" class="csl-entry" role="listitem">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown:
+The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.
+</div>
+<div id="ref-rmarkdown2020" class="csl-entry" role="listitem">
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R
+Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
+</div>
+<div id="ref-htetree" class="csl-entry" role="listitem">
+Xu, Jiahui, Tanvi Shinkre, and Jennie Brand. 2023. <em><span class="nocase">htetree</span>: Causal Inference with Tree-Based Machine
+Learning Algorithms</em>. <a href="https://CRAN.R-project.org/package=htetree">https://CRAN.R-project.org/package=htetree</a>.
+</div>
+<div id="ref-Zhou2021a" class="csl-entry" role="listitem">
+Zhou, Xiaodan, Kevin Josey, Leila Kamareddine, Miah C. Caine, Tianjia
+Liu, Loretta J. Mickley, Matthew Cooper, and Francesca Dominici. 2021.
+<span>“<span class="nocase">Excess of COVID-19 cases and deaths due to
+fine particulate matter exposure during the 2020 wildfires in the United
+States</span>.”</span> <em>Science Advances</em> 7 (33). <a href="https://doi.org/10.1126/sciadv.abi8789">https://doi.org/10.1126/sciadv.abi8789</a>.
+</div>
+<div id="ref-kableExtra" class="csl-entry" role="listitem">
+Zhu, Hao. 2024. <em><span class="nocase">kableExtra</span>: Construct
+Complex Table with <span>“<span class="nocase">kable</span>”</span> and
+Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
+</div>
+</div>
+<section id="r-version-control" class="level2">
+<h2 class="anchored" data-anchor-id="r-version-control">R Version Control</h2>
+<p><a href="#tbl-package-cite" class="quarto-xref">Table&nbsp;<span>1</span></a> shows the package version number used in this project. Please note that future updates to these packages may impact replication of results.</p>
+<div id="tbl-package-cite" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-package-cite-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-package-cite-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Package
+</th>
+<th style="text-align:center;">
+Version
+</th>
+<th style="text-align:center;">
+Citation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+base
+</td>
+<td style="text-align:center;">
+4.4.1
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="base">R Core Team (<a href="references.html#ref-base" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+caret
+</td>
+<td style="text-align:center;">
+6.0.94
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="caret">Kuhn and Max (<a href="references.html#ref-caret" role="doc-biblioref">2008</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+causaldata
+</td>
+<td style="text-align:center;">
+0.1.3
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="causaldata">Huntington-Klein and Barrett (<a href="references.html#ref-causaldata" role="doc-biblioref">2021</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+cobalt
+</td>
+<td style="text-align:center;">
+4.5.5
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="cobalt">Greifer (<a href="references.html#ref-cobalt" role="doc-biblioref">2024a</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+dagitty
+</td>
+<td style="text-align:center;">
+0.3.4
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="dagitty">Textor et al. (<a href="references.html#ref-dagitty" role="doc-biblioref">2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+data.table
+</td>
+<td style="text-align:center;">
+1.15.4
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="datatable">T. Barrett et al. (<a href="references.html#ref-datatable" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+ggdag
+</td>
+<td style="text-align:center;">
+0.2.13
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="ggdag">M. Barrett (<a href="references.html#ref-ggdag" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+grf
+</td>
+<td style="text-align:center;">
+2.3.2
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="grf">Tibshirani et al. (<a href="references.html#ref-grf" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+htetree
+</td>
+<td style="text-align:center;">
+0.1.18
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="htetree">Xu, Shinkre, and Brand (<a href="references.html#ref-htetree" role="doc-biblioref">2023</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+kableExtra
+</td>
+<td style="text-align:center;">
+1.4.0
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="kableExtra">Zhu (<a href="references.html#ref-kableExtra" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+knitr
+</td>
+<td style="text-align:center;">
+1.48.1
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="knitr2014">Xie (<a href="references.html#ref-knitr2014" role="doc-biblioref">2014</a>)</span>; <span class="citation" data-cites="knitr2015">Xie (<a href="references.html#ref-knitr2015" role="doc-biblioref">2015</a>)</span>; <span class="citation" data-cites="knitr2024">Xie (<a href="references.html#ref-knitr2024" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+marginaleffects
+</td>
+<td style="text-align:center;">
+0.21.0
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="marginaleffects">Arel-Bundock, Greifer, and Heiss (<a href="references.html#ref-marginaleffects" role="doc-biblioref">Forthcoming</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+MatchIt
+</td>
+<td style="text-align:center;">
+4.5.5
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="MatchIt">Ho et al. (<a href="references.html#ref-MatchIt" role="doc-biblioref">2011</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+patchwork
+</td>
+<td style="text-align:center;">
+1.2.0
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="patchwork">Pedersen (<a href="references.html#ref-patchwork" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+plotly
+</td>
+<td style="text-align:center;">
+4.10.4
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="plotly">Sievert (<a href="references.html#ref-plotly" role="doc-biblioref">2020</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+randomForest
+</td>
+<td style="text-align:center;">
+4.7.1.1
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="randomForest">Liaw and Wiener (<a href="references.html#ref-randomForest" role="doc-biblioref">2002</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+renv
+</td>
+<td style="text-align:center;">
+1.0.7
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="renv">Ushey and Wickham (<a href="references.html#ref-renv" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+rmarkdown
+</td>
+<td style="text-align:center;">
+2.27
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="rmarkdown2018">Xie, Allaire, and Grolemund (<a href="references.html#ref-rmarkdown2018" role="doc-biblioref">2018</a>)</span>; <span class="citation" data-cites="rmarkdown2020">Xie, Dervieux, and Riederer (<a href="references.html#ref-rmarkdown2020" role="doc-biblioref">2020</a>)</span>; <span class="citation" data-cites="rmarkdown2024">Allaire et al. (<a href="references.html#ref-rmarkdown2024" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+rpart
+</td>
+<td style="text-align:center;">
+4.1.23
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="rpart">Therneau and Atkinson (<a href="references.html#ref-rpart" role="doc-biblioref">2023</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+rpart.plot
+</td>
+<td style="text-align:center;">
+3.1.2
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="rpartplot">Milborrow (<a href="references.html#ref-rpartplot" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+showtext
+</td>
+<td style="text-align:center;">
+0.9.7
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="showtext">Qiu and See file AUTHORS for details. (<a href="references.html#ref-showtext" role="doc-biblioref">2024</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+tidyverse
+</td>
+<td style="text-align:center;">
+2.0.0
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="tidyverse">Wickham et al. (<a href="references.html#ref-tidyverse" role="doc-biblioref">2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+WeightIt
+</td>
+<td style="text-align:center;">
+1.2.0
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="WeightIt">Greifer (<a href="references.html#ref-WeightIt" role="doc-biblioref">2024b</a>)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 
 
 <!-- -->
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -723,7 +1426,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-next">
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include=FALSE}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">load(file = "my_environment.RData")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## R Version Control</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>@tbl-package-cite shows the package version number used in this project. Please note that future updates to these packages may impact replication of results.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-package-cite</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: asis</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grateful)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(renv))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">renv.config.dependencies.limit =</span> <span class="dv">10000</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">cite_packages</span>(<span class="at">output =</span> <span class="st">"table"</span>, <span class="fu">tempdir</span>())</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(pkgs,<span class="at">booktabs =</span> T, <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unclass</span>() <span class="sc">%&gt;%</span> <span class="fu">cat</span>()</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -238,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction DONT READ THIS YET. ITS STILL BLAAA</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction DONT READ THIS YET. ITS STILL BLAAA</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -267,8 +267,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="layout-of-book" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="layout-of-book"><span class="header-section-number">1.4</span> Layout of Book</h2>
 <p>This book is written using Quarto which is an open-source scientific and technical publishing system.</p>
-<p>A background to causal inference and machine learning is provided in Chapter <a href="background.html" class="quarto-xref"><span>Chapter 2</span></a>. This background is non-exhaustive but should provide an overview of all knowledge required to understand the methods and applications in this book. For readers with prior knowledge of causal inference, Chapter <span class="citation" data-cites="background">(<a href="#ref-background" role="doc-biblioref"><strong>background?</strong></a>)</span> is unlikely to provide new information.</p>
-<p>Following this background information I discuss #number of methods and provide applications leading to a strong understanding. These methods include Meta-Learners in Chapter <span class="citation" data-cites="metalearners">(<a href="#ref-metalearners" role="doc-biblioref"><strong>metalearners?</strong></a>)</span>, …</p>
+<p>A background to causal inference and machine learning is provided in Chapter <a href="background.html" class="quarto-xref"><span>Chapter 2</span></a>. This background is non-exhaustive but should provide an overview of all knowledge required to understand the methods and applications in this book. For readers with prior knowledge of causal inference, Chapter <span class="citation" data-cites="background">(<a href="references.html#ref-background" role="doc-biblioref"><strong>background?</strong></a>)</span> is unlikely to provide new information.</p>
+<p>Following this background information I discuss #number of methods and provide applications leading to a strong understanding. These methods include Meta-Learners in Chapter <span class="citation" data-cites="metalearners">(<a href="references.html#ref-metalearners" role="doc-biblioref"><strong>metalearners?</strong></a>)</span>, …</p>
 </section>
 <section id="interpretability-vs-accuracy" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="interpretability-vs-accuracy"><span class="header-section-number">1.5</span> Interpretability vs Accuracy</h2>
@@ -296,28 +296,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- > --- Doc Brown -->
 <!-- That’s all Doc Brown says before the DeLorean Time Machine blasts off. The temporal displacement leaves a flaming trail in the parking lot, and just like that, time travel moves from theory to reality! In the world of Back to the Future, all you need is 88 mph and you’ve got yourself a time machine. A seed can be set with the following line. -->
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">88</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="theming" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="theming"><span class="header-section-number">1.9</span> Theming</h2>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: sysfonts</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: showtextdb</code></pre>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">font_add_google</span>(<span class="at">name =</span> <span class="st">"Source Sans Pro"</span>, <span class="at">family =</span> <span class="st">"Source Sans Pro"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext_auto</span>()</span>
@@ -338,7 +330,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position=</span><span class="st">"bottom"</span>)</span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(custom_ggplot_theme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 
 
