@@ -749,6 +749,17 @@ data.table
 </tr>
 <tr>
 <td style="text-align:center;">
+gbm
+</td>
+<td style="text-align:center;">
+2.2.2
+</td>
+<td style="text-align:center;">
+<span class="citation" data-cites="gbm">(<a href="references.html#ref-gbm" role="doc-biblioref"><strong>gbm?</strong></a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
 ggdag
 </td>
 <td style="text-align:center;">
@@ -1448,11 +1459,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grateful)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(renv))</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">renv.config.dependencies.limit =</span> <span class="dv">10000</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">&lt;-</span> <span class="fu">cite_packages</span>(<span class="at">output =</span> <span class="st">"table"</span>, <span class="fu">tempdir</span>())</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(pkgs,<span class="at">booktabs =</span> T, <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(pkgs, <span class="at">booktabs =</span> T, <span class="at">align =</span> <span class="st">"c"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unclass</span>() <span class="sc">%&gt;%</span> <span class="fu">cat</span>()</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
